@@ -19,6 +19,7 @@ Code reviews:
 
 Funkcionalumas:
 <ul>
+  <li>Prisijungti</li>
   <li>Nufotografuoti čekį.</li>
   <li>Iš nuotraukos atpažintį čekį, jo detales.</li>
   <li>Įkelti prekes ir kainas į duomenų bazę.</li>

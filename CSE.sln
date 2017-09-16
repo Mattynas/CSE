@@ -11,6 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSE.iOS", "CSE\CSE.iOS\CSE.
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		CSE\CSE\CSE.projitems*{68c65880-4563-4790-850b-1781426e7442}*SharedItemsImports = 4
 		CSE\CSE\CSE.projitems*{87bd11b2-25cb-4692-9f9d-eab49b257ec3}*SharedItemsImports = 13
 		CSE\CSE\CSE.projitems*{b8a5d1d1-912c-4e54-acea-e4aafd13df54}*SharedItemsImports = 4
 	EndGlobalSection

@@ -11,6 +11,12 @@ Komandos pareigų paskirstymas:
   <li>Team Member - Martynas Talalas</li>
 </ul>
 
+Code reviews:
+Maksim Prokofjev -> Mindaugas Ranauskas, Jokūbas Savodnikas
+Mindaugas Ranauskas -> Jokūbas Savodnikas, Martynas Talalas
+Jokūbas Savodnikas -> Martynas Talalas, Maksim Prokofjev
+Martynas Talalas -> Maksim Prokofjev, Mindaugas Ranauskas
+
 Funkcionalumas:
 <ul>
   <li>Nufotografuoti čekį.</li>

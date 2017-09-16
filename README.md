@@ -12,10 +12,10 @@ Komandos pareigų paskirstymas:
 </ul>
 
 Code reviews:
-Maksim Prokofjev -> Mindaugas Ranauskas, Jokūbas Savodnikas
-Mindaugas Ranauskas -> Jokūbas Savodnikas, Martynas Talalas
-Jokūbas Savodnikas -> Martynas Talalas, Maksim Prokofjev
-Martynas Talalas -> Maksim Prokofjev, Mindaugas Ranauskas
+Maksim Prokofjev -> Mindaugas Ranauskas, Jokūbas Savodnikas<br>
+Mindaugas Ranauskas -> Jokūbas Savodnikas, Martynas Talalas<br>
+Jokūbas Savodnikas -> Martynas Talalas, Maksim Prokofjev<br>
+Martynas Talalas -> Maksim Prokofjev, Mindaugas Ranauskas<br>
 
 Funkcionalumas:
 <ul>

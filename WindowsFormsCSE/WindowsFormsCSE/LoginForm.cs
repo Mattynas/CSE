@@ -34,7 +34,7 @@ namespace WindowsFormsCSE
                         }
                     }
                 }
-
+                // if the username or password isnt correct
                 string message = "Couldn't Sign in, Incorrect username or password";
                 string caption = "error";
                 var buttons = MessageBoxButtons.OK;

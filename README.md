@@ -25,6 +25,8 @@ Funkcionalumas:
   <li>Įkelti prekes ir kainas į duomenų bazę.</li>
   <li>Palyginti prekių čekyje kainas su esamomis duomenų bazėje.</li>
   <li>Suvedus prekės pavadinimą palyginti kainas skirtingose parduotuvėse.</li>
+  <li>Nuolaidų ir akcijų track'inimas</li>
+  <li>Virtualus apsipirkimas</li>
 </ul>
 
 Planuojama platforma - Windows, toliau realizuoti Android'e.

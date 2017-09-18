@@ -28,8 +28,8 @@ namespace WindowsFormsCSE
                     {
                         if(password.Equals(node.LastChild.InnerText))
                         {
-                            // login
-                            MessageBox.Show("Login success!", "hooray!", MessageBoxButtons.OK);
+                            var mainMenu = new MainMenu();
+                            mainMenu.ShowDialog();
                             return;
                         }
                     }

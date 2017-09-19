@@ -28,7 +28,7 @@ namespace WindowsFormsCSE
                     {
                         if(password.Equals(node.LastChild.InnerText))
                         {
-                            var mainMenu = new MainMenu();
+                            var mainMenu = new ImageAnalysisMenu();
                             mainMenu.ShowDialog();
                             return;
                         }
@@ -42,6 +42,11 @@ namespace WindowsFormsCSE
                 var messagebox = MessageBox.Show(message, caption, buttons);
 
             }
+
+        }
+
+        private void signupButton_Click(object sender, EventArgs e)
+        {
 
         }
     }

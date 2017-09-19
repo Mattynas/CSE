@@ -1,23 +1,26 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Tesseract;
 
 namespace WindowsFormsCSE
 {
-    public partial class MainMenu : Form
+    public partial class ImageAnalysisMenu : Form
     {
-        public MainMenu()
+        public ImageAnalysisMenu()
         {
             InitializeComponent();
         }
 
-        private void openfileButton_Click(object sender, EventArgs e)
+        private void OpenFileButton_Click_1(object sender, EventArgs e)
         {
-            OpenFileDialog ofile = new OpenFileDialog();
-            ofile.Filter = "Image file (*.bmp, *.jpg)|*.bmp, *.jpg";
-            ofile.ShowDialog();
-            
-
+            if(openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                var img = new Bitmap(openFileDialog.FileName);
+                var ocr = new TesseractEngine(@"./tessdata","eng",EngineMode.TesseractOnly);
+                var page = ocr.Process(img);
+                textField.Text = page.GetText();
+            }
         }
     }
 }

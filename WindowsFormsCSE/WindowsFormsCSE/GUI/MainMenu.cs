@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Forms;
-using Tesseract;
 
 namespace WindowsFormsCSE
 {
@@ -16,6 +15,7 @@ namespace WindowsFormsCSE
             OpenFileDialog ofile = new OpenFileDialog();
             ofile.Filter = "Image file (*.bmp, *.jpg)|*.bmp, *.jpg";
             ofile.ShowDialog();
+            MYSQLServer.Connect();
             
 
         }

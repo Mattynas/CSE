@@ -17,7 +17,14 @@ namespace WindowsFormsCSE.GUI
         {
             if(RegisterPasswordTB.Text != RegisterConfirmPassTB.Text)
             {
+                RegisterWarningL.Text = "Nesutampa slaptazodis";
                 RegisterWarningL.Visible = true;
+            }
+            else if (RegisterEmailTB.Text.Contains("@"))
+            {
+                RegisterWarningL.Text = "Netinkamas paštas";
+                RegisterWarningL.Visible = true;
+
             }
             else
             {

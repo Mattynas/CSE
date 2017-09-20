@@ -32,6 +32,7 @@
             this.findPricesButton = new System.Windows.Forms.Button();
             this.userStatsButton = new System.Windows.Forms.Button();
             this.userSettingsButton = new System.Windows.Forms.Button();
+            this.virtualShoppingButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // openfileButton
@@ -72,11 +73,22 @@
             this.userSettingsButton.Text = "User settings";
             this.userSettingsButton.UseVisualStyleBackColor = true;
             // 
+            // virtualShoppingButton
+            // 
+            this.virtualShoppingButton.Location = new System.Drawing.Point(125, 186);
+            this.virtualShoppingButton.Name = "virtualShoppingButton";
+            this.virtualShoppingButton.Size = new System.Drawing.Size(112, 23);
+            this.virtualShoppingButton.TabIndex = 4;
+            this.virtualShoppingButton.Text = "Virtual shopping";
+            this.virtualShoppingButton.UseVisualStyleBackColor = true;
+            this.virtualShoppingButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.virtualShoppingButton_MouseClick);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(365, 245);
+            this.Controls.Add(this.virtualShoppingButton);
             this.Controls.Add(this.userSettingsButton);
             this.Controls.Add(this.userStatsButton);
             this.Controls.Add(this.findPricesButton);
@@ -84,6 +96,7 @@
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainMenu";
             this.Text = "Main Menu";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);
             this.ResumeLayout(false);
 
         }
@@ -94,5 +107,6 @@
         private System.Windows.Forms.Button findPricesButton;
         private System.Windows.Forms.Button userStatsButton;
         private System.Windows.Forms.Button userSettingsButton;
+        private System.Windows.Forms.Button virtualShoppingButton;
     }
 }

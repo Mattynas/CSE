@@ -29,6 +29,7 @@ namespace WindowsFormsCSE
                         if(password.Equals(node.LastChild.InnerText))
                         {
                             var mainMenu = new MainMenu();
+                            this.Hide();
                             mainMenu.ShowDialog();
                             return;
                         }

@@ -19,5 +19,15 @@ namespace WindowsFormsCSE
             
 
         }
+
+        private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void virtualShoppingButton_MouseClick(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

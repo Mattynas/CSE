@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,6 +61,12 @@
     <Compile Include="GUI\MainMenu.Designer.cs">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\VirtualShopping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\VirtualShopping.Designer.cs">
+      <DependentUpon>VirtualShopping.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLServer\MySQLServer.cs" />
@@ -68,6 +75,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\VirtualShopping.resx">
+      <DependentUpon>VirtualShopping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

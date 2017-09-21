@@ -15,8 +15,6 @@ namespace WindowsFormsCSE
             OpenFileDialog ofile = new OpenFileDialog();
             ofile.Filter = "Image file (*.bmp, *.jpg)|*.bmp, *.jpg";
             ofile.ShowDialog();
-            MYSQLServer.Connect();
-            
 
         }
 

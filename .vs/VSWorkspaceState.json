@@ -1,3 +1,11 @@
 {
+  "ExpandedNodes": [
+    "",
+    "\\WindowsFormsCSE",
+    "\\WindowsFormsCSE\\WindowsFormsCSE",
+    "\\WindowsFormsCSE\\WindowsFormsCSE\\Database",
+    "\\WindowsFormsCSE\\WindowsFormsCSE\\GUI"
+  ],
+  "SelectedNode": "\\WindowsFormsCSE\\WindowsFormsCSE\\Database\\Database.cs",
   "PreviewInSolutionExplorer": false
 }

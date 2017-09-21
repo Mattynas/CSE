@@ -32,6 +32,11 @@ namespace CSE
                         Title = "About",
                         Icon = Device.OnPlatform<string>("tab_about.png",null,null)
                     },
+                    new NavigationPage(new GreetingPage())
+                    {
+                        Title = "Hello",
+                        Icon = Device.OnPlatform<string>("tab about.png",null,null)
+                    },
                 }
             };
         }

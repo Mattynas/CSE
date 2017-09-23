@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\Database.cs" />
     <Compile Include="ImageProcessing.cs" />
     <Compile Include="GUI\ImageAnalysisMenu.cs">
       <SubType>Form</SubType>

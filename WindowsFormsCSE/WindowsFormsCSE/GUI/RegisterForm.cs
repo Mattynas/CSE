@@ -17,18 +17,18 @@ namespace WindowsFormsCSE.GUI
         {
             if(RegisterPasswordTB.Text != RegisterConfirmPassTB.Text)
             {
-                RegisterWarningL.Text = "Nesutampa slaptazodis";
+                RegisterWarningL.Text = "Passwords don't match";
                 RegisterWarningL.Visible = true;
             }
-            else if (RegisterEmailTB.Text.Contains("@"))
+            else if (!RegisterEmailTB.Text.Contains("@"))
             {
-                RegisterWarningL.Text = "Netinkamas paštas";
+                RegisterWarningL.Text = "Invalid email";
                 RegisterWarningL.Visible = true;
 
             }
             else
             {
-               // MYSQLServer.
+               // ----------------------------------------- Users.xml -----------------
 
             }
         }

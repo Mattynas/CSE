@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsFormsCSE.GUI;
 
 namespace WindowsFormsCSE
 {
@@ -10,7 +11,7 @@ namespace WindowsFormsCSE
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(FormsController.Start());
         }
     }
 }

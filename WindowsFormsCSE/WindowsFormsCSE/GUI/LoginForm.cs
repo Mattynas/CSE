@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.Xml;
-using WindowsFormsCSE.GUI;
 
-namespace WindowsFormsCSE
+namespace WindowsFormsCSE.GUI
 {
     public partial class LoginForm : Form
     {
@@ -48,10 +47,8 @@ namespace WindowsFormsCSE
 
         private void signupButton_Click(object sender, EventArgs e)
         {
-            
-            var registerForm = new RegisterForm(this);
-            registerForm.Show();
-            this.Hide();
+            FormsController.HideLogin();
+            FormsController.ShowRegister();
         }
     }
 }

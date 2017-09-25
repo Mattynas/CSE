@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsCSE
+﻿namespace WindowsFormsCSE.GUI
 {
     partial class LoginForm
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace WindowsFormsCSE
+namespace WindowsFormsCSE.GUI
 {
     public partial class MainMenu : Form
     {

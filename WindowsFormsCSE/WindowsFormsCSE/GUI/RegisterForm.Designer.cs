@@ -38,11 +38,12 @@
             this.RegisterEmailTB = new System.Windows.Forms.TextBox();
             this.RegisterEmailL = new System.Windows.Forms.Label();
             this.RegisterWarningL = new System.Windows.Forms.Label();
+            this.CancelButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // RegisterButton
             // 
-            this.RegisterButton.Location = new System.Drawing.Point(118, 293);
+            this.RegisterButton.Location = new System.Drawing.Point(190, 297);
             this.RegisterButton.Name = "RegisterButton";
             this.RegisterButton.Size = new System.Drawing.Size(117, 25);
             this.RegisterButton.TabIndex = 5;
@@ -121,12 +122,22 @@
             // 
             this.RegisterWarningL.AutoSize = true;
             this.RegisterWarningL.ForeColor = System.Drawing.Color.Red;
-            this.RegisterWarningL.Location = new System.Drawing.Point(124, 23);
+            this.RegisterWarningL.Location = new System.Drawing.Point(140, 25);
             this.RegisterWarningL.Name = "RegisterWarningL";
-            this.RegisterWarningL.Size = new System.Drawing.Size(111, 13);
+            this.RegisterWarningL.Size = new System.Drawing.Size(44, 13);
             this.RegisterWarningL.TabIndex = 9;
-            this.RegisterWarningL.Text = "Password don\'t match";
+            this.RegisterWarningL.Text = "warning";
             this.RegisterWarningL.Visible = false;
+            // 
+            // CancelButton
+            // 
+            this.CancelButton.Location = new System.Drawing.Point(54, 297);
+            this.CancelButton.Name = "CancelButton";
+            this.CancelButton.Size = new System.Drawing.Size(117, 25);
+            this.CancelButton.TabIndex = 10;
+            this.CancelButton.Text = "Cancel";
+            this.CancelButton.UseVisualStyleBackColor = true;
+            this.CancelButton.Click += new System.EventHandler(this.CancelBuuton_Click);
             // 
             // RegisterForm
             // 
@@ -135,6 +146,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 366);
+            this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.RegisterWarningL);
             this.Controls.Add(this.RegisterEmailL);
             this.Controls.Add(this.RegisterEmailTB);
@@ -165,5 +177,6 @@
         private System.Windows.Forms.TextBox RegisterPasswordTB;
         private System.Windows.Forms.TextBox RegisterConfirmPassTB;
         private System.Windows.Forms.Label RegisterWarningL;
+        private System.Windows.Forms.Button CancelButton;
     }
 }

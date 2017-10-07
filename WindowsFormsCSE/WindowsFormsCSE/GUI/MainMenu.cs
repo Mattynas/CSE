@@ -13,12 +13,7 @@ namespace WindowsFormsCSE
 
         private void openfileButton_Click(object sender, EventArgs e)
         {
-            var stringList = Database.Query("SELECT * FROM users");
-
-            foreach(string item in stringList)
-            {
-                Console.WriteLine(item);
-            }
+            
             OpenFileDialog ofile = new OpenFileDialog();
             //ofile.Filter = "Image file (*.BMP, *.JPG, *.JPEG, *.PNG)|*.BMP, *.JPG, *.JPEG, *.PNG";
             ofile.ShowDialog();

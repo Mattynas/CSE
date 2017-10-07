@@ -16,7 +16,7 @@ namespace WindowsFormsCSE
 
             ImgBinarized = new Image<Gray, byte>(ImgGray.Width, ImgGray.Height, new Gray(0));
 
-            CvInvoke.Threshold(ImgGray, ImgBinarized, 50, 255, Emgu.CV.CvEnum.ThresholdType.Binary);
+            CvInvoke.Threshold(ImgGray, ImgBinarized, 70, 255, Emgu.CV.CvEnum.ThresholdType.Binary);
 
             return ImgBinarized;
         }

@@ -15,33 +15,40 @@ namespace WindowsFormsCSE
         {
             string username = userNameTextbox.Text;
             string password = passwordTextbox.Text;
-            if ((!String.IsNullOrEmpty(username)) && (!String.IsNullOrEmpty(username)))
+            try
             {
-                var usersdoc = new XmlDocument();
-                usersdoc.Load("../../users.xml");
-
-                var nodes = usersdoc.GetElementsByTagName("user");
-
-                foreach(XmlNode node in nodes)
+                if ((!String.IsNullOrEmpty(username)) && (!String.IsNullOrEmpty(username)))
                 {
-                    if (username.Equals(node.FirstChild.InnerText))
+                    var usersdoc = new XmlDocument();
+                    usersdoc.Load("../../users.xml");
+
+                    var nodes = usersdoc.GetElementsByTagName("user");
+
+                    foreach (XmlNode node in nodes)
                     {
-                        if(password.Equals(node.LastChild.InnerText))
+                        if (username.Equals(node.FirstChild.InnerText))
                         {
-                            var mainMenu = new MainMenu();
-                            this.Hide();
-                            mainMenu.ShowDialog();
-                            return;
+                            if (password.Equals(node.LastChild.InnerText))
+                            {
+                                var mainMenu = new MainMenu();
+                                this.Hide();
+                                mainMenu.ShowDialog();
+                                return;
+                            }
                         }
                     }
+                    // if the username or password isnt correct
+                    string message = "Couldn't Sign in, Incorrect username or password";
+                    string caption = "error";
+                    var buttons = MessageBoxButtons.OK;
+
+                    var messagebox = MessageBox.Show(message, caption, buttons);
+
                 }
-                // if the username or password isnt correct
-                string message = "Couldn't Sign in, Incorrect username or password";
-                string caption = "error";
-                var buttons = MessageBoxButtons.OK;
-
-                var messagebox = MessageBox.Show(message, caption, buttons);
-
+            }
+            catch (XmlException ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
 
         }

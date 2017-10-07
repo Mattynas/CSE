@@ -96,6 +96,8 @@
     <Compile Include="GUI\VirtualShopping.Designer.cs">
       <DependentUpon>VirtualShopping.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Receipt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\ImageAnalysisMenu.resx">
@@ -135,6 +137,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\DatabaseLogin.xml" />
     <Content Include="x64\concrt140.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsFormsCSE.Users;
 
 namespace WindowsFormsCSE.GUI
 {
@@ -20,21 +21,29 @@ namespace WindowsFormsCSE.GUI
             }
             else if (!RegisterEmailTB.Text.Contains("@"))
             {
+                //Make Regex
                 RegisterWarningL.Text = "Invalid email";
                 RegisterWarningL.Visible = true;
 
             }
-            else
+            else if(UsersFile.Register(RegisterUsernameTB.Text, RegisterPasswordTB.Text, RegisterEmailTB.Text))
             {
+                
                 string message = "Registration is successful!";
                 string caption = "Success";
                 var buttons = MessageBoxButtons.OK;
 
                 var messagebox = MessageBox.Show(message, caption, buttons);
-                // ----------------------------------------- Users.xml -----------------
                 FormsController.ShowLogin();
                 FormsController.DisposeRegister();
 
+            }
+            else
+            {
+                string message = "Registration failed!";
+                string caption = "Failed";
+                var buttons = MessageBoxButtons.OK;
+                var messagebox = MessageBox.Show(message, caption, buttons);
             }
         }
 

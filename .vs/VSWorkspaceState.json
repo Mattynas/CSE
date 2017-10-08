@@ -1,8 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WindowsFormsCSE"
+    "\\WindowsFormsCSE",
+    "\\WindowsFormsCSE\\WindowsFormsCSE",
+    "\\WindowsFormsCSE\\WindowsFormsCSE\\GUI",
+    "\\WindowsFormsCSE\\WindowsFormsCSE\\XML"
   ],
-  "SelectedNode": "\\CSE",
+  "SelectedNode": "\\WindowsFormsCSE\\WindowsFormsCSE\\XML\\UsersFile.cs",
   "PreviewInSolutionExplorer": false
 }

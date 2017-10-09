@@ -1,25 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Text;
+using System.Xml;
 
-
-
-public class MYSQLServer
+public class Database
 {
     private static SqlConnection Connect()
     {
         try
         {
-            SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-            builder.DataSource = "personal-cse.database.windows.net";
-            builder.UserID = "labutis";
-            builder.Password = "123!@#ASD";
-            builder.InitialCatalog = "cse";
+            var dbdoc = new XmlDocument();
+            dbdoc.Load("../../Database/DatabaseLogin.xml");
 
-            return new SqlConnection(builder.ConnectionString);
+            var nodes = dbdoc.GetElementsByTagName("Database");
+            foreach(XmlNode node in nodes)
+            {
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = node.SelectSingleNode("DataSource").InnerText;
+                builder.UserID = node.SelectSingleNode("UserID").InnerText;
+                builder.Password = node.SelectSingleNode("Password").InnerText;
+                builder.InitialCatalog = node.SelectSingleNode("InitialCatalog").InnerText;
+                return new SqlConnection(builder.ConnectionString);
+            }
+            return null;
+
         }
         catch (SqlException e)
+        {
+            Console.WriteLine(e.ToString());
+            return null;
+        }
+        catch(XmlException e)
         {
             Console.WriteLine(e.ToString());
             return null;
@@ -27,45 +38,35 @@ public class MYSQLServer
 
     }
 
-    public static List <string> Query(String query)
+    public static List<string> Query(String query)
     {
         try
         {
-            var connection = Connect();
-            if(connection != null)
+            SqlConnection connection = Connect();
+            if (connection != null)
             {
-                using (connection)
-                {
-                    /*
-                    connection.Open();
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append("SELECT *");
-                    sb.Append("FROM users");
-                    String sql = sb.ToString();
-                    */
+                connection.Open();
 
-                    using (SqlCommand command = new SqlCommand(query, connection))
-                    {
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            List<string> stringList = new List<string>();
-                            int i = 0;
-                            while (reader.Read())
-                            {
-                                stringList.Add(reader.GetValue(0).ToString());
-                            }
-                            reader.Close();
-                            return stringList;
-                        }
-                    }
+                SqlCommand command = new SqlCommand(query, connection);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                List<string> stringList = new List<string>();
+                while (reader.Read())
+                {
+                    stringList.Add(reader.GetValue(0).ToString());
                 }
+                reader.Close();
+                connection.Close();
+                return stringList;
+                
             }
             else
             {
                 return null;
             }
         }
-            
+
         catch (SqlException e)
         {
             Console.WriteLine(e.ToString());

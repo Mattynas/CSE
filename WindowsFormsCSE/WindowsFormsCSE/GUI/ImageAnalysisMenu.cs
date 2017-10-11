@@ -1,21 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tesseract;
-using Emgu.CV;
-using Emgu.CV.Structure;
 
 namespace WindowsFormsCSE.GUI
 {
     public partial class ImageAnalysisMenu : Form
     {
-        Page page;
         public ImageAnalysisMenu()
         {
             InitializeComponent();
@@ -23,25 +14,24 @@ namespace WindowsFormsCSE.GUI
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Image<Bgr, byte> imgInput;
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                imgInput = new Image<Bgr, byte>(openFileDialog.FileName);
-                pictureBox1.Image = imgInput.Bitmap;
+                var imageProcessing = new TesseractImageProcessing(openFileDialog.FileName);
 
-                var imgBin = ImageProcessing.ImageBinarization(imgInput);
-                pictureBox2.Image = imgBin.Bitmap;
+                pictureBox1.Image = new Bitmap(openFileDialog.FileName);
 
-                page = ImageProcessing.AnalyseImageText(imgBin.Bitmap);
+                pictureBox2.Image = imageProcessing.GetProcessedImage;
 
-                textBox1.Text = page.GetText();
+                textBox1.Text = imageProcessing.GetProcessedText;
+
+
             }
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.IO.File.WriteAllText(@"../../ImageTextFile.txt", page.GetText());
+            System.IO.File.WriteAllText(@"../../ImageTextFile.txt", textBox1.Text);
         }
     }
 }

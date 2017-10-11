@@ -71,7 +71,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\Database.cs" />
-    <Compile Include="ImageProcessing.cs" />
+    <Compile Include="ImageProcessing\IImagePreProcess.cs" />
+    <Compile Include="ImageProcessing\TesseractImageProcessing.cs" />
     <Compile Include="GUI\ImageAnalysisMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,8 +97,7 @@
     <Compile Include="GUI\VirtualShopping.Designer.cs">
       <DependentUpon>VirtualShopping.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Item.cs" />
-    <Compile Include="Model\Receipt.cs" />
+    <Compile Include="ImageProcessing\IImageTextProcessing.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\ImageAnalysisMenu.resx">
@@ -137,7 +137,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\DatabaseLogin.xml" />
     <Content Include="x64\concrt140.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

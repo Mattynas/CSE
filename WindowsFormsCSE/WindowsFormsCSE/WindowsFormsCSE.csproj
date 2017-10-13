@@ -70,7 +70,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Model\Item.cs" />
     <Compile Include="Database\Database.cs" />
+    <Compile Include="ImageProcessing.cs" />
     <Compile Include="ImageProcessing\IImagePreProcess.cs" />
     <Compile Include="ImageProcessing\TesseractImageProcessing.cs" />
     <Compile Include="GUI\ImageAnalysisMenu.cs">
@@ -137,6 +140,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Database\DatabaseLogin.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="x64\concrt140.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,7 +1,9 @@
 ﻿
+using System.Collections;
+
 namespace WindowsFormsCSE.Model
 {
-    public struct Item
+    public class Item : IEnumerable 
     {
         private string Name { get; set; }
         private float price { get; set; }
@@ -12,5 +14,9 @@ namespace WindowsFormsCSE.Model
             this.price = price;
         }
 
+        public IEnumerator GetEnumerator()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

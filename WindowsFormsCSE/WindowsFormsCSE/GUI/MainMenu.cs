@@ -13,10 +13,9 @@ namespace WindowsFormsCSE
 
         private void openfileButton_Click(object sender, EventArgs e)
         {
+
+            //var tesseractImageProcessing = new TesseractImageProcessing("null");
             
-            OpenFileDialog ofile = new OpenFileDialog();
-            //ofile.Filter = "Image file (*.BMP, *.JPG, *.JPEG, *.PNG)|*.BMP, *.JPG, *.JPEG, *.PNG";
-            ofile.ShowDialog();
 
         }
 
@@ -27,8 +26,8 @@ namespace WindowsFormsCSE
 
         private void virtualShoppingButton_Click(object sender, EventArgs e)
         {
-            var imageAnalysis = new ImageAnalysisMenu();
-            imageAnalysis.Show();
+            var virtualShopping = new VirtualShopping();
+            virtualShopping.Show();
         }
     }
 }

@@ -73,7 +73,6 @@
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Database\Database.cs" />
-    <Compile Include="ImageProcessing.cs" />
     <Compile Include="ImageProcessing\IImagePreProcess.cs" />
     <Compile Include="ImageProcessing\TesseractImageProcessing.cs" />
     <Compile Include="GUI\ImageAnalysisMenu.cs">

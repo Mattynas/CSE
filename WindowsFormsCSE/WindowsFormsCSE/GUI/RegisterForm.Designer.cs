@@ -94,6 +94,7 @@
             // 
             this.PasswordTextBox.Location = new System.Drawing.Point(115, 177);
             this.PasswordTextBox.Name = "PasswordTextBox";
+            this.PasswordTextBox.PasswordChar = '*';
             this.PasswordTextBox.Size = new System.Drawing.Size(125, 20);
             this.PasswordTextBox.TabIndex = 6;
             // 
@@ -101,6 +102,7 @@
             // 
             this.ConfirmPassTextBox.Location = new System.Drawing.Point(115, 232);
             this.ConfirmPassTextBox.Name = "ConfirmPassTextBox";
+            this.ConfirmPassTextBox.PasswordChar = '*';
             this.ConfirmPassTextBox.Size = new System.Drawing.Size(125, 20);
             this.ConfirmPassTextBox.TabIndex = 7;
             // 
@@ -140,6 +142,7 @@
             this.Controls.Add(this.PasswordLabel);
             this.Controls.Add(this.EmailLabel);
             this.Controls.Add(this.UsernameLabel);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "RegisterForm";
             this.Text = "Register";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.RegisterForm_FormClosed);

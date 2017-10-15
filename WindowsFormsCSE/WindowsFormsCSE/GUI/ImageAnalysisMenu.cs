@@ -2,6 +2,7 @@
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using WindowsFormsCSE.Model;
 
 namespace WindowsFormsCSE.GUI
 {
@@ -24,6 +25,8 @@ namespace WindowsFormsCSE.GUI
                 pictureBox2.Image = imageProcessing.GetProcessedImage;
 
                 textBox1.Text = imageProcessing.GetProcessedText;
+
+                var receipt = new Receipt(imageProcessing.GetProcessedText);
 
 
             }

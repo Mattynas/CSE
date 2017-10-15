@@ -138,6 +138,7 @@
             this.Controls.Add(this.passwordTextbox);
             this.Controls.Add(this.userNameTextbox);
             this.ForeColor = System.Drawing.Color.Black;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(342, 263);
             this.MinimumSize = new System.Drawing.Size(342, 263);

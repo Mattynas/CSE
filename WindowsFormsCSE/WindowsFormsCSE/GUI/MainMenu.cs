@@ -14,9 +14,8 @@ namespace WindowsFormsCSE.GUI
 
         private void openfileButton_Click(object sender, EventArgs e)
         {
-
-            //var tesseractImageProcessing = new TesseractImageProcessing("null");
-            
+            var imageProcessing = new ImageAnalysisMenu();
+            imageProcessing.Show();
 
         }
 

@@ -3,6 +3,7 @@
 
 # our files
 Database/DatabaseLogin.xml
+users.xml
 
 # User-specific files
 *.suo

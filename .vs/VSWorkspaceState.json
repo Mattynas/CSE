@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\WindowsFormsCSE",
-    "\\WindowsFormsCSE\\WindowsFormsCSE"
+    "\\WindowsFormsCSE\\WindowsFormsCSE",
+    "\\WindowsFormsCSE\\WindowsFormsCSE\\GUI"
   ],
-  "SelectedNode": "\\WindowsFormsCSE\\WindowsFormsCSE.sln",
+  "SelectedNode": "\\WindowsFormsCSE\\WindowsFormsCSE\\App.config",
   "PreviewInSolutionExplorer": false
 }

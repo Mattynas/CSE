@@ -71,6 +71,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Database\Database.cs" />
+    <Compile Include="GUI\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImageProcessing.cs" />
     <Compile Include="GUI\ImageAnalysisMenu.cs">
       <SubType>Form</SubType>
@@ -100,6 +106,7 @@
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XML\UsersXML.cs" />
     <EmbeddedResource Include="GUI\ImageAnalysisMenu.resx">
       <DependentUpon>ImageAnalysisMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -108,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\VirtualShopping.resx">
       <DependentUpon>VirtualShopping.cs</DependentUpon>
@@ -151,7 +161,9 @@
     <Content Include="x64\opencv_ffmpeg320_64.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="users.xml" />
+    <Content Include="users.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="x64\vcruntime140.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Windows.Forms;
-using WindowsFormsCSE.GUI;
 
-namespace WindowsFormsCSE
+namespace WindowsFormsCSE.GUI
 {
     public partial class MainMenu : Form
     {
-        public MainMenu()
+        private LoginForm login;
+        public MainMenu(LoginForm login)
         {
+            this.login = login;
             InitializeComponent();
         }
 
@@ -21,7 +22,7 @@ namespace WindowsFormsCSE
 
         private void MainMenu_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            login.Close();
         }
 
         private void virtualShoppingButton_Click(object sender, EventArgs e)

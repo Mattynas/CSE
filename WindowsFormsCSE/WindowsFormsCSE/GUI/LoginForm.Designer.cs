@@ -1,4 +1,4 @@
-﻿namespace WindowsFormsCSE
+﻿namespace WindowsFormsCSE.GUI
 {
     partial class LoginForm
     {
@@ -49,7 +49,7 @@
             // userNameTextbox
             // 
             this.userNameTextbox.Location = new System.Drawing.Point(98, 42);
-            this.userNameTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.userNameTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.userNameTextbox.MaxLength = 40;
             this.userNameTextbox.Name = "userNameTextbox";
             this.userNameTextbox.Size = new System.Drawing.Size(172, 20);
@@ -64,12 +64,13 @@
             // passwordTextbox
             // 
             this.passwordTextbox.Location = new System.Drawing.Point(98, 75);
-            this.passwordTextbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.passwordTextbox.Margin = new System.Windows.Forms.Padding(2);
             this.passwordTextbox.MaxLength = 40;
             this.passwordTextbox.Name = "passwordTextbox";
             this.passwordTextbox.PasswordChar = '*';
             this.passwordTextbox.Size = new System.Drawing.Size(172, 20);
             this.passwordTextbox.TabIndex = 1;
+            this.passwordTextbox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordTextbox_KeyDown);
             // 
             // usernameLabel
             // 
@@ -95,7 +96,7 @@
             // 
             this.signinButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.signinButton.Location = new System.Drawing.Point(119, 98);
-            this.signinButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.signinButton.Margin = new System.Windows.Forms.Padding(2);
             this.signinButton.Name = "signinButton";
             this.signinButton.Size = new System.Drawing.Size(104, 26);
             this.signinButton.TabIndex = 4;
@@ -106,12 +107,13 @@
             // signupButton
             // 
             this.signupButton.Location = new System.Drawing.Point(197, 153);
-            this.signupButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.signupButton.Margin = new System.Windows.Forms.Padding(2);
             this.signupButton.Name = "signupButton";
             this.signupButton.Size = new System.Drawing.Size(71, 25);
             this.signupButton.TabIndex = 7;
             this.signupButton.Text = "Sign up";
             this.signupButton.UseVisualStyleBackColor = true;
+            this.signupButton.Click += new System.EventHandler(this.signupButton_Click);
             // 
             // registerLabel
             // 
@@ -136,7 +138,7 @@
             this.Controls.Add(this.passwordTextbox);
             this.Controls.Add(this.userNameTextbox);
             this.ForeColor = System.Drawing.Color.Black;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximumSize = new System.Drawing.Size(342, 263);
             this.MinimumSize = new System.Drawing.Size(342, 263);
             this.Name = "LoginForm";

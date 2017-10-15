@@ -10,7 +10,7 @@ public class Database
         try
         {
             var dbdoc = new XmlDocument();
-            dbdoc.Load("../Database/DatabaseLogin.xml");
+            dbdoc.Load("../XML/DatabaseLogin.xml");
 
             var nodes = dbdoc.GetElementsByTagName("Database");
             foreach(XmlNode node in nodes)

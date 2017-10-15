@@ -8,7 +8,7 @@ namespace WindowsFormsCSE.XML
     class UsersXML
     {
         //---------------------Path----------------------
-        private static string pathToUsers = "users.xml";
+        private static string pathToUsers = "XML/users.xml";
         //-----------------------------------------------
 
         public static bool Login(string username, string password)
@@ -25,6 +25,12 @@ namespace WindowsFormsCSE.XML
                 }
                 catch (System.Xml.XmlException e)
                 {
+                    Console.WriteLine(e.ToString());
+                    return false;
+                }
+                catch (System.IO.FileNotFoundException e)
+                {
+                    Console.WriteLine(e.ToString());
                     return false;
                 }
 

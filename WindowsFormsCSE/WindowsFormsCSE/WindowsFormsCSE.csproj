@@ -70,6 +70,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GUI\RegisterForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\RegisterForm.Designer.cs">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Database\Database.cs" />
@@ -111,6 +117,9 @@
     <EmbeddedResource Include="GUI\MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\RegisterForm.resx">
+      <DependentUpon>RegisterForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\VirtualShopping.resx">
       <DependentUpon>VirtualShopping.cs</DependentUpon>
     </EmbeddedResource>
@@ -139,7 +148,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database\DatabaseLogin.xml">
+    <Compile Include="XML\UsersXML.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Content Include="XML\DatabaseLogin.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="x64\concrt140.dll">
@@ -155,7 +167,9 @@
     <Content Include="x64\opencv_ffmpeg320_64.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="users.xml" />
+    <Content Include="XML\users.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="x64\vcruntime140.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WindowsFormsCSE.XML;
 
@@ -13,22 +7,26 @@ namespace WindowsFormsCSE.GUI
 {
     public partial class RegisterForm : Form
     {
-        public RegisterForm()
+        private LoginForm login;
+
+        public RegisterForm(LoginForm login)
         {
+            this.login = login;
             InitializeComponent();
         }
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
+            var pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"; //Copied from http://emailregex.com/
             if (PasswordTextBox.Text != ConfirmPassTextBox.Text)
             {
-                
+                PasswordLabel.ForeColor = System.Drawing.Color.Red;
+                PasswordLabel.Text = "Passwords do not match";
             }
-            else if (!EmailTextBox.Text.Contains("@"))
+            else if (!Regex.IsMatch(EmailTextBox.Text, pattern))
             {
-                //Make Regex
-                
-
+                EmailLabel.ForeColor = System.Drawing.Color.Red;
+                EmailLabel.Text = "Wrong email";
             }
             else if (UsersXML.Register(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text))
             {
@@ -56,8 +54,12 @@ namespace WindowsFormsCSE.GUI
 
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            var login = new LoginForm();
             login.Show();
+        }
+
+        private void RegisterButton_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter) { RegisterButton_Click(this, new EventArgs()); }
         }
     }
 }

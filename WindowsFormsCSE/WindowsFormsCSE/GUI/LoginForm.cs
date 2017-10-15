@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using System.Xml;
+using WindowsFormsCSE.XML;
 
-namespace WindowsFormsCSE
+namespace WindowsFormsCSE.GUI
 {
     public partial class LoginForm : Form
     {
@@ -13,44 +13,37 @@ namespace WindowsFormsCSE
 
         private void signinButton_Click(object sender, EventArgs e)
         {
-            string username = userNameTextbox.Text;
-            string password = passwordTextbox.Text;
-            try
+            if(UsersXML.Login(userNameTextbox.Text, passwordTextbox.Text))
             {
-                if ((!String.IsNullOrEmpty(username)) && (!String.IsNullOrEmpty(username)))
-                {
-                    var usersdoc = new XmlDocument();
-                    usersdoc.Load("../../users.xml");
-
-                    var nodes = usersdoc.GetElementsByTagName("user");
-
-                    foreach (XmlNode node in nodes)
-                    {
-                        if (username.Equals(node.FirstChild.InnerText))
-                        {
-                            if (password.Equals(node.LastChild.InnerText))
-                            {
-                                var mainMenu = new MainMenu();
-                                this.Hide();
-                                mainMenu.ShowDialog();
-                                return;
-                            }
-                        }
-                    }
-                    // if the username or password isnt correct
-                    string message = "Couldn't Sign in, Incorrect username or password";
-                    string caption = "error";
-                    var buttons = MessageBoxButtons.OK;
-
-                    var messagebox = MessageBox.Show(message, caption, buttons);
-
-                }
+                var main = new MainMenu(this);
+                main.Show();
+                this.Hide();
             }
-            catch (XmlException ex)
+            else
             {
-                Console.WriteLine(ex.ToString());
+                string message = "Wrong username or password";
+                string caption = "Failed";
+                var button = MessageBoxButtons.OK;
+
+                var messagebox = MessageBox.Show(message, caption, button);
             }
 
+        }
+
+        private void signupButton_Click(object sender, EventArgs e)
+        {
+            var register = new RegisterForm(this);
+            register.Show();
+            this.Hide();
+
+        }
+
+        private void passwordTextbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                signinButton_Click(this, new EventArgs());
+            }
         }
     }
 }

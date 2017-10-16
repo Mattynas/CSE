@@ -37,51 +37,47 @@
             // 
             // openfileButton
             // 
-            this.openfileButton.Location = new System.Drawing.Point(167, 14);
-            this.openfileButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.openfileButton.Location = new System.Drawing.Point(125, 11);
+            this.openfileButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.openfileButton.Name = "openfileButton";
-            this.openfileButton.Size = new System.Drawing.Size(149, 85);
+            this.openfileButton.Size = new System.Drawing.Size(112, 69);
             this.openfileButton.TabIndex = 0;
-            this.openfileButton.Text = "Browse file";
+            this.openfileButton.Text = "Process Image";
             this.openfileButton.UseVisualStyleBackColor = true;
             this.openfileButton.Click += new System.EventHandler(this.openfileButton_Click);
             // 
             // findPricesButton
             // 
-            this.findPricesButton.Location = new System.Drawing.Point(167, 122);
-            this.findPricesButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.findPricesButton.Location = new System.Drawing.Point(125, 99);
             this.findPricesButton.Name = "findPricesButton";
-            this.findPricesButton.Size = new System.Drawing.Size(149, 28);
+            this.findPricesButton.Size = new System.Drawing.Size(112, 23);
             this.findPricesButton.TabIndex = 1;
             this.findPricesButton.Text = "Find prices";
             this.findPricesButton.UseVisualStyleBackColor = true;
             // 
             // userStatsButton
             // 
-            this.userStatsButton.Location = new System.Drawing.Point(167, 158);
-            this.userStatsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userStatsButton.Location = new System.Drawing.Point(125, 128);
             this.userStatsButton.Name = "userStatsButton";
-            this.userStatsButton.Size = new System.Drawing.Size(149, 28);
+            this.userStatsButton.Size = new System.Drawing.Size(112, 23);
             this.userStatsButton.TabIndex = 2;
             this.userStatsButton.Text = "User stats";
             this.userStatsButton.UseVisualStyleBackColor = true;
             // 
             // userSettingsButton
             // 
-            this.userSettingsButton.Location = new System.Drawing.Point(167, 193);
-            this.userSettingsButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.userSettingsButton.Location = new System.Drawing.Point(125, 157);
             this.userSettingsButton.Name = "userSettingsButton";
-            this.userSettingsButton.Size = new System.Drawing.Size(149, 28);
+            this.userSettingsButton.Size = new System.Drawing.Size(112, 23);
             this.userSettingsButton.TabIndex = 3;
             this.userSettingsButton.Text = "User settings";
             this.userSettingsButton.UseVisualStyleBackColor = true;
             // 
             // virtualShoppingButton
             // 
-            this.virtualShoppingButton.Location = new System.Drawing.Point(167, 229);
-            this.virtualShoppingButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.virtualShoppingButton.Location = new System.Drawing.Point(125, 186);
             this.virtualShoppingButton.Name = "virtualShoppingButton";
-            this.virtualShoppingButton.Size = new System.Drawing.Size(149, 28);
+            this.virtualShoppingButton.Size = new System.Drawing.Size(112, 23);
             this.virtualShoppingButton.TabIndex = 4;
             this.virtualShoppingButton.Text = "Virtual shopping";
             this.virtualShoppingButton.UseVisualStyleBackColor = true;
@@ -89,15 +85,16 @@
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(487, 302);
+            this.ClientSize = new System.Drawing.Size(365, 245);
             this.Controls.Add(this.virtualShoppingButton);
             this.Controls.Add(this.userSettingsButton);
             this.Controls.Add(this.userStatsButton);
             this.Controls.Add(this.findPricesButton);
             this.Controls.Add(this.openfileButton);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "MainMenu";
             this.Text = "Main Menu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainMenu_FormClosed);

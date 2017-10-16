@@ -6,6 +6,12 @@ namespace WindowsFormsCSE.Model
     {
         private List<Item> itemList;
         private string shopName;
+        private string receiptString;
+
+        public Receipt(string receiptString)
+        {
+            this.receiptString = receiptString;
+        }
 
         public string ShopName
         {

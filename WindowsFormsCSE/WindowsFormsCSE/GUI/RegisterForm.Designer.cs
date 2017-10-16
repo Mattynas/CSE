@@ -38,6 +38,7 @@
             this.ConfirmPassTextBox = new System.Windows.Forms.TextBox();
             this.RegisterButton = new System.Windows.Forms.Button();
             this.CancelButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // UsernameLabel
@@ -127,11 +128,24 @@
             this.CancelButton.UseVisualStyleBackColor = true;
             this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Location = new System.Drawing.Point(52, 12);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(243, 35);
+            this.textBox1.TabIndex = 10;
+            this.textBox1.Text = "Password and username should be 6-20 symbols long and contain only alphanumerical" +
+    " symbols";
+            // 
             // RegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(348, 345);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.RegisterButton);
             this.Controls.Add(this.ConfirmPassTextBox);
@@ -163,5 +177,6 @@
         private System.Windows.Forms.TextBox ConfirmPassTextBox;
         private System.Windows.Forms.Button RegisterButton;
         private System.Windows.Forms.Button CancelButton;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

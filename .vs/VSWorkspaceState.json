@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\WindowsFormsCSE",
-    "\\WindowsFormsCSE\\WindowsFormsCSE"
+    "\\WindowsFormsCSE\\WindowsFormsCSE",
+    "\\WindowsFormsCSE\\WindowsFormsCSE\\GUI"
   ],
-  "SelectedNode": "\\WindowsFormsCSE\\WindowsFormsCSE\\Model",
+  "SelectedNode": "\\WindowsFormsCSE\\WindowsFormsCSE\\GUI\\ImageAnalysisMenu.cs",
   "PreviewInSolutionExplorer": false
 }

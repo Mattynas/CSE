@@ -25,12 +25,10 @@ namespace WindowsFormsCSE.XML
                 }
                 catch (System.Xml.XmlException e)
                 {
-                    Console.WriteLine(e.ToString());
                     return false;
                 }
                 catch (System.IO.FileNotFoundException e)
                 {
-                    Console.WriteLine(e.ToString());
                     return false;
                 }
 
@@ -53,6 +51,12 @@ namespace WindowsFormsCSE.XML
                     if (CheckAttribute(username, Attributes.username, root) || CheckAttribute(email, Attributes.email, root)) return false;
                 }
                 catch (System.Xml.XmlException e)
+                {
+                    xdoc = new XDocument();
+                    root = new XElement("Users");
+                    xdoc.Add(root);
+                }
+                catch (System.IO.FileNotFoundException e)
                 {
                     xdoc = new XDocument();
                     root = new XElement("Users");

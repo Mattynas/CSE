@@ -17,25 +17,37 @@ namespace WindowsFormsCSE.GUI
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            var pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"; //Copied from http://emailregex.com/
-            if (PasswordTextBox.Text != ConfirmPassTextBox.Text)
+            var patternForEmail = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"; //Copied from http://emailregex.com/
+            var patternForOthers = @"^\w{6,20}$";
+
+            if(!Regex.IsMatch(UsernameTextBox.Text, patternForOthers))
             {
-                PasswordLabel.ForeColor = System.Drawing.Color.Red;
-                PasswordLabel.Text = "Passwords do not match";
+                UsernameLabel.ForeColor = System.Drawing.Color.Red;
+                UsernameLabel.Text = "wrong username";
             }
-            else if (!Regex.IsMatch(EmailTextBox.Text, pattern))
+            else if (!Regex.IsMatch(EmailTextBox.Text, patternForEmail))
             {
                 EmailLabel.ForeColor = System.Drawing.Color.Red;
                 EmailLabel.Text = "Wrong email";
             }
+            else if(!Regex.IsMatch(PasswordTextBox.Text, patternForOthers))
+            {
+                PasswordLabel.ForeColor = System.Drawing.Color.Red;
+                PasswordLabel.Text = "Wrong Password";
+            }
+            else if (PasswordTextBox.Text != ConfirmPassTextBox.Text)
+            {
+                PasswordLabel.ForeColor = System.Drawing.Color.Red;
+                PasswordLabel.Text = "Passwords do not match";
+            } 
             else if (UsersXML.Register(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text))
             {
 
                 string message = "Registration is successful!";
                 string caption = "Success";
                 var button = MessageBoxButtons.OK;
-
                 var messagebox = MessageBox.Show(message, caption, button);
+
                 this.Close();
             }
             else

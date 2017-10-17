@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using WindowsFormsCSE.Properties;
 using WindowsFormsCSE.XML;
 
 namespace WindowsFormsCSE.GUI
@@ -21,8 +22,8 @@ namespace WindowsFormsCSE.GUI
             }
             else
             {
-                string message = "Wrong username or password";
-                string caption = "Failed";
+                string message = Resources.LOGIN_wrongInfo;
+                string caption = Resources.LOGIN_wrongInfoWindowTitle;
                 var button = MessageBoxButtons.OK;
 
                 var messagebox = MessageBox.Show(message, caption, button);

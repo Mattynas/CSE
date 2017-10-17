@@ -46,7 +46,7 @@
     
     mimetype: application/x-microsoft.net.object.binary.base64
     value   : The object must be serialized with 
-            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
     
     mimetype: application/x-microsoft.net.object.soap.base64
@@ -60,6 +60,7 @@
             : and then encoded with base64 encoding.
     -->
   <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
@@ -68,9 +69,10 @@
               <xsd:sequence>
                 <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" />
+              <xsd:attribute name="name" use="required" type="xsd:string" />
               <xsd:attribute name="type" type="xsd:string" />
               <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
@@ -85,9 +87,10 @@
                 <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
                 <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
               <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
               <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
@@ -109,9 +112,90 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="DATABASE_PATH_dbLogin" xml:space="preserve">
+    <value>../XML/DatabaseLogin.xml</value>
+  </data>
+  <data name="DATABASE_tagNameDatabase" xml:space="preserve">
+    <value>Database</value>
+  </data>
+  <data name="DATABASE_xpathDataSource" xml:space="preserve">
+    <value>DataSource</value>
+  </data>
+  <data name="DATABASE_xpathInitialCatalog" xml:space="preserve">
+    <value>InitialCatalog</value>
+  </data>
+  <data name="DATABASE_xpathPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="DATABASE_xpathUserID" xml:space="preserve">
+    <value>UserID</value>
+  </data>
+  <data name="IMAGEANALYSIS_PATH_imageText" xml:space="preserve">
+    <value>../../ImageTextFile.txt</value>
+  </data>
+  <data name="IMAGEPROCESSING_lang" xml:space="preserve">
+    <value>lit</value>
+  </data>
+  <data name="IMAGEPROCESSING_PATH_dataPath" xml:space="preserve">
+    <value>../../tessdata</value>
+  </data>
+  <data name="LOGIN_wrongInfo" xml:space="preserve">
+    <value>Wrong username or password</value>
+  </data>
+  <data name="LOGIN_wrongInfoWindowTitle" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="REGISTRATION_emailPattern" xml:space="preserve">
+    <value>^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$</value>
+  </data>
+  <data name="REGISTRATION_failedMessage" xml:space="preserve">
+    <value>Registration failed</value>
+  </data>
+  <data name="REGISTRATION_failedWindowTitle" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+  <data name="REGISTRATION_passwordPattern" xml:space="preserve">
+    <value>^\w{6,20}$</value>
+  </data>
+  <data name="REGISTRATION_passwordsMatchError" xml:space="preserve">
+    <value>Passwords do not match</value>
+  </data>
+  <data name="REGISTRATION_successMessage" xml:space="preserve">
+    <value>Registration is successful!</value>
+  </data>
+  <data name="REGISTRATION_successWindowTitle" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="REGISTRATION_wrongEmail" xml:space="preserve">
+    <value>Wrong email</value>
+  </data>
+  <data name="REGISTRATION_wrongPassword" xml:space="preserve">
+    <value>Wrong password</value>
+  </data>
+  <data name="REGISTRATION_wrongUsername" xml:space="preserve">
+    <value>Wrong username</value>
+  </data>
+  <data name="USERS_attributeEmail" xml:space="preserve">
+    <value>email</value>
+  </data>
+  <data name="USERS_attributePassword" xml:space="preserve">
+    <value>password</value>
+  </data>
+  <data name="USERS_attributeUsername" xml:space="preserve">
+    <value>username</value>
+  </data>
+  <data name="USERS_elementUser" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="USERS_elementUsers" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="USERS_PATH_Users" xml:space="preserve">
+    <value>XML/users.xml</value>
+  </data>
 </root>

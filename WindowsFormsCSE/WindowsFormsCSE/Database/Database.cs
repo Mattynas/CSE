@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Xml;
+using WindowsFormsCSE.Properties;
 
 public class Database
 {
@@ -10,16 +11,16 @@ public class Database
         try
         {
             var dbdoc = new XmlDocument();
-            dbdoc.Load("../XML/DatabaseLogin.xml");
+            dbdoc.Load(Resources.DATABASE_PATH_dbLogin);
 
-            var nodes = dbdoc.GetElementsByTagName("Database");
+            var nodes = dbdoc.GetElementsByTagName(Resources.DATABASE_tagNameDatabase);
             foreach(XmlNode node in nodes)
             {
                 SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
-                builder.DataSource = node.SelectSingleNode("DataSource").InnerText;
-                builder.UserID = node.SelectSingleNode("UserID").InnerText;
-                builder.Password = node.SelectSingleNode("Password").InnerText;
-                builder.InitialCatalog = node.SelectSingleNode("InitialCatalog").InnerText;
+                builder.DataSource = node.SelectSingleNode(Resources.DATABASE_xpathDataSource).InnerText;
+                builder.UserID = node.SelectSingleNode(Resources.DATABASE_xpathUserID).InnerText;
+                builder.Password = node.SelectSingleNode(Resources.DATABASE_xpathPassword).InnerText;
+                builder.InitialCatalog = node.SelectSingleNode(Resources.DATABASE_xpathInitialCatalog).InnerText;
                 return new SqlConnection(builder.ConnectionString);
             }
             return null;

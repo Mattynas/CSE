@@ -8,10 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsCSE.Properties
-{
-
-
+namespace WindowsFormsCSE.Properties {
+    using System;
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -19,52 +19,287 @@ namespace WindowsFormsCSE.Properties
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources
-    {
-
+    internal class Resources {
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resources()
-        {
+        internal Resources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager
-        {
-            get
-            {
-                if ((resourceMan == null))
-                {
+        internal static global::System.Resources.ResourceManager ResourceManager {
+            get {
+                if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WindowsFormsCSE.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture
-        {
-            get
-            {
+        internal static global::System.Globalization.CultureInfo Culture {
+            get {
                 return resourceCulture;
             }
-            set
-            {
+            set {
                 resourceCulture = value;
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ../XML/DatabaseLogin.xml.
+        /// </summary>
+        internal static string DATABASE_PATH_dbLogin {
+            get {
+                return ResourceManager.GetString("DATABASE_PATH_dbLogin", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Database.
+        /// </summary>
+        internal static string DATABASE_tagNameDatabase {
+            get {
+                return ResourceManager.GetString("DATABASE_tagNameDatabase", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DataSource.
+        /// </summary>
+        internal static string DATABASE_xpathDataSource {
+            get {
+                return ResourceManager.GetString("DATABASE_xpathDataSource", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InitialCatalog.
+        /// </summary>
+        internal static string DATABASE_xpathInitialCatalog {
+            get {
+                return ResourceManager.GetString("DATABASE_xpathInitialCatalog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Password.
+        /// </summary>
+        internal static string DATABASE_xpathPassword {
+            get {
+                return ResourceManager.GetString("DATABASE_xpathPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UserID.
+        /// </summary>
+        internal static string DATABASE_xpathUserID {
+            get {
+                return ResourceManager.GetString("DATABASE_xpathUserID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ../../ImageTextFile.txt.
+        /// </summary>
+        internal static string IMAGEANALYSIS_PATH_imageText {
+            get {
+                return ResourceManager.GetString("IMAGEANALYSIS_PATH_imageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to lit.
+        /// </summary>
+        internal static string IMAGEPROCESSING_lang {
+            get {
+                return ResourceManager.GetString("IMAGEPROCESSING_lang", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ../../tessdata.
+        /// </summary>
+        internal static string IMAGEPROCESSING_PATH_dataPath {
+            get {
+                return ResourceManager.GetString("IMAGEPROCESSING_PATH_dataPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong username or password.
+        /// </summary>
+        internal static string LOGIN_wrongInfo {
+            get {
+                return ResourceManager.GetString("LOGIN_wrongInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed.
+        /// </summary>
+        internal static string LOGIN_wrongInfoWindowTitle {
+            get {
+                return ResourceManager.GetString("LOGIN_wrongInfoWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ^\w+([-+.&apos;]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$.
+        /// </summary>
+        internal static string REGISTRATION_emailPattern {
+            get {
+                return ResourceManager.GetString("REGISTRATION_emailPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration failed.
+        /// </summary>
+        internal static string REGISTRATION_failedMessage {
+            get {
+                return ResourceManager.GetString("REGISTRATION_failedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed.
+        /// </summary>
+        internal static string REGISTRATION_failedWindowTitle {
+            get {
+                return ResourceManager.GetString("REGISTRATION_failedWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ^\w{6,20}$.
+        /// </summary>
+        internal static string REGISTRATION_passwordPattern {
+            get {
+                return ResourceManager.GetString("REGISTRATION_passwordPattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Passwords do not match.
+        /// </summary>
+        internal static string REGISTRATION_passwordsMatchError {
+            get {
+                return ResourceManager.GetString("REGISTRATION_passwordsMatchError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registration is successful!.
+        /// </summary>
+        internal static string REGISTRATION_successMessage {
+            get {
+                return ResourceManager.GetString("REGISTRATION_successMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Success.
+        /// </summary>
+        internal static string REGISTRATION_successWindowTitle {
+            get {
+                return ResourceManager.GetString("REGISTRATION_successWindowTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong email.
+        /// </summary>
+        internal static string REGISTRATION_wrongEmail {
+            get {
+                return ResourceManager.GetString("REGISTRATION_wrongEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong password.
+        /// </summary>
+        internal static string REGISTRATION_wrongPassword {
+            get {
+                return ResourceManager.GetString("REGISTRATION_wrongPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wrong username.
+        /// </summary>
+        internal static string REGISTRATION_wrongUsername {
+            get {
+                return ResourceManager.GetString("REGISTRATION_wrongUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to email.
+        /// </summary>
+        internal static string USERS_attributeEmail {
+            get {
+                return ResourceManager.GetString("USERS_attributeEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to password.
+        /// </summary>
+        internal static string USERS_attributePassword {
+            get {
+                return ResourceManager.GetString("USERS_attributePassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to username.
+        /// </summary>
+        internal static string USERS_attributeUsername {
+            get {
+                return ResourceManager.GetString("USERS_attributeUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to User.
+        /// </summary>
+        internal static string USERS_elementUser {
+            get {
+                return ResourceManager.GetString("USERS_elementUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Users.
+        /// </summary>
+        internal static string USERS_elementUsers {
+            get {
+                return ResourceManager.GetString("USERS_elementUsers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to XML/users.xml.
+        /// </summary>
+        internal static string USERS_PATH_Users {
+            get {
+                return ResourceManager.GetString("USERS_PATH_Users", resourceCulture);
             }
         }
     }

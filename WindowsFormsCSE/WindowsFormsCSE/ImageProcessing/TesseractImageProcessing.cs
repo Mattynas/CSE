@@ -2,6 +2,7 @@
 using Tesseract;
 using Emgu.CV;
 using Emgu.CV.Structure;
+using WindowsFormsCSE.Properties;
 //using System.Windows.Forms;
 
 namespace WindowsFormsCSE
@@ -24,7 +25,7 @@ namespace WindowsFormsCSE
             inputImage = new Image<Bgr, byte>(imageName);
             BinarizeImage(inputImage.ToBitmap());
 
-            var ocr = new TesseractEngine(@"../../tessdata", "lit", EngineMode.TesseractOnly);
+            var ocr = new TesseractEngine(Resources.IMAGEPROCESSING_PATH_dataPath, Resources.IMAGEPROCESSING_lang, EngineMode.TesseractOnly);
             var page = ocr.Process(processedImage);
 
             processedText = page.GetText();

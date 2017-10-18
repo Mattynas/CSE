@@ -18,17 +18,25 @@ namespace WindowsFormsCSE.GUI
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                var imageProcessing = new TesseractImageProcessing(openFileDialog.FileName);
+                try
+                {
+                    int blockSize = Convert.ToInt32(blockSizeTextBox.Text);
+                    double param1 = Convert.ToDouble(param1TextBox.Text);
 
-                pictureBox1.Image = new Bitmap(openFileDialog.FileName);
+                    var imageProcessing = new TesseractImageProcessing(openFileDialog.FileName, blockSize, param1);
 
-                pictureBox2.Image = imageProcessing.GetProcessedImage;
+                    pictureBox1.Image = new Bitmap(openFileDialog.FileName);
 
-                textBox1.Text = imageProcessing.GetProcessedText;
+                    pictureBox2.Image = imageProcessing.GetProcessedImage;
 
-                var receipt = new Receipt(imageProcessing.GetProcessedText);
+                    textBox1.Text = imageProcessing.GetProcessedText;
 
-
+                    var receipt = new Receipt(imageProcessing.GetProcessedText);
+                }
+                catch(FormatException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                } 
             }
         }
 

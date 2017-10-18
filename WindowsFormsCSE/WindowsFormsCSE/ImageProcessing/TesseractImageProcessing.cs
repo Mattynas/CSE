@@ -31,7 +31,7 @@ namespace WindowsFormsCSE
             inputImage = new Image<Bgr, byte>(imageName);
             BinarizeImage(inputImage.ToBitmap());
 
-            var ocr = new TesseractEngine(@"../../tessdata", "lit", EngineMode.TesseractOnly);
+            var ocr = new TesseractEngine(@"../../tessdata", "lit", EngineMode.Default);
             var page = ocr.Process(processedImage);
 
             processedText = page.GetText();
@@ -46,10 +46,11 @@ namespace WindowsFormsCSE
             imgGray = new Image<Gray, byte>(image);
 
             imgBinarized = new Image<Gray, byte>(imgGray.Width, imgGray.Height, new Gray(0));
+            
 
             //double thrshValue = CvInvoke.Threshold(imgGray, imgBinarized, 0, 255, Emgu.CV.CvEnum.ThresholdType.Otsu);
 
-            CvInvoke.AdaptiveThreshold(imgGray, imgBinarized, 255, Emgu.CV.CvEnum.AdaptiveThresholdType.MeanC, Emgu.CV.CvEnum.ThresholdType.Binary, blockSize, param1);
+            CvInvoke.AdaptiveThreshold(imgGray, imgBinarized, 255, Emgu.CV.CvEnum.AdaptiveThresholdType.GaussianC, Emgu.CV.CvEnum.ThresholdType.Binary, blockSize, param1);
             //MessageBox.Show(thrshValue.ToString()); display threshold value for testing purposes
 
             processedImage = imgBinarized.ToBitmap();

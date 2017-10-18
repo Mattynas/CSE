@@ -22,6 +22,10 @@ namespace WindowsFormsCSE.GUI
             var patternForEmail = Resources.REGISTRATION_emailPattern; //Copied from http://emailregex.com/
             var patternForOthers = Resources.REGISTRATION_passwordPattern;
 
+            UsernameLabel.Text = "";
+            EmailLabel.Text = "";
+            PasswordLabel.Text = "";
+
             if(!Regex.IsMatch(UsernameTextBox.Text, patternForOthers))
             {
                 UsernameLabel.ForeColor = System.Drawing.Color.Red;

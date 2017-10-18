@@ -3,6 +3,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using WindowsFormsCSE.Model;
+using WindowsFormsCSE.Properties;
 
 namespace WindowsFormsCSE.GUI
 {
@@ -42,7 +43,7 @@ namespace WindowsFormsCSE.GUI
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.IO.File.WriteAllText(@"../../ImageTextFile.txt", textBox1.Text);
+            System.IO.File.WriteAllText(Resources.IMAGEANALYSIS_PATH_imageText, textBox1.Text);
         }
     }
 }

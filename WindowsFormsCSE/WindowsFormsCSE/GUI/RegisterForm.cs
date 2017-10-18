@@ -2,6 +2,8 @@
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WindowsFormsCSE.XML;
+using WindowsFormsCSE.Properties;
+
 
 namespace WindowsFormsCSE.GUI
 {
@@ -17,45 +19,40 @@ namespace WindowsFormsCSE.GUI
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            var patternForEmail = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"; //Copied from http://emailregex.com/
-            var patternForOthers = @"^\w{6,20}$";
+            var patternForEmail = Resources.REGISTRATION_emailPattern; //Copied from http://emailregex.com/
+            var patternForOthers = Resources.REGISTRATION_passwordPattern;
 
             if(!Regex.IsMatch(UsernameTextBox.Text, patternForOthers))
             {
                 UsernameLabel.ForeColor = System.Drawing.Color.Red;
-                UsernameLabel.Text = "wrong username";
+                UsernameLabel.Text = Resources.REGISTRATION_wrongUsername;
             }
             else if (!Regex.IsMatch(EmailTextBox.Text, patternForEmail))
             {
                 EmailLabel.ForeColor = System.Drawing.Color.Red;
-                EmailLabel.Text = "Wrong email";
+                EmailLabel.Text = Resources.REGISTRATION_wrongEmail;
             }
             else if(!Regex.IsMatch(PasswordTextBox.Text, patternForOthers))
             {
                 PasswordLabel.ForeColor = System.Drawing.Color.Red;
-                PasswordLabel.Text = "Wrong Password";
+                PasswordLabel.Text = Resources.REGISTRATION_wrongPassword;
             }
             else if (PasswordTextBox.Text != ConfirmPassTextBox.Text)
             {
                 PasswordLabel.ForeColor = System.Drawing.Color.Red;
-                PasswordLabel.Text = "Passwords do not match";
+                PasswordLabel.Text = Resources.REGISTRATION_passwordsMatchError;
             } 
             else if (UsersXML.Register(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text))
             {
-
-                string message = "Registration is successful!";
-                string caption = "Success";
                 var button = MessageBoxButtons.OK;
-                var messagebox = MessageBox.Show(message, caption, button);
+                var messagebox = MessageBox.Show(Resources.REGISTRATION_successMessage, Resources.REGISTRATION_successWindowTitle, button);
 
                 this.Close();
             }
             else
             {
-                string message = "Registration failed";
-                string caption = "Failed";
                 var button = MessageBoxButtons.OK;
-                var messagebox = MessageBox.Show(message, caption, button);
+                var messagebox = MessageBox.Show(Resources.REGISTRATION_failedMessage, Resources.REGISTRATION_failedWindowTitle, button);
             }
         }
 

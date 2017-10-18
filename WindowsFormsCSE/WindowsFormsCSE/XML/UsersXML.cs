@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Xml.Linq;
-
+using WindowsFormsCSE.Properties;
 namespace WindowsFormsCSE.XML
 {
     enum Attributes { username, password, email }
@@ -8,7 +8,7 @@ namespace WindowsFormsCSE.XML
     class UsersXML
     {
         //---------------------Path----------------------
-        private static string pathToUsers = "XML/users.xml";
+        private static string pathToUsers = Resources.USERS_PATH_Users;
         //-----------------------------------------------
 
         public static bool Login(string username, string password)
@@ -53,24 +53,24 @@ namespace WindowsFormsCSE.XML
                 catch (System.Xml.XmlException e)
                 {
                     xdoc = new XDocument();
-                    root = new XElement("Users");
+                    root = new XElement(Resources.USERS_elementUsers);
                     xdoc.Add(root);
                 }
                 catch (System.IO.FileNotFoundException e)
                 {
                     xdoc = new XDocument();
-                    root = new XElement("Users");
+                    root = new XElement(Resources.USERS_elementUsers);
                     xdoc.Add(root);
                 }
 
-                XElement element = new XElement("User");
-                XAttribute attribute = new XAttribute("username", username);
+                XElement element = new XElement(Resources.USERS_elementUser);
+                XAttribute attribute = new XAttribute(Resources.USERS_attributeUsername, username);
 
                 element.Add(attribute);
-                attribute = new XAttribute("password", password);
+                attribute = new XAttribute(Resources.USERS_attributePassword, password);
 
                 element.Add(attribute);
-                attribute = new XAttribute("email", email);
+                attribute = new XAttribute(Resources.USERS_attributeEmail, email);
 
                 element.Add(attribute);
                 root.Add(element);
@@ -83,7 +83,7 @@ namespace WindowsFormsCSE.XML
 
         public static bool CheckAttribute(string value, Attributes attribute, XElement root)
         {
-            foreach (XElement element in root.Descendants("User"))
+            foreach (XElement element in root.Descendants(Resources.USERS_elementUser))
             {
                 if (element.Attribute(Enum.GetName(typeof(Attributes), attribute)).Value == value) return true;
             }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml.Linq;
 using WindowsFormsCSE.Properties;
+
 namespace WindowsFormsCSE.XML
 {
     enum Attributes { username, password, email }
@@ -39,45 +40,42 @@ namespace WindowsFormsCSE.XML
 
         public static bool Register(string username, string password, string email)
         {
-            if (!String.IsNullOrEmpty(username) && !String.IsNullOrEmpty(username) && !String.IsNullOrEmpty(email))
+
+            XDocument xdoc;
+            XElement root;
+
+            try
             {
-                XDocument xdoc;
-                XElement root;
-
-                try
-                {
-                    xdoc = XDocument.Load(pathToUsers);
-                    root = xdoc.Root;
-                    if (CheckAttribute(username, Attributes.username, root) || CheckAttribute(email, Attributes.email, root)) return false;
-                }
-                catch (System.Xml.XmlException e)
-                {
-                    xdoc = new XDocument();
-                    root = new XElement(Resources.USERS_elementUsers);
-                    xdoc.Add(root);
-                }
-                catch (System.IO.FileNotFoundException e)
-                {
-                    xdoc = new XDocument();
-                    root = new XElement(Resources.USERS_elementUsers);
-                    xdoc.Add(root);
-                }
-
-                XElement element = new XElement(Resources.USERS_elementUser);
-                XAttribute attribute = new XAttribute(Resources.USERS_attributeUsername, username);
-
-                element.Add(attribute);
-                attribute = new XAttribute(Resources.USERS_attributePassword, password);
-
-                element.Add(attribute);
-                attribute = new XAttribute(Resources.USERS_attributeEmail, email);
-
-                element.Add(attribute);
-                root.Add(element);
-                xdoc.Save(pathToUsers);
-                return true;
+                xdoc = XDocument.Load(pathToUsers);
+                root = xdoc.Root;
+                if (CheckAttribute(username, Attributes.username, root) || CheckAttribute(email, Attributes.email, root)) return false;
             }
-            return false;
+            catch (System.Xml.XmlException e)
+            {
+                xdoc = new XDocument();
+                root = new XElement(Resources.USERS_elementUsers);
+                xdoc.Add(root);
+            }
+            catch (System.IO.FileNotFoundException e)
+            {
+                xdoc = new XDocument();
+                root = new XElement(Resources.USERS_elementUsers);
+                xdoc.Add(root);
+            }
+
+            XElement element = new XElement(Resources.USERS_elementUser);
+            XAttribute attribute = new XAttribute(Resources.USERS_attributeUsername, username);
+
+            element.Add(attribute);
+            attribute = new XAttribute(Resources.USERS_attributePassword, password);
+
+            element.Add(attribute);
+            attribute = new XAttribute(Resources.USERS_attributeEmail, email);
+
+            element.Add(attribute);
+            root.Add(element);
+            xdoc.Save(pathToUsers);
+            return true;
         }
 
 

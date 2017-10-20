@@ -3,8 +3,9 @@
     "",
     "\\WindowsFormsCSE",
     "\\WindowsFormsCSE\\WindowsFormsCSE",
-    "\\WindowsFormsCSE\\WindowsFormsCSE\\GUI"
+    "\\WindowsFormsCSE\\WindowsFormsCSE\\Exceptions",
+    "\\WindowsFormsCSE\\WindowsFormsCSE\\Exceptions\\Register"
   ],
-  "SelectedNode": "\\WindowsFormsCSE\\WindowsFormsCSE\\GUI\\ImageAnalysisMenu.cs",
+  "SelectedNode": "\\WindowsFormsCSE\\WindowsFormsCSE\\GUI",
   "PreviewInSolutionExplorer": false
 }

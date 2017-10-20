@@ -116,7 +116,6 @@
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = true;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
-            this.RegisterButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterButton_KeyDown);
             // 
             // CancelButton
             // 

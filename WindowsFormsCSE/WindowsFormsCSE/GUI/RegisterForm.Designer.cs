@@ -106,6 +106,7 @@
             this.ConfirmPassTextBox.PasswordChar = '*';
             this.ConfirmPassTextBox.Size = new System.Drawing.Size(125, 20);
             this.ConfirmPassTextBox.TabIndex = 7;
+            this.ConfirmPassTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ConfirmPassTextBox_KeyDown);
             // 
             // RegisterButton
             // 
@@ -116,7 +117,6 @@
             this.RegisterButton.Text = "Register";
             this.RegisterButton.UseVisualStyleBackColor = true;
             this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
-            this.RegisterButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterButton_KeyDown);
             // 
             // CancelButton
             // 

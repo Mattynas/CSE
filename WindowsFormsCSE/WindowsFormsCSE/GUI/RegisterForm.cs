@@ -1,9 +1,9 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using WindowsFormsCSE.XML;
 using WindowsFormsCSE.Properties;
-
+using WindowsFormsCSE.Validation;
+using WindowsFormsCSE.Exceptions.Register;
 
 namespace WindowsFormsCSE.GUI
 {
@@ -19,40 +19,41 @@ namespace WindowsFormsCSE.GUI
 
         private void RegisterButton_Click(object sender, EventArgs e)
         {
-            var patternForEmail = Resources.REGISTRATION_emailPattern; //Copied from http://emailregex.com/
-            var patternForOthers = Resources.REGISTRATION_passwordPattern;
+            try
+            {
+                RegisterDataValidation.RegisterValidation(UsernameTextBox.Text, EmailTextBox.Text, PasswordTextBox.Text, ConfirmPassTextBox.Text);
+                if(UsersXML.Register(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text))
+                {
+                    var button = MessageBoxButtons.OK;
+                    var messagebox = MessageBox.Show(Resources.REGISTRATION_successMessage, Resources.REGISTRATION_successWindowTitle, button);
 
-            if(!Regex.IsMatch(UsernameTextBox.Text, patternForOthers))
+                    this.Close();
+                }
+                else
+                {
+                    var button = MessageBoxButtons.OK;
+                    var messagebox = MessageBox.Show(Resources.REGISTRATION_failedMessage, Resources.REGISTRATION_failedWindowTitle, button);
+                }
+            }
+            catch (InvalidUsernameException)
             {
                 UsernameLabel.ForeColor = System.Drawing.Color.Red;
                 UsernameLabel.Text = Resources.REGISTRATION_wrongUsername;
             }
-            else if (!Regex.IsMatch(EmailTextBox.Text, patternForEmail))
+            catch (InvalidEmailException)
             {
                 EmailLabel.ForeColor = System.Drawing.Color.Red;
                 EmailLabel.Text = Resources.REGISTRATION_wrongEmail;
             }
-            else if(!Regex.IsMatch(PasswordTextBox.Text, patternForOthers))
+            catch (InvalidPasswordException)
             {
                 PasswordLabel.ForeColor = System.Drawing.Color.Red;
                 PasswordLabel.Text = Resources.REGISTRATION_wrongPassword;
             }
-            else if (PasswordTextBox.Text != ConfirmPassTextBox.Text)
+            catch (PasswordsDontMachException)
             {
                 PasswordLabel.ForeColor = System.Drawing.Color.Red;
                 PasswordLabel.Text = Resources.REGISTRATION_passwordsMatchError;
-            } 
-            else if (UsersXML.Register(UsernameTextBox.Text, PasswordTextBox.Text, EmailTextBox.Text))
-            {
-                var button = MessageBoxButtons.OK;
-                var messagebox = MessageBox.Show(Resources.REGISTRATION_successMessage, Resources.REGISTRATION_successWindowTitle, button);
-
-                this.Close();
-            }
-            else
-            {
-                var button = MessageBoxButtons.OK;
-                var messagebox = MessageBox.Show(Resources.REGISTRATION_failedMessage, Resources.REGISTRATION_failedWindowTitle, button);
             }
         }
 
@@ -66,9 +67,12 @@ namespace WindowsFormsCSE.GUI
             login.Show();
         }
 
-        private void RegisterButton_KeyDown(object sender, KeyEventArgs e)
+        private void ConfirmPassTextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode == Keys.Enter) { RegisterButton_Click(this, new EventArgs()); }
+            if (e.KeyCode == Keys.Enter)
+            {
+                RegisterButton_Click(this, new EventArgs());
+            }
         }
     }
 }

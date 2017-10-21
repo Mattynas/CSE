@@ -66,5 +66,13 @@ namespace WindowsFormsCSE.GUI
         {
             login.Show();
         }
+
+        private void ConfirmPassTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                RegisterButton_Click(this, new EventArgs());
+            }
+        }
     }
 }

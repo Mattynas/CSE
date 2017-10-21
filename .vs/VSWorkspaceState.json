@@ -2,9 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\WindowsFormsCSE",
-    "\\WindowsFormsCSE\\WindowsFormsCSE",
-    "\\WindowsFormsCSE\\WindowsFormsCSE\\Exceptions",
-    "\\WindowsFormsCSE\\WindowsFormsCSE\\Exceptions\\Register"
+    "\\WindowsFormsCSE\\WindowsFormsCSE"
   ],
   "SelectedNode": "\\WindowsFormsCSE\\WindowsFormsCSE\\GUI",
   "PreviewInSolutionExplorer": false

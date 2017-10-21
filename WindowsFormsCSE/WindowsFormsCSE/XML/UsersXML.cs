@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Xml.Linq;
 using WindowsFormsCSE.Properties;
 
@@ -33,7 +34,14 @@ namespace WindowsFormsCSE.XML
                     return false;
                 }
 
-                if (CheckAttribute(username, Attributes.username, root) && CheckAttribute(password, Attributes.password, root)) return true;
+                var temp =
+                    from element in root.Descendants(Resources.USERS_elementUser)
+                    where element.Attribute(Enum.GetName(typeof(Attributes), (int) 0)).Value == username
+                    where element.Attribute(Enum.GetName(typeof(Attributes), (int) 1)).Value == password
+                    select element;
+
+                return temp.Any();
+                
             }
             return false;
         }
@@ -81,11 +89,12 @@ namespace WindowsFormsCSE.XML
 
         public static bool CheckAttribute(string value, Attributes attribute, XElement root)
         {
-            foreach (XElement element in root.Descendants(Resources.USERS_elementUser))
-            {
-                if (element.Attribute(Enum.GetName(typeof(Attributes), attribute)).Value == value) return true;
-            }
-            return false;
+            var temp =
+                from element in root.Descendants(Resources.USERS_elementUser)
+                where element.Attribute(Enum.GetName(typeof(Attributes), attribute)).Value == value
+                select element;
+
+            return temp.Any();
         }
 
     }

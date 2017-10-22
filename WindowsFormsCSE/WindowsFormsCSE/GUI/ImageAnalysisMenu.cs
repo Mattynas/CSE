@@ -10,6 +10,7 @@ namespace WindowsFormsCSE.GUI
     public partial class ImageAnalysisMenu : Form
     {
         private string imageFile;
+        private Bitmap loadedImage;
 
         private ImageCroping imgCrop = new ImageCroping();
 
@@ -25,7 +26,8 @@ namespace WindowsFormsCSE.GUI
             {
                 imageFile = openFileDialog.FileName;
 
-                pictureBox1.Image = new Bitmap(imageFile);
+                loadedImage = new Bitmap(imageFile);
+                pictureBox1.Image = loadedImage;
                 toolStripStatusLabel1.Text = Resources.IMAGEPROCESSING_helpText1;
 
             }
@@ -116,6 +118,17 @@ namespace WindowsFormsCSE.GUI
             textBox1.Text = imageProcessing.GetProcessedText;
 
             var receipt = new Receipt(imageProcessing.GetProcessedText);
+        }
+
+        private void rotateImageToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (pictureBox1.Image != null)
+            {
+                loadedImage.RotateFlip(RotateFlipType.Rotate90FlipNone);
+                loadedImage.Save(imageFile);
+                loadedImage = new Bitmap(imageFile);
+                pictureBox1.Image = loadedImage;
+            }
         }
     }
 }

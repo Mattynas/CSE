@@ -198,4 +198,10 @@
   <data name="USERS_PATH_Users" xml:space="preserve">
     <value>XML/users.xml</value>
   </data>
+  <data name="IMAGEPROCESSING_helpText1" xml:space="preserve">
+    <value>Click and drag to crop the image</value>
+  </data>
+  <data name="IMAGEPROCESSING_helpText2" xml:space="preserve">
+    <value>Select OCR to process the image</value>
+  </data>
 </root>

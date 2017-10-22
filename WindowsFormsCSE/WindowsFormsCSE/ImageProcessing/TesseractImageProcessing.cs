@@ -15,6 +15,7 @@ namespace WindowsFormsCSE
 
         public TesseractImageProcessing(string fileName) => ImageTextAnalysis(fileName);
 
+        public TesseractImageProcessing(Bitmap pic) => ImageTextAnalysis(pic);
 
         public Bitmap GetProcessedImage { get { return this.processedImage; } }
 
@@ -25,6 +26,17 @@ namespace WindowsFormsCSE
             inputImage = new Image<Bgr, byte>(imageName);
             BinarizeImage(inputImage.ToBitmap());
             
+            var ocr = new TesseractEngine(Resources.IMAGEPROCESSING_PATH_dataPath, Resources.IMAGEPROCESSING_lang, EngineMode.TesseractOnly);
+            var page = ocr.Process(processedImage);
+
+            processedText = page.GetText();
+
+        }
+        public void ImageTextAnalysis(Bitmap pic)
+        {
+            inputImage = new Image<Bgr, byte>(pic);
+            BinarizeImage(inputImage.ToBitmap());
+
             var ocr = new TesseractEngine(Resources.IMAGEPROCESSING_PATH_dataPath, Resources.IMAGEPROCESSING_lang, EngineMode.TesseractOnly);
             var page = ocr.Process(processedImage);
 

@@ -9,18 +9,22 @@ namespace WindowsFormsCSE.ImageProcessing
     class IronOCRImageProcessing : IImageTextProcessing, IImagePreProcess<Bitmap>
     {
         private string processedText;
+        private Bitmap inputImage;
         private Bitmap processedImage;
-        private Rectangle rect;
 
         public string GetProcessedText { get { return this.processedText; } }
 
         public Bitmap GetProcessedImage { get { return this.processedImage; } }
 
-        public IronOCRImageProcessing(string fileName, Rectangle rect)
+        public IronOCRImageProcessing(string fileName)
         {
-            this.rect = rect;
             ImageTextAnalysis(fileName);
-        } 
+        }
+        public IronOCRImageProcessing(Bitmap pic)
+        {
+            this.inputImage = pic;
+            ImageTextAnalysis(pic);
+        }
 
         public void ImageTextAnalysis(string imageName)
         {
@@ -30,7 +34,18 @@ namespace WindowsFormsCSE.ImageProcessing
 
             BinarizeImage(inputImage);
 
-            var Results = ocr.Read(processedImage, rect);
+            var Results = ocr.Read(processedImage);
+
+            processedText = Results.Text;
+
+        }
+        public void ImageTextAnalysis(Bitmap img)
+        {
+            var ocr = new AutoOcr();
+
+            BinarizeImage(img);
+
+            var Results = ocr.Read(processedImage);
 
             processedText = Results.Text;
 

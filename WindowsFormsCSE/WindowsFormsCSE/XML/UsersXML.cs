@@ -23,11 +23,11 @@ namespace WindowsFormsCSE.XML
                     xdoc = XDocument.Load(pathToUsers);
                     root = xdoc.Root;
                 }
-                catch (System.Xml.XmlException e)
+                catch (System.Xml.XmlException)
                 {
                     return false;
                 }
-                catch (System.IO.FileNotFoundException e)
+                catch (System.IO.FileNotFoundException)
                 {
                     return false;
                 }
@@ -50,13 +50,13 @@ namespace WindowsFormsCSE.XML
                     root = xdoc.Root;
                     if (CheckAttribute(username, Attributes.username, root) || CheckAttribute(email, Attributes.email, root)) return false;
                 }
-                catch (System.Xml.XmlException e)
+                catch (System.Xml.XmlException)
                 {
                     xdoc = new XDocument();
                     root = new XElement(Resources.USERS_elementUsers);
                     xdoc.Add(root);
                 }
-                catch (System.IO.FileNotFoundException e)
+                catch (System.IO.FileNotFoundException)
                 {
                     xdoc = new XDocument();
                     root = new XElement(Resources.USERS_elementUsers);

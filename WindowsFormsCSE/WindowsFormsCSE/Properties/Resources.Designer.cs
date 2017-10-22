@@ -124,6 +124,24 @@ namespace WindowsFormsCSE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Click and drag to crop the image.
+        /// </summary>
+        internal static string IMAGEPROCESSING_helpText1 {
+            get {
+                return ResourceManager.GetString("IMAGEPROCESSING_helpText1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select OCR to process the image.
+        /// </summary>
+        internal static string IMAGEPROCESSING_helpText2 {
+            get {
+                return ResourceManager.GetString("IMAGEPROCESSING_helpText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to lit.
         /// </summary>
         internal static string IMAGEPROCESSING_lang {

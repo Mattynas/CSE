@@ -115,11 +115,56 @@ namespace WindowsFormsCSE.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Try again or try analysing different image.
+        /// </summary>
+        internal static string ERROR_retry {
+            get {
+                return ResourceManager.GetString("ERROR_retry", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oops something went wrong!.
+        /// </summary>
+        internal static string ERROR_wentWrong {
+            get {
+                return ResourceManager.GetString("ERROR_wentWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ../../ImageTextFile.txt.
         /// </summary>
         internal static string IMAGEANALYSIS_PATH_imageText {
             get {
                 return ResourceManager.GetString("IMAGEANALYSIS_PATH_imageText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click and drag to crop the image.
+        /// </summary>
+        internal static string IMAGEPROCESSING_helpText1 {
+            get {
+                return ResourceManager.GetString("IMAGEPROCESSING_helpText1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select OCR to process the image.
+        /// </summary>
+        internal static string IMAGEPROCESSING_helpText2 {
+            get {
+                return ResourceManager.GetString("IMAGEPROCESSING_helpText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to If data is correct, go Edit -&gt; Analyse Text.
+        /// </summary>
+        internal static string IMAGEPROCESSING_helpText3 {
+            get {
+                return ResourceManager.GetString("IMAGEPROCESSING_helpText3", resourceCulture);
             }
         }
         
@@ -246,6 +291,24 @@ namespace WindowsFormsCSE.Properties {
         internal static string REGISTRATION_wrongUsername {
             get {
                 return ResourceManager.GetString("REGISTRATION_wrongUsername", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .+(?= \d).
+        /// </summary>
+        internal static string TEXTANALYSIS_namePattern {
+            get {
+                return ResourceManager.GetString("TEXTANALYSIS_namePattern", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to \d+[,.]\d+(?= ).
+        /// </summary>
+        internal static string TEXTANALYSIS_pricePattern {
+            get {
+                return ResourceManager.GetString("TEXTANALYSIS_pricePattern", resourceCulture);
             }
         }
         

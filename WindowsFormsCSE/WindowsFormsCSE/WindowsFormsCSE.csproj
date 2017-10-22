@@ -86,6 +86,7 @@
     </Compile>
     <Compile Include="ImageProcessing\ImageCroping.cs" />
     <Compile Include="ImageProcessing\IronOCRImageProcessing.cs" />
+    <Compile Include="Extensions\Extension.cs" />
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Database\Database.cs" />
@@ -161,6 +162,8 @@
   <ItemGroup>
     <Compile Include="Validation\RegisterDataValidation.cs" />
     <Compile Include="XML\UsersXML.cs" />
+    <Content Include="Examples\20170118_174154.jpg" />
+    <Content Include="Examples\21849117_1623178094388440_2112473565_n.jpg" />
     <Content Include="XML\DatabaseLogin.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

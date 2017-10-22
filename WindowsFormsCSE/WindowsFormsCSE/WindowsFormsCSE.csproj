@@ -73,6 +73,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\Register\InvalidEmailException.cs" />
+    <Compile Include="Exceptions\Register\InvalidPasswordException.cs" />
+    <Compile Include="Exceptions\Register\InvalidUsernameException.cs" />
+    <Compile Include="Exceptions\Register\PasswordsDontMachException.cs" />
+    <Compile Include="Exceptions\Register\RegisterException.cs" />
     <Compile Include="GUI\RegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +159,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Validation\RegisterDataValidation.cs" />
     <Compile Include="XML\UsersXML.cs" />
     <Content Include="XML\DatabaseLogin.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -25,9 +25,8 @@ namespace WindowsFormsCSE.ImageProcessing
         {
             int X0, Y0;
             ConvertCoordinates(pic, out X0, out Y0, e.X, e.Y);
-            //textBox2.Text = "Last Position: X:" + X0 + "  Y:" + Y0;
 
-            //Coordinates at input picture box
+            //Coordinates of input picture box
             if (e.Button != MouseButtons.Left)
                 return;
             Point tempEndPoint = e.Location;
@@ -38,7 +37,7 @@ namespace WindowsFormsCSE.ImageProcessing
                 Math.Abs(RectStartPoint.X - tempEndPoint.X),
                 Math.Abs(RectStartPoint.Y - tempEndPoint.Y));
 
-            //Coordinates at real image - Create ROI
+            //Create ROI
             ConvertCoordinates(pic, out X0, out Y0, RectStartPoint.X, RectStartPoint.Y);
             int X1, Y1;
             ConvertCoordinates(pic, out X1, out Y1, tempEndPoint.X, tempEndPoint.Y);
@@ -97,24 +96,20 @@ namespace WindowsFormsCSE.ImageProcessing
                 case PictureBoxSizeMode.Zoom:
                     float pic_aspect = pic_wid / (float)pic_hgt;
                     float img_aspect = img_wid / (float)img_wid;
-                    if (pic_aspect > img_aspect)
+                    if (pic_aspect < img_aspect)
                     {
-                        // The PictureBox is wider/shorter than the image.
+                        // Image is wider/taller than picture box
                         Y0 = (int)(img_hgt * y / (float)pic_hgt);
 
-                        // The image fills the height of the PictureBox.
-                        // Get its width.
                         float scaled_width = img_wid * pic_hgt / img_hgt;
                         float dx = (pic_wid - scaled_width) / 2;
                         X0 = (int)((x - dx) * img_hgt / (float)pic_hgt);
                     }
                     else
                     {
-                        // The PictureBox is taller/thinner than the image.
+                        // PictureBox is wider/taller than image
                         X0 = (int)(img_wid * x / (float)pic_wid);
 
-                        // The image fills the height of the PictureBox.
-                        // Get its height.
                         float scaled_height = img_hgt * pic_wid / img_wid;
                         float dy = (pic_hgt - scaled_height) / 2;
                         Y0 = (int)((y - dy) * img_wid / pic_wid);

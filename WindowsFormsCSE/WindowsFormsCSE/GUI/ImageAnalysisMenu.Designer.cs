@@ -35,6 +35,9 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rotateImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.analyseTextToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ocrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tesseractToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fullImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,8 +48,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rotateImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printItemListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -117,6 +119,30 @@
             this.saveToolStripMenuItem.Size = new System.Drawing.Size(103, 22);
             this.saveToolStripMenuItem.Text = "Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
+            // 
+            // imageToolStripMenuItem
+            // 
+            this.imageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.rotateImageToolStripMenuItem,
+            this.analyseTextToolStripMenuItem,
+            this.printItemListToolStripMenuItem});
+            this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
+            this.imageToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.imageToolStripMenuItem.Text = "Edit";
+            // 
+            // rotateImageToolStripMenuItem
+            // 
+            this.rotateImageToolStripMenuItem.Name = "rotateImageToolStripMenuItem";
+            this.rotateImageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.rotateImageToolStripMenuItem.Text = "Rotate Image";
+            this.rotateImageToolStripMenuItem.Click += new System.EventHandler(this.rotateImageToolStripMenuItem_Click);
+            // 
+            // analyseTextToolStripMenuItem
+            // 
+            this.analyseTextToolStripMenuItem.Name = "analyseTextToolStripMenuItem";
+            this.analyseTextToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.analyseTextToolStripMenuItem.Text = "Analyse Text";
+            this.analyseTextToolStripMenuItem.Click += new System.EventHandler(this.AnalyseTextToolStripMenuItem_Click);
             // 
             // ocrToolStripMenuItem
             // 
@@ -199,20 +225,12 @@
             this.toolStripStatusLabel1.Size = new System.Drawing.Size(72, 17);
             this.toolStripStatusLabel1.Text = "Open Image";
             // 
-            // imageToolStripMenuItem
+            // printItemListToolStripMenuItem
             // 
-            this.imageToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.rotateImageToolStripMenuItem});
-            this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
-            this.imageToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.imageToolStripMenuItem.Text = "Edit";
-            // 
-            // rotateImageToolStripMenuItem
-            // 
-            this.rotateImageToolStripMenuItem.Name = "rotateImageToolStripMenuItem";
-            this.rotateImageToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.rotateImageToolStripMenuItem.Text = "Rotate Image";
-            this.rotateImageToolStripMenuItem.Click += new System.EventHandler(this.rotateImageToolStripMenuItem_Click);
+            this.printItemListToolStripMenuItem.Name = "printItemListToolStripMenuItem";
+            this.printItemListToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.printItemListToolStripMenuItem.Text = "Print Item List";
+            this.printItemListToolStripMenuItem.Click += new System.EventHandler(this.printItemListToolStripMenuItem_Click);
             // 
             // ImageAnalysisMenu
             // 
@@ -261,5 +279,7 @@
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem imageToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rotateImageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem analyseTextToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem printItemListToolStripMenuItem;
     }
 }

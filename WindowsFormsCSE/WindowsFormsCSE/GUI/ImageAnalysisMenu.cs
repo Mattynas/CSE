@@ -13,6 +13,7 @@ namespace WindowsFormsCSE.GUI
         private Bitmap loadedImage;
 
         private ImageCroping imgCrop = new ImageCroping();
+        private Receipt receipt;
 
         public ImageAnalysisMenu()
         {
@@ -83,7 +84,8 @@ namespace WindowsFormsCSE.GUI
 
             textBox1.Text = imageProcessing.GetProcessedText;
 
-            var receipt = new Receipt(imageProcessing.GetProcessedText);
+            toolStripStatusLabel1.Text = Resources.IMAGEPROCESSING_helpText3;
+
         }
 
         private void FullImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -94,7 +96,8 @@ namespace WindowsFormsCSE.GUI
 
             textBox1.Text = imageProcessing.GetProcessedText;
 
-            var receipt = new Receipt(imageProcessing.GetProcessedText);
+            toolStripStatusLabel1.Text = Resources.IMAGEPROCESSING_helpText3;
+
         }
 
         private void FullImageToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -105,7 +108,8 @@ namespace WindowsFormsCSE.GUI
 
             textBox1.Text = imageProcessing.GetProcessedText;
 
-            var receipt = new Receipt(imageProcessing.GetProcessedText);
+            toolStripStatusLabel1.Text = Resources.IMAGEPROCESSING_helpText3;
+
         }
 
         private void CroppedImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,7 +121,7 @@ namespace WindowsFormsCSE.GUI
 
             textBox1.Text = imageProcessing.GetProcessedText;
 
-            var receipt = new Receipt(imageProcessing.GetProcessedText);
+            toolStripStatusLabel1.Text = Resources.IMAGEPROCESSING_helpText3;
         }
 
         private void rotateImageToolStripMenuItem_Click(object sender, EventArgs e)
@@ -129,6 +133,16 @@ namespace WindowsFormsCSE.GUI
                 loadedImage = new Bitmap(imageFile);
                 pictureBox1.Image = loadedImage;
             }
+        }
+
+        private void AnalyseTextToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            receipt = new Receipt(textBox1.Text);
+        }
+
+        private void printItemListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = receipt.GetItemList();
         }
     }
 }

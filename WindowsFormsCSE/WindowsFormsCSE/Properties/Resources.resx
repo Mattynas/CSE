@@ -204,4 +204,19 @@
   <data name="IMAGEPROCESSING_helpText2" xml:space="preserve">
     <value>Select OCR to process the image</value>
   </data>
+  <data name="IMAGEPROCESSING_helpText3" xml:space="preserve">
+    <value>If data is correct, go Edit -&gt; Analyse Text</value>
+  </data>
+  <data name="TEXTANALYSIS_namePattern" xml:space="preserve">
+    <value>.+(?= \d)</value>
+  </data>
+  <data name="TEXTANALYSIS_pricePattern" xml:space="preserve">
+    <value>\d+[,.]\d+(?= )</value>
+  </data>
+  <data name="ERROR_retry" xml:space="preserve">
+    <value>Try again or try analysing different image</value>
+  </data>
+  <data name="ERROR_wentWrong" xml:space="preserve">
+    <value>Oops something went wrong!</value>
+  </data>
 </root>

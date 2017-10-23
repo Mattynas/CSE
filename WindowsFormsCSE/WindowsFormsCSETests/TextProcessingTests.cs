@@ -6,7 +6,7 @@ using System.Collections.Generic;
 namespace WindowsFormsCSETests
 {
     [TestClass]
-    public class TextProcessing
+    public class TextProcessingTests
     {
         [TestMethod]
         public void TextProcessingTest()

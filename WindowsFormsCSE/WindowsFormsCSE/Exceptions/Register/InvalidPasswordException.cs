@@ -2,7 +2,7 @@
 
 namespace WindowsFormsCSE.Exceptions.Register
 {
-    class InvalidPasswordException : RegisterException
+    public class InvalidPasswordException : RegisterException
     {
         public InvalidPasswordException() { }
         public InvalidPasswordException(string message) : base(message) { }

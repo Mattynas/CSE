@@ -2,7 +2,7 @@
 
 namespace WindowsFormsCSE.Exceptions.Register
 {
-    class PasswordsDontMachException : RegisterException
+    public class PasswordsDontMachException : RegisterException
     {
         public PasswordsDontMachException() { }
         public PasswordsDontMachException(string message) : base(message) { }

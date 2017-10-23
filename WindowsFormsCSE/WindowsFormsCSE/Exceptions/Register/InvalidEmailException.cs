@@ -2,7 +2,7 @@
 
 namespace WindowsFormsCSE.Exceptions.Register
 {
-    class InvalidEmailException : RegisterException
+    public class InvalidEmailException : RegisterException
     {
         public InvalidEmailException() { }
         public InvalidEmailException(string message) : base(message) { }

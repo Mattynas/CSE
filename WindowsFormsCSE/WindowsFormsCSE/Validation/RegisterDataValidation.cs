@@ -4,7 +4,7 @@ using WindowsFormsCSE.Properties;
 
 namespace WindowsFormsCSE.Validation
 {
-    class RegisterDataValidation
+    public class RegisterDataValidation
     {
         public static bool RegisterValidation(string username, string email, string password, string confirmPassword)
         {

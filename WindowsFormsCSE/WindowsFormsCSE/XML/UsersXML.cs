@@ -5,9 +5,9 @@ using WindowsFormsCSE.Properties;
 
 namespace WindowsFormsCSE.XML
 {
-    enum Attributes { username, password, email }
+    public enum Attributes { username, password, email }
 
-    class UsersXML
+    public class UsersXML
     {
         //---------------------Path----------------------
         private static string pathToUsers = Resources.USERS_PATH_Users;

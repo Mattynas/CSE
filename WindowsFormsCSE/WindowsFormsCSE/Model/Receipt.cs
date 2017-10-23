@@ -65,12 +65,12 @@ namespace WindowsFormsCSE.Model
                         //using extension method
                         float price = Regex.Match(line, Resources.TEXTANALYSIS_pricePattern).ToString().StringToFloat();
                         sum += price;
-
+                        
                         ItemList.Add(new Item { Name = name, Price = price });
                     }
                 }
             }
-            catch(FormatException e)
+            catch(FormatException)
             {
                 MessageBox.Show(Resources.ERROR_wentWrong + "\r\n" + Resources.ERROR_retry);
             }

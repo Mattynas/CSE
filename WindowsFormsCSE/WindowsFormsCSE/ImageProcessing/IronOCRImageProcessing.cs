@@ -6,7 +6,7 @@ using IronOcr;
 
 namespace WindowsFormsCSE.ImageProcessing
 {
-    class IronOCRImageProcessing : IImageTextProcessing, IImagePreProcess<Bitmap>
+    class IronOCRImageProcessing : IImageProcess
     {
         private string processedText;
         private Bitmap inputImage;

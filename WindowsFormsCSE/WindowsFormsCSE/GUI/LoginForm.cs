@@ -16,8 +16,11 @@ namespace WindowsFormsCSE.GUI
         {
             if(UsersXML.Login(userNameTextbox.Text, passwordTextbox.Text))
             {
-                var main = new MainMenu(this);
-                main.Show();
+                //var main = new MainMenu(this);
+                //main.Show();
+
+                var imageAnalysis = new ImageAnalysisMenu(this);
+                imageAnalysis.Show();
                 this.Hide();
             }
             else

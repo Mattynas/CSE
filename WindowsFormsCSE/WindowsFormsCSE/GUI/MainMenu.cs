@@ -14,7 +14,7 @@ namespace WindowsFormsCSE.GUI
 
         private void openfileButton_Click(object sender, EventArgs e)
         {
-            var imageProcessing = new ImageAnalysisMenu();
+            var imageProcessing = new ImageAnalysisMenu(null);
             imageProcessing.Show();
 
         }

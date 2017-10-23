@@ -3,11 +3,12 @@ using Tesseract;
 using Emgu.CV;
 using Emgu.CV.Structure;
 using WindowsFormsCSE.Properties;
+using WindowsFormsCSE.ImageProcessing;
 //using System.Windows.Forms;
 
 namespace WindowsFormsCSE
 {
-    class TesseractImageProcessing : IImageTextProcessing, IImagePreProcess<Bitmap>
+    class TesseractImageProcessing : IImageProcess
     {
         private string processedText;
         private Image<Bgr, byte> inputImage;

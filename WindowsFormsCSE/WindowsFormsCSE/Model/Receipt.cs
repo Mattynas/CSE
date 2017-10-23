@@ -87,7 +87,7 @@ namespace WindowsFormsCSE.Model
                 listString += i.ToString() + ". Name: " + item.Name + " Price: " + item.Price.ToString() + "\r\n";
                 i++;
             }
-
+            
             return listString;
         }
 

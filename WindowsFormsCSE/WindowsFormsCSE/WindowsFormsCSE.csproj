@@ -84,6 +84,7 @@
     <Compile Include="GUI\RegisterForm.Designer.cs">
       <DependentUpon>RegisterForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ImageProcessing\IImageProcess.cs" />
     <Compile Include="ImageProcessing\ImageCroping.cs" />
     <Compile Include="ImageProcessing\IronOCRImageProcessing.cs" />
     <Compile Include="Extensions\Extension.cs" />
@@ -161,6 +162,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Validation\IOManager.cs" />
     <Compile Include="Validation\RegisterDataValidation.cs" />
     <Compile Include="XML\UsersXML.cs" />
     <Content Include="Examples\20170118_174154.jpg" />
@@ -214,6 +216,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Controller\" />
     <Folder Include="tessdata\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

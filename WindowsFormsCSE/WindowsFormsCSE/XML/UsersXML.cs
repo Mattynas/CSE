@@ -46,7 +46,7 @@ namespace WindowsFormsCSE.XML
             return false;
         }
 
-        public static bool Register(string username, string password, string email)
+        public static bool Register(string username, string password, string email, bool isAdmin = false)
         {
 
             XDocument xdoc;

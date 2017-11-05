@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <Database>
+    <DataSource>personal-cse.database.windows.net</DataSource>
+    <UserID>labutis</UserID>
+    <Password>123!@#ASD</Password>
+    <InitialCatalog>cse</InitialCatalog>
+  </Database>
+</root>

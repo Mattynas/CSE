@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using shopGuru.Properties;
-using System.Windows.Forms;
 using shopGuru.Extensions;
 
 namespace shopGuru.Model
@@ -72,7 +71,7 @@ namespace shopGuru.Model
             }
             catch(FormatException)
             {
-                MessageBox.Show(Resources.ERROR_wentWrong + "\r\n" + Resources.ERROR_retry);
+                //MessageBox.Show(Resources.ERROR_wentWrong + "\r\n" + Resources.ERROR_retry);
             }
 
         }

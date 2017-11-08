@@ -1,6 +1,6 @@
 using System;
 
-namespace shopGuru.Extensions
+namespace shopGuru_android.Extensions
 {
     public static class Extension
     {

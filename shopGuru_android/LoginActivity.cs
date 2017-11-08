@@ -15,11 +15,24 @@ namespace shopGuru_android
     [Activity(Label = "LoginActivity")]
     public class LoginActivity : Activity
     {
+        private Button mButtonSignUp;
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            // Create your application here
+            SetContentView(Resource.Layout.login);
+
+            mButtonSignUp = FindViewById<Button>(Resource.Id.btnSignUp);
+
+            mButtonSignUp.Click += (object sender, EventArgs args) =>
+            {
+                FragmentTransaction transaction = FragmentManager.BeginTransaction();
+
+                var signUpFragment = new SignUpFragment();
+                signUpFragment.Show(transaction,"fragment");
+            };
+
         }
     }
 }

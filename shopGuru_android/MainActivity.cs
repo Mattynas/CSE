@@ -14,27 +14,29 @@ using Android.OS;
 using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Util;
-using SupportToolbar = Android.Support.V7.Widget.Toolbar;
 using Java.Lang;
+using Toolbar = Android.Support.V7.Widget.Toolbar;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "shopGuru", MainLauncher = true, LaunchMode = Android.Content.PM.LaunchMode.SingleTop,
-        Icon = "@drawable/icon", Theme = "@style/Theme.MyTheme")]
+    [Activity(Label = "shopGuru", MainLauncher = true,
+        Icon = "@drawable/icon")]
     public class MainActivity : AppCompatActivity
     {
-        private SupportToolbar mToolbar;
+        private Toolbar _toolbar;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            //var intent = new Intent(this,typeof(LoginActivity));
-            //StartActivity(intent);
+            var intent = new Intent(this,typeof(LoginActivity));
+            StartActivity(intent);
 
             //Set your main view here
 
             SetContentView(Resource.Layout.main);
-            mToolbar = FindViewById<SupportToolbar>(Resource.Id.toolbar);
+            //_toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            //_toolbar?.SetTitle(Resource.String.app_name);
+            
 
         }
     }

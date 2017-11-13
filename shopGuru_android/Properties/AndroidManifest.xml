@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.company.shopGuru_android" android:versionCode="1" android:versionName="1.0" android:installLocation="auto">
 	<uses-sdk android:minSdkVersion="16" />
   <uses-permission android:name="android.permission.CAMERA"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 	<application android:label="shopGuru" android:icon="@drawable/Icon" android:theme="@style/Theme.MyTheme">
     <meta-data android:name="com.google.android.gms.vision.DEPENDENCIES"
                android:value="ocr"/>

@@ -28,7 +28,7 @@ namespace shopGuru_android
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-            var intent = new Intent(this,typeof(LoginActivity));
+            var intent = new Intent(this,typeof(ImageProcessing));
             StartActivity(intent);
 
             //Set your main view here

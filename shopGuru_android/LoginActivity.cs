@@ -34,5 +34,8 @@ namespace shopGuru_android
             };
 
         }
+        protected void SignUpButtonClick(View v) {
+
+        }
     }
 }

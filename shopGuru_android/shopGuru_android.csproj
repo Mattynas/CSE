@@ -179,6 +179,31 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable\EditTextStyle.xml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_menu_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_menu_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_menu_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_menu_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_menu_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_location_on_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_dashboard_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_power_settings_new_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\ic_settings_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_dashboard_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_location_on_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_power_settings_new_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-mdpi\ic_settings_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_dashboard_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_location_on_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_power_settings_new_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ic_settings_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_dashboard_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_location_on_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_power_settings_new_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ic_settings_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_dashboard_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_location_on_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_power_settings_new_black_24dp.png" />
+    <AndroidResource Include="Resources\drawable-xxxhdpi\ic_settings_black_24dp.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -49,10 +49,15 @@ namespace shopGuru_android
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetHomeButtonEnabled(true);
-            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.abc_menu_hardkey_panel_mtrl_mult);
+            SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu_black_24dp);
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
 
+            _navigationView.NavigationItemSelected += (sender, e) => {
+                e.MenuItem.SetChecked(true);
+                //react to click here and swap fragments or navigate
+                _drawerLayout.CloseDrawers();
+            };
         }
         public override bool OnOptionsItemSelected(IMenuItem item)
         {

@@ -2881,7 +2881,7 @@ namespace shopGuru_android
 			public const int txtEmail = 2131361937;
 			
 			// aapt resource value: 0x7f0a0090
-			public const int txtFirstName = 2131361936;
+			public const int txtName = 2131361936;
 			
 			// aapt resource value: 0x7f0a0092
 			public const int txtPassword = 2131361938;

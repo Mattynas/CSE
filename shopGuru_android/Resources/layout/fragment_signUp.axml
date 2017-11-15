@@ -6,7 +6,7 @@
     android:minWidth="300dp"
     android:minHeight="400dp">
     <EditText
-        android:id="@+id/txtFirstName"
+        android:id="@+id/txtName"
         android:layout_width="match_parent"
         android:layout_height="35dp"
         android:background="@drawable/EditTextStyle"
@@ -15,7 +15,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="25dp"
         android:paddingLeft="10dp"
-        android:hint="First Name"
+        android:hint="Name"
         android:textColor="#000" />
     <EditText
         android:id="@+id/txtEmail"
@@ -29,7 +29,7 @@
         android:paddingLeft="10dp"
         android:hint="Email"
         android:textColor="#000"
-        android:layout_below="@id/txtFirstName"/>
+        android:layout_below="@id/txtName" />
     <EditText
         android:id="@+id/txtPassword"
         android:inputType="textPassword"

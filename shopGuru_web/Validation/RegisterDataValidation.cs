@@ -1,5 +1,5 @@
 using System.Text.RegularExpressions;
-using shopGuru_web.Exceptions.Register;
+using shopGuru.Exceptions.Register;
 using shopGuru_web.Properties;
 
 namespace shopGuru_web.Validation

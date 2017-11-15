@@ -108,8 +108,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\Extension.cs" />
-    <Compile Include="LoginActivity.cs" />
-    <Compile Include="MainActivity.cs" />
+    <Compile Include="activities\LoginActivity.cs" />
+    <Compile Include="activities\MainActivity.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -119,20 +119,20 @@
     </Compile>
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScanActivity.cs" />
-    <Compile Include="SignUpFragment.cs" />
+    <Compile Include="activities\ScanActivity.cs" />
+    <Compile Include="fragments\SignUpFragment.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
-    <AndroidResource Include="Resources\layout\scanner.axml">
+    <AndroidResource Include="Resources\layout\activity_scanner.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\login.axml">
+    <AndroidResource Include="Resources\layout\activity_login.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\dialog_signUp.axml">
+    <AndroidResource Include="Resources\layout\fragment_signUp.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\drawable-hdpi\Thumbs.db" />
@@ -141,10 +141,16 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\Thumbs.db" />
     <AndroidResource Include="Resources\drawable-mdpi\Thumbs.db" />
     <AndroidResource Include="Resources\drawable-xhdpi\Thumbs.db" />
-    <AndroidResource Include="Resources\layout\main.axml">
+    <AndroidResource Include="Resources\layout\activity_main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\menu\menu.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\toolbar.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\nav_header.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
   </ItemGroup>
@@ -210,6 +216,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="authenticator\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

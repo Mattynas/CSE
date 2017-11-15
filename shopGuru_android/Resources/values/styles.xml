@@ -2,6 +2,17 @@
 <resources>
   <style name="NoActionBarTheme" parent="android:Theme.Holo.Light">
   </style>
+
+  <style name="Theme.DesignDemo" parent="Base.Theme.DesignDemo">
+
+  </style>
+  <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.Light.NoActionBar">
+    <item name="colorPrimary">#2196F3</item>
+    <item name="colorPrimaryDark">#1976D2</item>
+    <item name="android:windowBackground">@color/window_background</item>
+  </style>
+  
+  
   <!-- Base theme applied no matter what API -->
   <style name="Theme.MyTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
     <item name="windowNoTitle">true</item>

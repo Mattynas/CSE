@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using Android;
@@ -20,6 +21,8 @@ using Android.Support.V7.App;
 using Android.Util;
 using Java.Lang;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
+using shopGuru_android.Model;
+using shopGuru_android.adapters;
 
 namespace shopGuru_android
 {
@@ -60,7 +63,7 @@ namespace shopGuru_android
             
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu_black_24dp);
             
-
+            
             _navigationView.NavigationItemSelected += (sender, e) => {
                 
                  e.MenuItem.SetChecked(true);
@@ -68,6 +71,20 @@ namespace shopGuru_android
                 //react to click here and swap fragments or navigate
                 _drawerLayout.CloseDrawers();
             };
+
+
+            // listview
+
+            var listView = FindViewById<ListView>(Resource.Id.listView);
+            var itemList = new List<Item>
+            {
+                new Item {Name = "suris", Price = 0.5f},
+                new Item {Name = "kefyras", Price = 0.4f}
+            };
+
+            var itemAdapter = new ItemListViewAdapter(this,itemList);
+            listView.Adapter = itemAdapter;
+
         }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {

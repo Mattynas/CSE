@@ -107,7 +107,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="adapters\ItemListViewAdapter.cs" />
+    <Compile Include="adapters\ItemViewAdapter.cs" />
     <Compile Include="Extensions\Extension.cs" />
     <Compile Include="activities\LoginActivity.cs" />
     <Compile Include="activities\MainActivity.cs" />
@@ -154,7 +154,10 @@
     <AndroidResource Include="Resources\layout\nav_header.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\listview_row.axml">
+    <AndroidResource Include="Resources\layout\view_row.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\recycler_view.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <None Include="shopGuru_android.csproj.bak" />

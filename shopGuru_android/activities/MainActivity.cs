@@ -18,6 +18,7 @@ using Android.Support.V4.App;
 using Android.Support.V4;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
+using Android.Support.V7.Widget;
 using Android.Util;
 using Java.Lang;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
@@ -73,17 +74,22 @@ namespace shopGuru_android
             };
 
 
-            // listview
+            // RecyclerView
 
-            var listView = FindViewById<ListView>(Resource.Id.listView);
+            var recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             var itemList = new List<Item>
             {
                 new Item {Name = "suris", Price = 0.5f},
-                new Item {Name = "kefyras", Price = 0.4f}
+                new Item {Name = "kefyras", Price = 0.4f},
+                new Item {Name = "bulka", Price = 3.45f},
+                new Item {Name = "kopustas", Price = 2.54f},
+                new Item {Name = "dzinas", Price = 8.45f}
             };
 
-            var itemAdapter = new ItemListViewAdapter(this,itemList);
-            listView.Adapter = itemAdapter;
+            var layoutManager = new LinearLayoutManager(this);
+            var itemAdapter = new ItemViewAdapter(itemList);
+            recyclerView.SetLayoutManager(layoutManager);
+            recyclerView.SetAdapter(itemAdapter);
 
         }
         public override bool OnCreateOptionsMenu(IMenu menu)

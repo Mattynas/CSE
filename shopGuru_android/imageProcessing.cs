@@ -19,6 +19,7 @@ using Java.Lang;
 using Android.Provider;
 using Java.IO;
 using System.Collections.Generic;
+using Android.Media;
 
 namespace shopGuru_android
 {
@@ -103,7 +104,6 @@ namespace shopGuru_android
             if (img != null)
             {
                 imageView.SetImageBitmap(img);
-                img = null;
             }
 
             // Dispose of the Java side bitmap.
@@ -116,7 +116,7 @@ namespace shopGuru_android
             */
         }
 
-        private Bitmap LoadAndResizeBitmap(string fileName, int width, int height)
+        public Bitmap LoadAndResizeBitmap(string fileName, int width, int height)
         {
             // First we get the the dimensions of the file on disk
             BitmapFactory.Options options = new BitmapFactory.Options { InJustDecodeBounds = true };
@@ -131,14 +131,39 @@ namespace shopGuru_android
             if (outHeight > height || outWidth > width)
             {
                 inSampleSize = outWidth > outHeight
-                                   ? outHeight / height
-                                   : outWidth / width;
+                    ? outHeight / height
+                        : outWidth / width;
             }
 
             // Now we will load the image and have BitmapFactory resize it for us.
             options.InSampleSize = inSampleSize;
             options.InJustDecodeBounds = false;
             Bitmap resizedBitmap = BitmapFactory.DecodeFile(fileName, options);
+
+            // Images are being saved in landscape, so rotate them back to portrait if they were taken in portrait
+            Matrix mtx = new Matrix();
+            ExifInterface exif = new ExifInterface(fileName);
+            string orientation = exif.GetAttribute(ExifInterface.TagOrientation);
+
+            switch (orientation)
+            {
+                case "6": // portrait
+                    mtx.PreRotate(90);
+                    resizedBitmap = Bitmap.CreateBitmap(resizedBitmap, 0, 0, resizedBitmap.Width, resizedBitmap.Height, mtx, false);
+                    mtx.Dispose();
+                    mtx = null;
+                    break;
+                case "1": // landscape
+                    break;
+                default:
+                    mtx.PreRotate(90);
+                    resizedBitmap = Bitmap.CreateBitmap(resizedBitmap, 0, 0, resizedBitmap.Width, resizedBitmap.Height, mtx, false);
+                    mtx.Dispose();
+                    mtx = null;
+                    break;
+            }
+
+
 
             return resizedBitmap;
         }
@@ -152,7 +177,7 @@ namespace shopGuru_android
             }
             else
             {
-                Frame frame = new Frame.Builder().SetBitmap(BitmapFactory.DecodeFile(file.Path)).Build();
+                Frame frame = new Frame.Builder().SetBitmap(img).Build();
                 SparseArray items = txtRec.Detect(frame);
                 StringBuilder strBuilder = new StringBuilder();
                 for(int i = 0; i < items.Size(); ++i)

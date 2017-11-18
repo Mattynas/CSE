@@ -24,7 +24,7 @@ using Android.Media;
 namespace shopGuru_android
 {
     [Activity(Label = "shopGuru")]
-    public class ImageProcessing : AppCompatActivity
+    public class ImageProcessingActivity : AppCompatActivity
     {
         private ImageView imageView;
         private Button camButton;

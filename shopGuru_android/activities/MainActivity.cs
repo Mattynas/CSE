@@ -1,26 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Android;
+﻿using System.Collections.Generic;
 using Android.App;
 using Android.Content;
-using Android.Content.PM;
-using Android.Gms.Vision;
-using Android.Gms.Vision.Texts;
-using Android.Graphics;
-using Android.Runtime;
 using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Android.Support.Design.Widget;
-using Android.Support.V4.App;
-using Android.Support.V4;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
-using Android.Util;
-using Java.Lang;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using shopGuru_android.Model;
 using shopGuru_android.adapters;
@@ -41,7 +27,8 @@ namespace shopGuru_android
 
             //var intent = new Intent(this, typeof(LoginActivity));
             //StartActivity(intent);
-
+            var intent = new Intent(this, typeof(ImageProcessingActivity));
+            StartActivity(intent);
             //Set your main view here
 
             SetContentView(Resource.Layout.activity_main);

@@ -107,10 +107,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adapters\ItemViewAdapter.cs" />
     <Compile Include="Extensions\Extension.cs" />
     <Compile Include="activities\LoginActivity.cs" />
     <Compile Include="activities\MainActivity.cs" />
-    <Compile Include="activities\imageProcessingActivity.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -154,8 +154,12 @@
     <AndroidResource Include="Resources\layout\nav_header.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\main.axml" />
-    <AndroidResource Include="Resources\layout\activity_imageProcess.axml" />
+    <AndroidResource Include="Resources\layout\view_row.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\recycler_view.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <None Include="shopGuru_android.csproj.bak" />
   </ItemGroup>
   <ItemGroup>
@@ -222,7 +226,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="adapters\" />
     <Folder Include="authenticator\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

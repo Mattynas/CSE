@@ -24,7 +24,7 @@
         android:layout_height="0dp"
         android:layout_weight="10"
         android:layout_gravity="center"
-        android:id="@+id/txtUsernameLog" />
+        android:id="@+id/txtUsernameLog"/>
     <TextView
         android:text="Password"
         android:textAppearance="?android:attr/textAppearanceLarge"

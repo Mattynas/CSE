@@ -40,7 +40,7 @@ namespace shopGuru_android
         {
             base.OnCreate(bundle);
 
-            SetContentView(Resource.Layout.imageProcess);
+            SetContentView(Resource.Layout.activity_imageProcess);
 
             if (IsThereAnAppToTakePictures())
             {

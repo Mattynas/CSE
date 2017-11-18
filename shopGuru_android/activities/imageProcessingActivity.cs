@@ -175,14 +175,14 @@ namespace shopGuru_android
             {
                 Log.Error("ERROR", "Detector depedencies are not yet available");
             }
-            else
+            else if (img != null)
             {
                 Frame frame = new Frame.Builder().SetBitmap(img).Build();
                 SparseArray items = txtRec.Detect(frame);
                 StringBuilder strBuilder = new StringBuilder();
-                for(int i = 0; i < items.Size(); ++i)
+                for (int i = 0; i < items.Size(); ++i)
                 {
-                    TextBlock item = (TextBlock)items.ValueAt(i);
+                    TextBlock item = (TextBlock) items.ValueAt(i);
                     strBuilder.Append(item.Value);
                     strBuilder.Append("\n");
                 }

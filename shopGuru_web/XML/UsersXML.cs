@@ -7,7 +7,7 @@ namespace shopGuru_web.XML
 {
     public enum Attributes { username, password, email }
 
-    public class UsersXML
+    public static class UsersXML
     {
         //---------------------Path----------------------
         private static string pathToUsers = Resources.USERS_PATH_Users;

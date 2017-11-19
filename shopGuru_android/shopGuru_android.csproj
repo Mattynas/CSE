@@ -109,6 +109,7 @@
   <ItemGroup>
     <Compile Include="activities\ImageProcessingActivity.cs" />
     <Compile Include="adapters\ItemViewAdapter.cs" />
+    <Compile Include="converters\TextToReceiptConverter.cs" />
     <Compile Include="Extensions\Extension.cs" />
     <Compile Include="activities\LoginActivity.cs" />
     <Compile Include="activities\MainActivity.cs" />

@@ -6,7 +6,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shopGuruTests", "shopGuruTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shopGuru_android", "shopGuru_android\shopGuru_android.csproj", "{4D4FA695-ADDC-44E2-996A-1AD42326E6F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shopGuru_web", "shopGuru_web\shopGuru_web.csproj", "{A55EAC83-7FAD-43C1-9E38-1F34D8B02AEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shopGuru_web", "shopGuru_web\shopGuru_web.csproj", "{A55EAC83-7FAD-43C1-9E38-1F34D8B02AEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

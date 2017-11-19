@@ -2641,13 +2641,10 @@ namespace shopGuru_android
 			public const int nav_home = 2131361974;
 			
 			// aapt resource value: 0x7f0a00b7
-			public const int nav_nearestshop = 2131361975;
+			public const int nav_processing = 2131361975;
 			
 			// aapt resource value: 0x7f0a00b8
-			public const int nav_settings = 2131361976;
-			
-			// aapt resource value: 0x7f0a00b9
-			public const int nav_signout = 2131361977;
+			public const int nav_scanner = 2131361976;
 			
 			// aapt resource value: 0x7f0a0083
 			public const int nav_view = 2131361923;

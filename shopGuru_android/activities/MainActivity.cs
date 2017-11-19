@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Android.App;
 using Android.Content;
 using Android.Views;
@@ -7,9 +8,11 @@ using Android.Support.Design.Widget;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
 using Android.Support.V7.Widget;
+using Android.Widget;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using shopGuru_android.Model;
 using shopGuru_android.adapters;
+using shopGuru_android.converters;
 
 namespace shopGuru_android
 {
@@ -19,16 +22,18 @@ namespace shopGuru_android
     {
         private DrawerLayout _drawerLayout;
         private NavigationView _navigationView;
+        private RecyclerView _recyclerView;
+
+        private Intent _intent;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-
             //var intent = new Intent(this, typeof(LoginActivity));
             //StartActivity(intent);
-            var intent = new Intent(this, typeof(ImageProcessingActivity));
-            StartActivity(intent);
+            //var intent = new Intent(this, typeof(ImageProcessingActivity));
+            //StartActivity(intent);
             //Set your main view here
 
             SetContentView(Resource.Layout.activity_main);
@@ -57,35 +62,66 @@ namespace shopGuru_android
                  e.MenuItem.SetChecked(true);
                 
                 //react to click here and swap fragments or navigate
+                long id = e.MenuItem.ItemId;
+                FragmentTransaction ft = this.FragmentManager.BeginTransaction();
+                if (id == Resource.Id.nav_scanner)
+                {
+                    _intent = new Intent(this,typeof(ScanActivity));
+                }
+                else if (id == Resource.Id.nav_processing)
+                {
+                    _intent = new Intent(this, typeof(ImageProcessingActivity));
+                }
+                else if (id == Resource.Id.nav_home)
+                {
+                    return;
+                }
+                
+
+
+
+                if (_intent != null)
+                {
+                    StartActivityForResult(_intent,0);
+                }
                 _drawerLayout.CloseDrawers();
             };
+        }
 
 
-            // RecyclerView
+        protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
+        {
+            base.OnActivityResult(requestCode, resultCode, data);
 
-            var recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-            var itemList = new List<Item>
+            if (resultCode == Result.Ok)
             {
-                new Item {Name = "suris", Price = 0.5f},
-                new Item {Name = "kefyras", Price = 0.4f},
-                new Item {Name = "bulka", Price = 3.45f},
-                new Item {Name = "kopustas", Price = 2.54f},
-                new Item {Name = "dzinas", Price = 8.45f}
-            };
+                string text = data.GetStringExtra("text");
+                try
+                {
+                    var itemList = TextToReceiptConverter.ReadItemList(text);
+                    ToRecyclerView(itemList);
+                }
+                catch (FormatException ex)
+                {
+                    Toast.MakeText(ApplicationContext,ex.Message,ToastLength.Long).Show();
+                }
+            }
+        }
 
+        private void ToRecyclerView(List<Item> itemList)
+        {
+            _recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             var layoutManager = new LinearLayoutManager(this);
             var itemAdapter = new ItemViewAdapter(itemList);
-            recyclerView.SetLayoutManager(layoutManager);
-            recyclerView.SetAdapter(itemAdapter);
-
+            _recyclerView.SetLayoutManager(layoutManager);
+            _recyclerView.SetAdapter(itemAdapter);
         }
+
         public override bool OnCreateOptionsMenu(IMenu menu)
         {
             _navigationView.InflateMenu(Resource.Menu.menu); //Navigation Drawer Layout Menu Creation  
             return true;
         }
-
-
 
         public override bool OnOptionsItemSelected(IMenuItem item)
         {

@@ -8,7 +8,7 @@ namespace shopGuru_android.Model
     public struct Item: IEquatable<Item>
     {
         public string Name { get; set; }
-        public float Price { get; set; }
+        public decimal Price { get; set; }
 
         public bool Equals(Item other)
         {

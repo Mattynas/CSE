@@ -15,6 +15,8 @@ using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Util;
 using Java.Lang;
+using shopGuru_android.converters;
+using shopGuru_android.Model;
 
 namespace shopGuru_android
 {
@@ -110,6 +112,7 @@ namespace shopGuru_android
                         sb.Append("\n");
                     }
                     _textView.Text = sb.ToString();
+                    ReturnResult(sb.ToString());
                 });
             }
         }
@@ -117,6 +120,25 @@ namespace shopGuru_android
         public void Release()
         {
             return;
+        }
+
+
+        private void ReturnResult(string text)
+        {
+            try
+            {
+                Intent intent = new Intent(this, typeof(MainActivity));
+
+                TextToReceiptConverter.ReadItemList(text);
+
+                intent.PutExtra("text", text);
+                SetResult(Result.Ok, intent);
+                Finish();
+            }
+            catch (FormatException)
+            {
+                return;
+            }
         }
     }
 }

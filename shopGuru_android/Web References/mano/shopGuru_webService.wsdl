@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://shopguru.net/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://shopguru.net/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
-    <s:schema elementFormDefault="qualified" targetNamespace="http://shopguru.net/">
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
       <s:element name="Login">
         <s:complexType>
           <s:sequence>
@@ -34,7 +34,7 @@
   <wsdl:binding name="shopGuru_webServiceSoap" type="tns:shopGuru_webServiceSoap">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Login">
-      <soap:operation soapAction="http://shopguru.net/Login" style="document" />
+      <soap:operation soapAction="http://tempuri.org/Login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -46,7 +46,7 @@
   <wsdl:binding name="shopGuru_webServiceSoap12" type="tns:shopGuru_webServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Login">
-      <soap12:operation soapAction="http://shopguru.net/Login" style="document" />
+      <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -57,10 +57,10 @@
   </wsdl:binding>
   <wsdl:service name="shopGuru_webService">
     <wsdl:port name="shopGuru_webServiceSoap" binding="tns:shopGuru_webServiceSoap">
-      <soap:address location="http://localhost:54506/shopGuru_webService.asmx" />
+      <soap:address location="http://shopguruwebservice.azurewebsites.net/shopGuru_webService.asmx" />
     </wsdl:port>
     <wsdl:port name="shopGuru_webServiceSoap12" binding="tns:shopGuru_webServiceSoap12">
-      <soap12:address location="http://localhost:54506/shopGuru_webService.asmx" />
+      <soap12:address location="http://shopguruwebservice.azurewebsites.net/shopGuru_webService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

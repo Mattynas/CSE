@@ -15,11 +15,12 @@ namespace shopGuru_android.Model
 
 
 
-        public Receipt(string receiptString)
+        public Receipt(List<Item> itemList, float sum, string rs, string sn)
         {
-            this.receiptString = receiptString;
-            ItemList = new List<Item>();
-            ReadItemList();
+            receiptString = rs;
+            this.sum = sum;
+            shopName = sn;
+            ItemList = itemList;
         }
 
         public string ShopName
@@ -45,36 +46,7 @@ namespace shopGuru_android.Model
         public float Sum { get => sum; }
 
 
-        private void ReadItemList()
-        {
-            //receiptString = receiptString.ToLower();
-            string pattern = @"\n";
-            receiptString.Replace("\r\n\r\n", "\r\n");
-            string[] lines = Regex.Split(receiptString, pattern);
-
-            //string pattern2 = @".+(?= \d)"; //for item name
-            //string pattern3 = @"\d+[,.]\d+(?= )"; //for price
-            try
-            {
-                foreach (var line in lines)
-                {
-                    if (!line.Contains(" -"))
-                    {
-                        string name = Regex.Match(line, Resources.TEXTANALYSIS_namePattern).ToString();
-                        //using extension method
-                        float price = Regex.Match(line, Resources.TEXTANALYSIS_pricePattern).ToString().StringToFloat();
-                        sum += price;
-                        
-                        ItemList.Add(new Item { Name = name, Price = price });
-                    }
-                }
-            }
-            catch(FormatException)
-            {
-                //MessageBox.Show(Resources.ERROR_wentWrong + "\r\n" + Resources.ERROR_retry);
-            }
-
-        }
+       
 
 
         public string GetItemList()

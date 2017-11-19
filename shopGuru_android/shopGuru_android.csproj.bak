@@ -107,13 +107,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="activities\ImageProcessingActivity.cs" />
+    <Compile Include="activities\imageProcessingActivity.cs" />
     <Compile Include="adapters\ItemViewAdapter.cs" />
+    <Compile Include="authenticator\UserDataValidation.cs" />
+    <Compile Include="Exceptions\UserData\InvalidEmailException.cs" />
+    <Compile Include="Exceptions\UserData\InvalidPasswordException.cs" />
+    <Compile Include="Exceptions\UserData\InvalidUsernameException.cs" />
+    <Compile Include="Exceptions\UserData\PasswordsDontMachException.cs" />
+    <Compile Include="Exceptions\UserData\UserDataException.cs" />
     <Compile Include="Extensions\Extension.cs" />
     <Compile Include="activities\LoginActivity.cs" />
     <Compile Include="activities\MainActivity.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Receipt.cs" />
+    <Compile Include="Model\Session.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <DependentUpon>Resources.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -155,13 +162,9 @@
     <AndroidResource Include="Resources\layout\nav_header.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\view_row.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
-    <AndroidResource Include="Resources\layout\recycler_view.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_imageProcess.axml" />
+    <AndroidResource Include="Resources\layout\recycler_view.axml" />
+    <AndroidResource Include="Resources\layout\view_row.axml" />
     <None Include="shopGuru_android.csproj.bak" />
   </ItemGroup>
   <ItemGroup>
@@ -171,7 +174,7 @@
     <AndroidResource Include="Resources\drawable\Icon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\AndroidManifest.xml" />
+    <None Include="Properties\AndroidManifest.xml" />
     <AndroidResource Include="Resources\values\styles.xml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -226,9 +229,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="authenticator\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

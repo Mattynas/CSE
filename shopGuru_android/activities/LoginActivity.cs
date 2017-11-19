@@ -9,7 +9,8 @@ using Android.Content;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "LoginActivity")]
+    [Activity(Label = "shopGuru",MainLauncher = true,
+        Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
         private Button _mButtonSignUp;
@@ -22,24 +23,27 @@ namespace shopGuru_android
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_login);
 
-            _mButtonSignUp = FindViewById<Button>(Resource.Id.btnSignUpLog);
+            //_mButtonSignUp = FindViewById<Button>(Resource.Id.btnSignUpLog);
             _mButtonSignIn = FindViewById<Button>(Resource.Id.btnSignInLog);
             _username = FindViewById<EditText>(Resource.Id.txtUsernameLog);
             _password = FindViewById<EditText>(Resource.Id.txtPasswordLog);
 
-            _mButtonSignUp.Click += delegate(object sender, EventArgs args)
+            /*_mButtonSignUp.Click += delegate(object sender, EventArgs args)
             {
                 FragmentTransaction transaction = FragmentManager.BeginTransaction();
 
                 var signUpFragment = new SignUpFragment();
                 signUpFragment.Show(transaction,"fragment");
-            };
+            };*/
 
             _mButtonSignIn.Click += (object sender, EventArgs args) =>
             {
                 try
                 {
-                    UserDataValidation.LoginValidation(_username.Text, _password.Text); 
+                    UserDataValidation.LoginValidation(_username.Text, _password.Text);
+                    var intent = new Intent(this, typeof(MainActivity));
+                    StartActivity(intent);
+                    Finish();
                     /*if (UsersXML.Login(_username.Text, _password.Text))
                     {
                         var intent = new Intent(this, typeof(MainActivity));

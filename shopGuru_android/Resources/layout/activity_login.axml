@@ -24,7 +24,7 @@
         android:layout_height="0dp"
         android:layout_weight="10"
         android:layout_gravity="center"
-        android:id="@+id/txtUsernameLog"/>
+        android:id="@+id/txtUsernameLog" />
     <TextView
         android:text="Password"
         android:textAppearance="?android:attr/textAppearanceLarge"
@@ -59,7 +59,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="5" />
-    <Button
+<!--    <Button
         android:text="Sign Up"
         android:layout_width="180dp"
         android:layout_weight="10"
@@ -67,7 +67,7 @@
         android:layout_gravity="center"
         android:background="@drawable/ButtonSignUpStyle"
         android:textSize="20dp"
-        android:id="@+id/btnSignUpLog" />
+        android:id="@+id/btnSignUpLog" />-->
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

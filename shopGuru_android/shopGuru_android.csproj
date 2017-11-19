@@ -52,6 +52,7 @@
     <Reference Include="mscorlib" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="Xamarin.Android.Support.Animated.Vector.Drawable, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -107,9 +108,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="activities\imageProcessingActivity.cs" />
+    <Compile Include="activities\ImageProcessingActivity.cs" />
     <Compile Include="adapters\ItemViewAdapter.cs" />
     <Compile Include="authenticator\UserDataValidation.cs" />
+    <Compile Include="converters\TextToReceiptConverter.cs" />
     <Compile Include="Exceptions\UserData\InvalidEmailException.cs" />
     <Compile Include="Exceptions\UserData\InvalidPasswordException.cs" />
     <Compile Include="Exceptions\UserData\InvalidUsernameException.cs" />
@@ -130,6 +132,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="activities\ScanActivity.cs" />
     <Compile Include="fragments\SignUpFragment.cs" />
+    <Compile Include="Web References\localhost\Reference.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -166,6 +169,8 @@
     <AndroidResource Include="Resources\layout\recycler_view.axml" />
     <AndroidResource Include="Resources\layout\view_row.axml" />
     <None Include="shopGuru_android.csproj.bak" />
+    <None Include="Web References\localhost\Reference.map" />
+    <None Include="Web References\localhost\shopGuru_webService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\strings.xml" />
@@ -229,6 +234,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web References\localhost\shopGuru_webService.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

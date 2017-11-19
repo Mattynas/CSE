@@ -20,6 +20,8 @@ using Android.Provider;
 using Java.IO;
 using System.Collections.Generic;
 using Android.Media;
+using shopGuru_android.converters;
+using shopGuru_android.Model;
 
 namespace shopGuru_android
 {
@@ -144,7 +146,7 @@ namespace shopGuru_android
             Matrix mtx = new Matrix();
             ExifInterface exif = new ExifInterface(fileName);
             string orientation = exif.GetAttribute(ExifInterface.TagOrientation);
-
+            /*
             switch (orientation)
             {
                 case "6": // portrait
@@ -162,7 +164,7 @@ namespace shopGuru_android
                     mtx = null;
                     break;
             }
-
+            */
 
 
             return resizedBitmap;
@@ -187,6 +189,26 @@ namespace shopGuru_android
                     strBuilder.Append("\n");
                 }
                 txtResult.Text = strBuilder.ToString();
+
+                ReturnResult(strBuilder.ToString());
+            }
+        }
+
+        private void ReturnResult(string text)
+        {
+            try
+            {
+                Intent intent = new Intent(this, typeof(MainActivity));
+
+                TextToReceiptConverter.ReadItemList(text);
+
+                intent.PutExtra("text", text);
+                SetResult(Result.Ok, intent);
+                Finish();
+            }
+            catch (FormatException e)
+            {
+                return;
             }
         }
 

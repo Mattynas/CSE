@@ -27,14 +27,15 @@ namespace shopGuru_android
 
             mButtonSignUp.Click += (object sender, EventArgs args) =>
             {
-                FragmentTransaction transaction = FragmentManager.BeginTransaction();
+                var client = new localhost.shopGuru_webService();
+                client.Login("Martynas", "nesakysiu");
+                Console.WriteLine("zjbs");
+                /*FragmentTransaction transaction = FragmentManager.BeginTransaction();
 
                 var signUpFragment = new SignUpFragment();
-                signUpFragment.Show(transaction,"fragment");
+                signUpFragment.Show(transaction,"fragment");*/
             };
 
-        }
-        protected void SignUpButtonClick(View v) {
 
         }
     }

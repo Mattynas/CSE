@@ -27,7 +27,7 @@ namespace shopGuru_android
 
             //var intent = new Intent(this, typeof(LoginActivity));
             //StartActivity(intent);
-            var intent = new Intent(this, typeof(ImageProcessingActivity));
+            var intent = new Intent(this, typeof(LoginActivity));
             StartActivity(intent);
             //Set your main view here
 

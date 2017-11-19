@@ -7,50 +7,82 @@
     android:minWidth="25px"
     android:minHeight="25px">
     <TextView
-        android:text="Welcome!"
+        android:text=""
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="20"
-        android:textColor="#368DEB"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="30sp"
-        android:id="@+id/txtCreateAccount" />
-    <Button
-        android:text="Sign In"
-        android:layout_width="match_parent"
-        android:layout_weight="20"
+        android:layout_weight="20" />
+    <TextView
+        android:text="Username"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:id="@+id/btnSignIn"
-        android:background="@drawable/ButtonSignInStyle"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textSize="30dp" />
+        android:layout_weight="5"
+        android:layout_gravity="center"
+        android:id="@+id/txtViewUsernameLog" />
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:layout_gravity="center"
+        android:id="@+id/txtUsernameLog"/>
+    <TextView
+        android:text="Password"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:layout_gravity="center"
+        android:id="@+id/txtViewPasswordLog" />
+    <EditText
+        android:inputType="textPassword"
+        android:layout_width="250dp"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:layout_gravity="center"
+        android:id="@+id/txtPasswordLog" />
     <TextView
         android:text=""
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="15" />
+        android:layout_weight="5" />
     <Button
-        android:text="Sign Up With Email"
-        android:layout_width="match_parent"
-        android:layout_weight="20"
+        android:text="Sign In"
+        android:layout_width="180dp"
+        android:layout_weight="10"
         android:layout_height="0dp"
-        android:id="@+id/btnSignUp"
+        android:layout_gravity="center"
+        android:background="@drawable/ButtonSignInStyle"
+        android:textSize="20dp"
+        android:id="@+id/btnSignInLog" />
+    <TextView
+        android:text=""
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5" />
+    <Button
+        android:text="Sign Up"
+        android:layout_width="180dp"
+        android:layout_weight="10"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
         android:background="@drawable/ButtonSignUpStyle"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:textSize="30dp" />
-    <RelativeLayout
+        android:textSize="20dp"
+        android:id="@+id/btnSignUpLog" />
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="35">
+        android:layout_weight="20"
+        android:minWidth="25px"
+        android:minHeight="25px">
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/progressBar"
             android:background="@drawable/ProgressBarStyle"
-            android:layout_gravity="center_vertical|center_horizontal"
-            android:indeterminate="true" />
-    </RelativeLayout>
+            android:layout_gravity="center"
+            android:layout_marginTop="40dp"
+            android:indeterminate="true"
+            android:visibility="invisible"
+            android:id="@+id/progressBarLog" />
+    </LinearLayout>
 </LinearLayout>

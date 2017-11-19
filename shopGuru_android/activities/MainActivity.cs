@@ -25,10 +25,10 @@ namespace shopGuru_android
             base.OnCreate(bundle);
 
 
-            //var intent = new Intent(this, typeof(LoginActivity));
-            //StartActivity(intent);
-            var intent = new Intent(this, typeof(ImageProcessingActivity));
+            var intent = new Intent(this, typeof(LoginActivity));
             StartActivity(intent);
+            //var intent = new Intent(this, typeof(ImageProcessingActivity));
+           // StartActivity(intent);
             //Set your main view here
 
             SetContentView(Resource.Layout.activity_main);

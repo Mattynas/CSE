@@ -27,7 +27,7 @@ namespace shopGuru_android
 
             mButtonSignUp.Click += (object sender, EventArgs args) =>
             {
-                var client = new localhost.shopGuru_webService();
+                var client = new mano.shopGuru_webService();
                 client.Login("Martynas", "nesakysiu");
                 Console.WriteLine("zjbs");
                 /*FragmentTransaction transaction = FragmentManager.BeginTransaction();

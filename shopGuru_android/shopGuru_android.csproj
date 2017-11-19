@@ -129,7 +129,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="activities\ScanActivity.cs" />
     <Compile Include="fragments\SignUpFragment.cs" />
-    <Compile Include="Web References\localhost\Reference.cs">
+    <Compile Include="Web References\mano\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
@@ -174,11 +174,11 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\activity_imageProcess.axml" />
     <None Include="shopGuru_android.csproj.bak" />
-    <None Include="Web References\localhost\Reference.map">
+    <None Include="Web References\mano\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-    <None Include="Web References\localhost\shopGuru_webService.wsdl" />
+    <None Include="Web References\mano\shopGuru_webService.wsdl" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\values\strings.xml" />
@@ -236,7 +236,7 @@
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_location_on_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_power_settings_new_black_24dp.png" />
     <AndroidResource Include="Resources\drawable-xxxhdpi\ic_settings_black_24dp.png" />
-    <None Include="Web References\localhost\shopGuru_webService.disco" />
+    <None Include="Web References\mano\shopGuru_webService.disco" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -251,10 +251,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:54506/shopGuru_webService.asmx">
+    <WebReferenceUrl Include="http://shopguruwebservice.azurewebsites.net/shopGuru_webService.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\localhost\</RelPath>
-      <UpdateFromURL>http://localhost:54506/shopGuru_webService.asmx</UpdateFromURL>
+      <RelPath>Web References\mano\</RelPath>
+      <UpdateFromURL>http://shopguruwebservice.azurewebsites.net/shopGuru_webService.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

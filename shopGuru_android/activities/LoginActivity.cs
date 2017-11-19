@@ -23,18 +23,18 @@ namespace shopGuru_android
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_login);
 
-            _mButtonSignUp = FindViewById<Button>(Resource.Id.btnSignUpLog);
+            //_mButtonSignUp = FindViewById<Button>(Resource.Id.btnSignUpLog);
             _mButtonSignIn = FindViewById<Button>(Resource.Id.btnSignInLog);
             _username = FindViewById<EditText>(Resource.Id.txtUsernameLog);
             _password = FindViewById<EditText>(Resource.Id.txtPasswordLog);
 
-            _mButtonSignUp.Click += delegate(object sender, EventArgs args)
+            /*_mButtonSignUp.Click += delegate(object sender, EventArgs args)
             {
                 FragmentTransaction transaction = FragmentManager.BeginTransaction();
 
                 var signUpFragment = new SignUpFragment();
                 signUpFragment.Show(transaction,"fragment");
-            };
+            };*/
 
             _mButtonSignIn.Click += (object sender, EventArgs args) =>
             {

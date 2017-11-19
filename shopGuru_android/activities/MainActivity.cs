@@ -16,8 +16,7 @@ using shopGuru_android.converters;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "shopGuru", MainLauncher = true,
-        Icon = "@drawable/icon")]
+    [Activity(Label = "shopGuru")]
     public class MainActivity : AppCompatActivity
     {
         private DrawerLayout _drawerLayout;
@@ -30,11 +29,7 @@ namespace shopGuru_android
         {
             base.OnCreate(bundle);
 
-            //var intent = new Intent(this, typeof(LoginActivity));
-            //StartActivity(intent);
-            //var intent = new Intent(this, typeof(ImageProcessingActivity));
-            //StartActivity(intent);
-            //Set your main view here
+            
 
             SetContentView(Resource.Layout.activity_main);
             

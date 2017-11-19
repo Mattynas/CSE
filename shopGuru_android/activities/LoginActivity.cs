@@ -9,7 +9,8 @@ using Android.Content;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "LoginActivity")]
+    [Activity(Label = "shopGuru",MainLauncher = true,
+        Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
         private Button _mButtonSignUp;
@@ -39,7 +40,10 @@ namespace shopGuru_android
             {
                 try
                 {
-                    UserDataValidation.LoginValidation(_username.Text, _password.Text); 
+                    UserDataValidation.LoginValidation(_username.Text, _password.Text);
+                    var intent = new Intent(this, typeof(MainActivity));
+                    StartActivity(intent);
+                    Finish();
                     /*if (UsersXML.Login(_username.Text, _password.Text))
                     {
                         var intent = new Intent(this, typeof(MainActivity));

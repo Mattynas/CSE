@@ -1,12 +1,34 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shopGuruTests", "shopGuruTests\shopGuruTests.csproj", "{B63CDF0A-AE43-4CF3-B7D5-0F49B3E583F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shopGuru_android", "shopGuru_android\shopGuru_android.csproj", "{4D4FA695-ADDC-44E2-996A-1AD42326E6F2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shopGuru_web", "shopGuru_web\shopGuru_web.csproj", "{A55EAC83-7FAD-43C1-9E38-1F34D8B02AEA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "shopGuru_web", "shopGuru_web\shopGuru_web.csproj", "{A55EAC83-7FAD-43C1-9E38-1F34D8B02AEA}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "shopGuru_ws", "..\..\..\source\WebSites\shopGuru_ws\", "{8D268BD2-5D4D-4A7E-B6CD-120732393280}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54506"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\source\WebSites\shopGuru_ws\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54506\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54506"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\source\WebSites\shopGuru_ws\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54506\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54506"
+		SlnRelativePath = "..\..\..\source\WebSites\shopGuru_ws\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -60,6 +82,18 @@ Global
 		{A55EAC83-7FAD-43C1-9E38-1F34D8B02AEA}.Release|iPhone.Build.0 = Release|Any CPU
 		{A55EAC83-7FAD-43C1-9E38-1F34D8B02AEA}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
 		{A55EAC83-7FAD-43C1-9E38-1F34D8B02AEA}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Release|iPhone.ActiveCfg = Debug|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Release|iPhone.Build.0 = Debug|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Release|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{8D268BD2-5D4D-4A7E-B6CD-120732393280}.Release|iPhoneSimulator.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

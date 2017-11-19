@@ -55,7 +55,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="25dp"
         android:paddingLeft="10dp"
-        android:hint="ConfirmPassword"
+        android:hint="Confirm Password"
         android:textColor="#000"
         android:layout_below="@id/txtPassword" />
     <RelativeLayout

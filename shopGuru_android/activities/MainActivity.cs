@@ -1,25 +1,15 @@
-﻿using System;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using Android;
+﻿using System.Collections.Generic;
 using Android.App;
 using Android.Content;
-using Android.Content.PM;
-using Android.Gms.Vision;
-using Android.Gms.Vision.Texts;
-using Android.Graphics;
-using Android.Runtime;
 using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Android.Support.Design.Widget;
-using Android.Support.V4.App;
-using Android.Support.V4;
 using Android.Support.V4.Widget;
 using Android.Support.V7.App;
-using Android.Util;
-using Java.Lang;
+using Android.Support.V7.Widget;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
+using shopGuru_android.Model;
+using shopGuru_android.adapters;
 
 namespace shopGuru_android
 {
@@ -34,9 +24,11 @@ namespace shopGuru_android
         {
             base.OnCreate(bundle);
 
-            var intent = new Intent(this, typeof(LoginActivity));
-            StartActivity(intent);
 
+            //var intent = new Intent(this, typeof(LoginActivity));
+            //StartActivity(intent);
+            var intent = new Intent(this, typeof(ImageProcessingActivity));
+            StartActivity(intent);
             //Set your main view here
 
             SetContentView(Resource.Layout.activity_main);
@@ -59,7 +51,7 @@ namespace shopGuru_android
             
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu_black_24dp);
             
-
+            
             _navigationView.NavigationItemSelected += (sender, e) => {
                 
                  e.MenuItem.SetChecked(true);
@@ -67,6 +59,25 @@ namespace shopGuru_android
                 //react to click here and swap fragments or navigate
                 _drawerLayout.CloseDrawers();
             };
+
+
+            // RecyclerView
+
+            var recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            var itemList = new List<Item>
+            {
+                new Item {Name = "suris", Price = 0.5f},
+                new Item {Name = "kefyras", Price = 0.4f},
+                new Item {Name = "bulka", Price = 3.45f},
+                new Item {Name = "kopustas", Price = 2.54f},
+                new Item {Name = "dzinas", Price = 8.45f}
+            };
+
+            var layoutManager = new LinearLayoutManager(this);
+            var itemAdapter = new ItemViewAdapter(itemList);
+            recyclerView.SetLayoutManager(layoutManager);
+            recyclerView.SetAdapter(itemAdapter);
+
         }
         public override bool OnCreateOptionsMenu(IMenu menu)
         {

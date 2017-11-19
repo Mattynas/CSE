@@ -1,12 +1,30 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shopGuruTests", "shopGuruTests\shopGuruTests.csproj", "{B63CDF0A-AE43-4CF3-B7D5-0F49B3E583F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "shopGuru_android", "shopGuru_android\shopGuru_android.csproj", "{4D4FA695-ADDC-44E2-996A-1AD42326E6F2}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "shopGuru_ws(1)", "..\..\WebSites\shopGuru_ws\", "{3C7B1FCA-67B3-4234-AD54-82CDBD68C59C}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "shopGuru_ws", "shopGuru_ws\", "{3C7B1FCA-67B3-4234-AD54-82CDBD68C59C}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_53515"
+		Debug.AspNetCompiler.PhysicalPath = "shopGuru_ws\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53515\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_53515"
+		Release.AspNetCompiler.PhysicalPath = "shopGuru_ws\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_53515\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "53515"
+	EndProjectSection
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_54506"

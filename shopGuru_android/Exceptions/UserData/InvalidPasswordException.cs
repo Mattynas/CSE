@@ -1,8 +1,8 @@
 using System;
 
-namespace shopGuru_android.Exceptions.Register
+namespace shopGuru_android.Exceptions.UserData
 {
-    public class InvalidPasswordException : RegisterException
+    public class InvalidPasswordException : UserDataException
     {
         public InvalidPasswordException() { }
         public InvalidPasswordException(string message) : base(message) { }

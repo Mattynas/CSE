@@ -1,8 +1,8 @@
 using System;
 
-namespace shopGuru_android.Exceptions.Register
+namespace shopGuru_android.Exceptions.UserData
 {
-    public class InvalidEmailException : RegisterException
+    public class InvalidEmailException : UserDataException
     {
         public InvalidEmailException() { }
         public InvalidEmailException(string message) : base(message) { }

@@ -1,8 +1,8 @@
 using System;
 
-namespace shopGuru_android.Exceptions.Register
+namespace shopGuru_android.Exceptions.UserData
 {
-    public class PasswordsDontMachException : RegisterException
+    public class PasswordsDontMachException : UserDataException
     {
         public PasswordsDontMachException() { }
         public PasswordsDontMachException(string message) : base(message) { }

@@ -1,8 +1,8 @@
 using System.Text.RegularExpressions;
-using shopGuru_android.Exceptions.Register;
+using shopGuru_android.Exceptions.UserData;
 
 
-namespace shopGuru_web.Validation
+namespace shopGuru_android.authenticator
 {
     public class UserDataValidation
     {

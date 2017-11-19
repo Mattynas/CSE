@@ -2,8 +2,10 @@
 using Android.App;
 using Android.OS;
 using Android.Widget;
-using shopGuru_web.Validation;
-using shopGuru_android.Exceptions.Register;
+using shopGuru_android.Exceptions.UserData;
+using shopGuru_android.authenticator;
+//using shopGuru_web.XML;
+using Android.Content;
 
 namespace shopGuru_android
 {
@@ -37,10 +39,11 @@ namespace shopGuru_android
             {
                 try
                 {
-                    UserDataValidation.LoginValidation(_username.Text, _password.Text);
-                    /*if (WebService.Login(_username.Text, _password.Text))
+                    UserDataValidation.LoginValidation(_username.Text, _password.Text); 
+                    /*if (UsersXML.Login(_username.Text, _password.Text))
                     {
-                        goto.MainMenu();
+                        var intent = new Intent(this, typeof(MainActivity));
+                        StartActivity(intent);
                     }
                     else
                     {
@@ -48,15 +51,14 @@ namespace shopGuru_android
                         _password.SetTextColor(Android.Graphics.Color.Red);
                     }*/
                 }
-                catch (InvalidUsernameException)
+                catch (UserDataException)
                 {
+                    //For future, display a dialog with message
                     _username.SetTextColor(Android.Graphics.Color.Red);
-                }
-                catch (InvalidPasswordException)
-                {
                     _password.SetTextColor(Android.Graphics.Color.Red);
                 }
                 //catch(NoConnectionException)
+                //For future, display a dialog with message
 
                 
             };

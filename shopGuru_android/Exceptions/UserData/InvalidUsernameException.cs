@@ -1,8 +1,8 @@
 using System;
 
-namespace shopGuru_android.Exceptions.Register
+namespace shopGuru_android.Exceptions.UserData
 {
-    public class InvalidUsernameException : RegisterException
+    public class InvalidUsernameException : UserDataException
     {
         public InvalidUsernameException() { }
         public InvalidUsernameException(string message) : base(message) { }

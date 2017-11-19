@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace shopGuru_android.localhost {
+namespace shopGuru_android.mano {
     using System;
     using System.Web.Services;
     using System.Diagnostics;
@@ -26,7 +26,7 @@ namespace shopGuru_android.localhost {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Web.Services.WebServiceBindingAttribute(Name="shopGuru_webServiceSoap", Namespace="http://shopguru.net/")]
+    [System.Web.Services.WebServiceBindingAttribute(Name="shopGuru_webServiceSoap", Namespace="http://tempuri.org/")]
     public partial class shopGuru_webService : System.Web.Services.Protocols.SoapHttpClientProtocol {
         
         private System.Threading.SendOrPostCallback LoginOperationCompleted;
@@ -35,7 +35,7 @@ namespace shopGuru_android.localhost {
         
         /// <remarks/>
         public shopGuru_webService() {
-            this.Url = "http://localhost:54506/shopGuru_webService.asmx";
+            this.Url = "http://shopguruwebservice.azurewebsites.net/shopGuru_webService.asmx";
             if ((this.IsLocalFileSystemWebService(this.Url) == true)) {
                 this.UseDefaultCredentials = true;
                 this.useDefaultCredentialsSetExplicitly = false;
@@ -73,7 +73,7 @@ namespace shopGuru_android.localhost {
         public event LoginCompletedEventHandler LoginCompleted;
         
         /// <remarks/>
-        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://shopguru.net/Login", RequestNamespace="http://shopguru.net/", ResponseNamespace="http://shopguru.net/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Login", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public bool Login(string username, string password) {
             object[] results = this.Invoke("Login", new object[] {
                         username,

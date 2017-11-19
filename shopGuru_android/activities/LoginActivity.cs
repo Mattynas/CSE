@@ -2,6 +2,8 @@
 using Android.App;
 using Android.OS;
 using Android.Widget;
+using shopGuru_web.Validation;
+using shopGuru_android.Exceptions.Register;
 
 namespace shopGuru_android
 {
@@ -23,7 +25,7 @@ namespace shopGuru_android
             _username = FindViewById<EditText>(Resource.Id.txtUsernameLog);
             _password = FindViewById<EditText>(Resource.Id.txtPasswordLog);
 
-            _mButtonSignUp.Click += (object sender, EventArgs args) =>
+            _mButtonSignUp.Click += delegate(object sender, EventArgs args)
             {
                 FragmentTransaction transaction = FragmentManager.BeginTransaction();
 
@@ -33,15 +35,30 @@ namespace shopGuru_android
 
             _mButtonSignIn.Click += (object sender, EventArgs args) =>
             {
-                /*if (WebService.Login(_username.Text, _password.Text))
+                try
                 {
-                    goto.MainMenu();
+                    UserDataValidation.LoginValidation(_username.Text, _password.Text);
+                    /*if (WebService.Login(_username.Text, _password.Text))
+                    {
+                        goto.MainMenu();
+                    }
+                    else
+                    {
+                        _username.SetTextColor(Android.Graphics.Color.Red);
+                        _password.SetTextColor(Android.Graphics.Color.Red);
+                    }*/
                 }
-                else
+                catch (InvalidUsernameException)
                 {
                     _username.SetTextColor(Android.Graphics.Color.Red);
+                }
+                catch (InvalidPasswordException)
+                {
                     _password.SetTextColor(Android.Graphics.Color.Red);
-                }*/
+                }
+                //catch(NoConnectionException)
+
+                
             };
 
         }

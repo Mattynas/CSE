@@ -34,7 +34,6 @@ namespace shopGuru_android
         {
             base.OnCreate(bundle);
 
-
             var intent = new Intent(this, typeof(LoginActivity));
             StartActivity(intent);
 

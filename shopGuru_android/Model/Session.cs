@@ -1,7 +1,11 @@
-﻿namespace shopGuru_android.Model
+﻿using System;
+
+namespace shopGuru_android.Model
 {
     class Session
     {
+        public static Lazy<Session> session = new Lazy<Session>();
+
         private string _username;
         private string _password;
         private string _email;

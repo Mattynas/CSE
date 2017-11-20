@@ -64,6 +64,7 @@ namespace shopGuru_android
                 }
                 else
                 {
+                    Console.Write("zjbs");
                     _username.SetTextColor(Android.Graphics.Color.Red);
                     _password.SetTextColor(Android.Graphics.Color.Red);
                 }

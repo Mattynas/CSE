@@ -2180,8 +2180,26 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
+			// aapt resource value: 0x7f020087
+			public const int avd_hide_password_1 = 2130837639;
+			
+			// aapt resource value: 0x7f020088
+			public const int avd_hide_password_2 = 2130837640;
+			
+			// aapt resource value: 0x7f020089
+			public const int avd_hide_password_3 = 2130837641;
+			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
+			
+			// aapt resource value: 0x7f02008a
+			public const int avd_show_password_1 = 2130837642;
+			
+			// aapt resource value: 0x7f02008b
+			public const int avd_show_password_2 = 2130837643;
+			
+			// aapt resource value: 0x7f02008c
+			public const int avd_show_password_3 = 2130837644;
 			
 			// aapt resource value: 0x7f020055
 			public const int ButtonSignInStyle = 2130837589;
@@ -2437,7 +2455,7 @@ namespace shopGuru_android
 			public const int btnSignInLog = 2131361922;
 			
 			// aapt resource value: 0x7f0a009a
-			public const int btnSignUp = 2131361946;
+			public const int btnSignUpLog = 2131361946;
 			
 			// aapt resource value: 0x7f0a0052
 			public const int buttonPanel = 2131361874;

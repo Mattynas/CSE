@@ -10,6 +10,10 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using shopGuru_android.authenticator;
+using System.Xml;
+using System.Web.Services;
+using shopGuru_android.mano;
 
 namespace shopGuru_android
 
@@ -58,7 +62,7 @@ namespace shopGuru_android
             _txtEmail = view.FindViewById<EditText>(Resource.Id.txtEmail);
             _txtPassword = view.FindViewById<EditText>(Resource.Id.txtPassword);
             _txtConfirmPassword = view.FindViewById<EditText>(Resource.Id.txtConfirmPassword);
-            _btnSignUp = view.FindViewById<Button>(Resource.Id.btnSignUp);
+            _btnSignUp = view.FindViewById<Button>(Resource.Id.btnSignUpLog);
 
             _btnSignUp.Click += btnSignUp_Click;
             
@@ -68,7 +72,11 @@ namespace shopGuru_android
         void btnSignUp_Click(object sender, EventArgs e)
         {
             //User clicked the button
+            UserDataValidation.RegisterValidation(_txtName.Text, _txtEmail.Text, _txtPassword.Text, _txtConfirmPassword.Text);
             onSignUpComplete.Invoke(this, new OnSignUpEventArgs(_txtName.Text,_txtEmail.Text, _txtPassword.Text, _txtConfirmPassword.Text));
+
+            var client = new shopGuru_webService();
+            client.Register(_txtName.Text, _txtPassword.Text);
             this.Dismiss();
         }
     }

@@ -6,10 +6,11 @@ using shopGuru_android.Exceptions.UserData;
 using shopGuru_android.authenticator;
 //using shopGuru_web.XML;
 using Android.Content;
+using System.Web.Services;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "shopGuru",MainLauncher = true,
+    [Activity(Label = "shopGuru", MainLauncher = true,
         Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
@@ -23,37 +24,35 @@ namespace shopGuru_android
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.activity_login);
 
-            //_mButtonSignUp = FindViewById<Button>(Resource.Id.btnSignUpLog);
+            _mButtonSignUp = FindViewById<Button>(Resource.Id.btnSignUpLog);
             _mButtonSignIn = FindViewById<Button>(Resource.Id.btnSignInLog);
             _username = FindViewById<EditText>(Resource.Id.txtUsernameLog);
             _password = FindViewById<EditText>(Resource.Id.txtPasswordLog);
 
-            /*_mButtonSignUp.Click += delegate(object sender, EventArgs args)
+            _mButtonSignUp.Click += delegate(object sender, EventArgs args)
             {
                 FragmentTransaction transaction = FragmentManager.BeginTransaction();
-
                 var signUpFragment = new SignUpFragment();
                 signUpFragment.Show(transaction,"fragment");
-            };*/
+            };
 
             _mButtonSignIn.Click += (object sender, EventArgs args) =>
             {
                 try
                 {
-                    UserDataValidation.LoginValidation(_username.Text, _password.Text);
-                    var intent = new Intent(this, typeof(MainActivity));
-                    StartActivity(intent);
-                    Finish();
-                    /*if (UsersXML.Login(_username.Text, _password.Text))
+                    //UserDataValidation.LoginValidation(_username.Text, _password.Text);
+                    var client = new mano.shopGuru_webService();
+                    if (client.Login(_username.Text, _password.Text))
                     {
                         var intent = new Intent(this, typeof(MainActivity));
                         StartActivity(intent);
+                        Finish();
                     }
                     else
                     {
                         _username.SetTextColor(Android.Graphics.Color.Red);
                         _password.SetTextColor(Android.Graphics.Color.Red);
-                    }*/
+                    }
                 }
                 catch (UserDataException)
                 {
@@ -64,7 +63,7 @@ namespace shopGuru_android
                 //catch(NoConnectionException)
                 //For future, display a dialog with message
 
-                
+
             };
 
         }

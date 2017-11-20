@@ -19,9 +19,7 @@ using shopGuru_android.authenticator;
 
 namespace shopGuru_android
 {
-    //[Activity(Label = "shopGuru")]
-    [Activity(Label = "shopGuru", MainLauncher = true,
-     Icon = "@drawable/icon")]
+    [Activity(Label = "shopGuru")]
     public class ScanActivity : AppCompatActivity, ISurfaceHolderCallback, Detector.IProcessor
     {
         private SurfaceView _cameraView;

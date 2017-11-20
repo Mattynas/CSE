@@ -52,7 +52,17 @@ namespace shopGuru_android
                 imageView = FindViewById<ImageView>(Resource.Id.imageView);
                 txtResult = FindViewById<TextView>(Resource.Id.textResult);
 
-                camButton.Click += CamButton_Click;
+                camButton.Click += delegate(object sender, EventArgs e)
+                {
+                    Intent intent = new Intent(MediaStore.ActionImageCapture);
+                    file = new File(dir, System.String.Format("myPhoto_{0}.jpg", Guid.NewGuid()));
+                    intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(file));
+                    StartActivityForResult(intent, 0);
+                    /*
+                    Intent intent = new Intent(MediaStore.ActionImageCapture);
+                    StartActivityForResult(intent, 0);
+                    */
+                };
 
                 processButton.Click += ProcessImage;
             }
@@ -72,19 +82,7 @@ namespace shopGuru_android
             Intent intent = new Intent(MediaStore.ActionImageCapture);
             IList<ResolveInfo> availableActivities = PackageManager.QueryIntentActivities(intent, PackageInfoFlags.MatchDefaultOnly);
             return availableActivities != null && availableActivities.Count > 0;
-        }
-
-        private void CamButton_Click(object sender, EventArgs e)
-        {
-            Intent intent = new Intent(MediaStore.ActionImageCapture);
-            file = new File(dir, System.String.Format("myPhoto_{0}.jpg", Guid.NewGuid()));
-            intent.PutExtra(MediaStore.ExtraOutput, Android.Net.Uri.FromFile(file));
-            StartActivityForResult(intent, 0);
-            /*
-            Intent intent = new Intent(MediaStore.ActionImageCapture);
-            StartActivityForResult(intent, 0);
-            */
-        }
+        }        
 
         protected override void OnActivityResult(int requestCode, [GeneratedEnum] Result resultCode, Intent data)
         {

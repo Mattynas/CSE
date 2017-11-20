@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using shopGuru_android.Properties;
 using shopGuru_android.Extensions;
+using shopGuru_android.interfaces;
 
 namespace shopGuru_android.Model
 {
     public class Receipt: IComparable
     {
-        private List<Item> itemList;
+        private List<IItem> itemList;
         private string shopName;
         private string receiptString;
         private float sum = 0;
 
 
 
-        public Receipt(List<Item> itemList, float sum, string rs, string sn)
+        public Receipt(List<IItem> itemList, float sum, string rs, string sn)
         {
             receiptString = rs;
             this.sum = sum;
@@ -35,9 +36,9 @@ namespace shopGuru_android.Model
             }
         }
 
-        public List<Item> ItemList { get => itemList; set => itemList = value; }
+        public List<IItem> ItemList { get => itemList; set => itemList = value; }
 
-        public Item this[int index]
+        public IItem this[int index]
         {
             get => ItemList[index];
             set => ItemList[index] = value;

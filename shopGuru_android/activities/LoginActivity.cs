@@ -40,26 +40,25 @@ namespace shopGuru_android
             {
                 try
                 {
-                    UserDataValidation.LoginValidation(_username.Text, _password.Text);
-                    var intent = new Intent(this, typeof(MainActivity));
-                    StartActivity(intent);
-                    Finish();
-                    /*if (UsersXML.Login(_username.Text, _password.Text))
+                    //UserDataValidation.LoginValidation(_username.Text, _password.Text);
+                    var client = new WebService.shopGuru_webService();
+                    if (client.Login(_username.Text, _password.Text))
                     {
                         var intent = new Intent(this, typeof(MainActivity));
                         StartActivity(intent);
+                        Finish();
                     }
                     else
                     {
                         _username.SetTextColor(Android.Graphics.Color.Red);
                         _password.SetTextColor(Android.Graphics.Color.Red);
-                    }*/
+                    }
                 }
                 catch (UserDataException)
                 {
                     //For future, display a dialog with message
-                    _username.SetTextColor(Android.Graphics.Color.Red);
-                    _password.SetTextColor(Android.Graphics.Color.Red);
+                    //_username.SetTextColor(Android.Graphics.Color.Red);
+                    //_password.SetTextColor(Android.Graphics.Color.Red);
                 }
                 //catch(NoConnectionException)
                 //For future, display a dialog with message

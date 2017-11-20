@@ -12,7 +12,7 @@
         android:id="@+id/text_view"
         android:text="No Text"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true" />

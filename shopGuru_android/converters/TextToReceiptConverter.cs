@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using shopGuru_android.Exceptions.Process;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -26,7 +27,7 @@ namespace shopGuru_android.converters
             //receiptString = receiptString.ToLower();
             string pattern = @"([A-Za-z]{2}[A-Za-z]+.+)(\d+[\.\,]\d{2})(.[A|E|B|F|N|C]{1}(\b|\.))";
             receiptString.Replace("\r\n\r\n", "\r\n");
-            string[] lines = Regex.Split(receiptString, pattern);
+            string[] lines = Regex.Split(receiptString, "\r\n");
             List<string> linesList = new List<string>(lines);
 
             List<string> sublist = new List<string>();
@@ -88,6 +89,10 @@ namespace shopGuru_android.converters
                             Price = decimal.Parse(m.Groups[2].Value.Replace(".", ",")),
                         });
                     }
+                }
+                else
+                {
+                    throw new ReceiptNotReadableException();
                 }
                 return itemList;
             }

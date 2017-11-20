@@ -20,8 +20,7 @@ using Android.Provider;
 using Java.IO;
 using System.Collections.Generic;
 using Android.Media;
-using shopGuru_android.converters;
-using shopGuru_android.Model;
+using shopGuru_android.authenticator;
 
 namespace shopGuru_android
 {
@@ -188,29 +187,23 @@ namespace shopGuru_android
                     strBuilder.Append(item.Value);
                     strBuilder.Append("\n");
                 }
-                txtResult.Text = strBuilder.ToString();
+                if (ReceiptTextValidation.CheckTextResult(strBuilder.ToString()))
+                {
+                    txtResult.SetTextColor(Android.Graphics.Color.White);
+                    txtResult.Text = strBuilder.ToString();
 
-                ReturnResult(strBuilder.ToString());
+                    Intent intent = new Intent(this, typeof(MainActivity));
+
+                    intent.PutExtra("text", strBuilder.ToString());
+                    SetResult(Result.Ok, intent);
+                    Finish();
+                }
+                else
+                {
+                    txtResult.Text = "Failed to read the receipt.";
+                    txtResult.SetTextColor(Android.Graphics.Color.Red);
+                }
             }
         }
-
-        private void ReturnResult(string text)
-        {
-            try
-            {
-                Intent intent = new Intent(this, typeof(MainActivity));
-
-                TextToReceiptConverter.ReadItemList(text);
-
-                intent.PutExtra("text", text);
-                SetResult(Result.Ok, intent);
-                Finish();
-            }
-            catch (FormatException e)
-            {
-                return;
-            }
-        }
-
     }
 }

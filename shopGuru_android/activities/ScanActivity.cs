@@ -15,12 +15,13 @@ using Android.Support.V4.App;
 using Android.Support.V7.App;
 using Android.Util;
 using Java.Lang;
-using shopGuru_android.converters;
-using shopGuru_android.Model;
+using shopGuru_android.authenticator;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "shopGuru")]
+    //[Activity(Label = "shopGuru")]
+    [Activity(Label = "shopGuru", MainLauncher = true,
+     Icon = "@drawable/icon")]
     public class ScanActivity : AppCompatActivity, ISurfaceHolderCallback, Detector.IProcessor
     {
         private SurfaceView _cameraView;
@@ -112,7 +113,22 @@ namespace shopGuru_android
                         sb.Append("\n");
                     }
                     _textView.Text = sb.ToString();
-                    ReturnResult(sb.ToString());
+                    if (ReceiptTextValidation.CheckTextResult(sb.ToString()))
+                    {
+                        _textView.SetTextColor(Android.Graphics.Color.White);
+                        //_textView.Text = sb.ToString();
+
+                        Intent intent = new Intent(this, typeof(MainActivity));
+
+                        intent.PutExtra("text", sb.ToString());
+                        SetResult(Result.Ok, intent);
+                        Finish();
+                    }
+                    else
+                    {
+                        //_textView.Text = "Failed to read the receipt.";
+                        _textView.SetTextColor(Android.Graphics.Color.Red);
+                    }
                 });
             }
         }
@@ -120,25 +136,6 @@ namespace shopGuru_android
         public void Release()
         {
             return;
-        }
-
-
-        private void ReturnResult(string text)
-        {
-            try
-            {
-                Intent intent = new Intent(this, typeof(MainActivity));
-
-                TextToReceiptConverter.ReadItemList(text);
-
-                intent.PutExtra("text", text);
-                SetResult(Result.Ok, intent);
-                Finish();
-            }
-            catch (FormatException)
-            {
-                return;
-            }
         }
     }
 }

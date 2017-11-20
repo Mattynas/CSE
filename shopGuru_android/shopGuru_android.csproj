@@ -112,6 +112,7 @@
   <ItemGroup>
     <Compile Include="activities\ImageProcessingActivity.cs" />
     <Compile Include="adapters\ItemViewAdapter.cs" />
+    <Compile Include="authenticator\AppPreferences.cs" />
     <Compile Include="authenticator\ReceiptTextValidation.cs" />
     <Compile Include="authenticator\UserDataValidation.cs" />
     <Compile Include="converters\TextToReceiptConverter.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="activities\LoginActivity.cs" />
     <Compile Include="activities\MainActivity.cs" />
     <Compile Include="interfaces\IItem.cs" />
+    <Compile Include="interfaces\ISharedPreferences.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Receipt.cs" />
     <Compile Include="Model\Session.cs" />

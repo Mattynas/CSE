@@ -57,7 +57,6 @@ namespace shopGuru_android
                 _progressBar.Visibility = ViewStates.Invisible;
                 if (success)
                 {
-
                     var intent = new Intent(this, typeof(MainActivity));
                     StartActivity(intent);
                     Finish();

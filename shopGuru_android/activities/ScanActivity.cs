@@ -22,6 +22,7 @@ namespace shopGuru_android
     [Activity(Label = "shopGuru")]
     public class ScanActivity : AppCompatActivity, ISurfaceHolderCallback, Detector.IProcessor
     {
+
         private SurfaceView _cameraView;
         private TextView _textView;
         private CameraSource _cameraSource;
@@ -97,8 +98,17 @@ namespace shopGuru_android
             _cameraSource.Stop();
         }
 
+
+        public void SleepForSomeTime()
+        {
+            Thread.Sleep(2000);
+        }
         public void ReceiveDetections(Detector.Detections detections)
         {
+            var thread = new Thread((delegate () { SleepForSomeTime(); }));
+            thread.Start();
+            thread.Join();
+
             SparseArray items = detections.DetectedItems;
             if (items.Size() != 0)
             {

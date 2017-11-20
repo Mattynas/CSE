@@ -27,7 +27,7 @@ namespace shopGuru_android.converters
             //receiptString = receiptString.ToLower();
             string pattern = @"([A-Za-z]{2}[A-Za-z]+.+)(\d+[\.\,]\d{2})(.[A|E|B|F|N|C]{1}(\b|\.))";
             receiptString.Replace("\r\n\r\n", "\r\n");
-            string[] lines = Regex.Split(receiptString, "\r\n");
+            string[] lines = Regex.Split(receiptString, pattern);
             List<string> linesList = new List<string>(lines);
 
             List<string> sublist = new List<string>();

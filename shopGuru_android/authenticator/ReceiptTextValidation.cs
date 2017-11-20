@@ -14,7 +14,7 @@ using shopGuru_android.Exceptions.Process;
 
 namespace shopGuru_android.authenticator
 {
-    class ReceiptTextValidation
+    public class ReceiptTextValidation
     {
         public static bool CheckTextResult(string text)
         {

@@ -6,7 +6,7 @@ namespace shopGuru_android.authenticator
 {
     public class UserDataValidation
     {
-        private static string _patternForEmail = @"^\w{ 6,20}$";
+        private static string _patternForEmail = @"^\w{ 0,20}$";
         private static string _patternForOthers = @"^\w + ([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
 
         public static void LoginValidation(string username, string password)

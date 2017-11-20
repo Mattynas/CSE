@@ -13,7 +13,7 @@
 // 
 #pragma warning disable 1591
 
-namespace shopGuru_android.mano {
+namespace shopGuru_android.WebService {
     using System;
     using System.Web.Services;
     using System.Diagnostics;

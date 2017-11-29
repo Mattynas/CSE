@@ -39,6 +39,10 @@ namespace shopGuru_android
                 var signUpFragment = new SignUpFragment();
                 signUpFragment.Show(transaction,"fragment");
             };*/
+            //shortcut for login
+            var intent = new Intent(this, typeof(MainActivity));
+            StartActivity(intent);
+            Finish();
 
             _mButtonSignIn.Click += _mButtonSignIn_Click;
 
@@ -46,6 +50,7 @@ namespace shopGuru_android
 
         private  async void _mButtonSignIn_Click(object sender, EventArgs e)
         {
+            
             _progressBar.Visibility = ViewStates.Visible;
             try
             {
@@ -63,7 +68,6 @@ namespace shopGuru_android
                 }
                 else
                 {
-                    Console.Write("zjbs");
                     _username.SetTextColor(Android.Graphics.Color.Red);
                     _password.SetTextColor(Android.Graphics.Color.Red);
                 }

@@ -16,6 +16,9 @@ using Android.Support.V7.App;
 using Android.Util;
 using Java.Lang;
 using shopGuru_android.authenticator;
+using System.Collections.Generic;
+using System.Collections;
+using shopGuru_android.interfaces;
 
 namespace shopGuru_android
 {
@@ -26,6 +29,11 @@ namespace shopGuru_android
         private SurfaceView _cameraView;
         private TextView _textView;
         private CameraSource _cameraSource;
+        private SurfaceView _transparentView;
+        public static List<IItem> ItemList { get; set; }
+        
+
+
         private const int RequestCameraPermissionId = 1001;
 
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
@@ -52,12 +60,17 @@ namespace shopGuru_android
             SetContentView(Resource.Layout.activity_scanner);
             _cameraView = FindViewById<SurfaceView>(Resource.Id.surface_view);
             _textView = FindViewById<TextView>(Resource.Id.text_view);
+            _transparentView = FindViewById<SurfaceView>(Resource.Id.transparent_view);
 
+            _transparentView.SetZOrderOnTop(true);
+            _transparentView.Holder.SetFormat(Format.Transparent);
+            
+            
             var textRecognizer = new TextRecognizer.Builder(ApplicationContext).Build();
 
             if (!textRecognizer.IsOperational)
             {
-                Log.Error("Main Activity", "Detector dependencies not yet available");
+                Log.Error("Scan Activity", "Detector dependencies not yet available");
             }
             else
             {
@@ -73,10 +86,9 @@ namespace shopGuru_android
 
         }
 
-
         public void SurfaceChanged(ISurfaceHolder holder, Format format, int width, int height)
         {
-
+            
         }
 
         public void SurfaceCreated(ISurfaceHolder holder)
@@ -92,50 +104,52 @@ namespace shopGuru_android
 
             _cameraSource.Start(_cameraView.Holder);
         }
-
+        
+        
         public void SurfaceDestroyed(ISurfaceHolder holder)
         {
             _cameraSource.Stop();
         }
 
 
-        public void SleepForSomeTime()
-        {
-            Thread.Sleep(2000);
-        }
         public void ReceiveDetections(Detector.Detections detections)
         {
-            var thread = new Thread((delegate () { SleepForSomeTime(); }));
-            thread.Start();
-            thread.Join();
+            //var canvas = _transparentView.Holder.LockCanvas();
+            //canvas.DrawColor(Color.Transparent, PorterDuff.Mode.Clear);
+           // _transparentView.Holder.UnlockCanvasAndPost(canvas);
 
             SparseArray items = detections.DetectedItems;
+            
             if (items.Size() != 0)
             {
                 _textView.Post(() =>
                 {
-                    StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < items.Size(); i++)
+                    try
                     {
-                        sb.Append(((TextBlock)items.ValueAt(i)).Value);
-                        sb.Append("\n");
-                    }
-                    _textView.Text = sb.ToString();
-                    if (ReceiptTextValidation.CheckTextResult(sb.ToString()))
-                    {
-                        _textView.SetTextColor(Android.Graphics.Color.White);
-                        //_textView.Text = sb.ToString();
+                        var tuple = ReceiptTextValidation.ValidateItems(items);
 
-                        Intent intent = new Intent(this, typeof(MainActivity));
-
-                        intent.PutExtra("text", sb.ToString());
-                        SetResult(Result.Ok, intent);
-                        Finish();
-                    }
-                    else
-                    {
-                        //_textView.Text = "Failed to read the receipt.";
+                        ItemList = tuple.Item1;
+                        StringBuilder sb = new StringBuilder();
                         _textView.SetTextColor(Android.Graphics.Color.Red);
+
+                        sb.Append(tuple.Item2);
+                        _textView.Text = sb.ToString();
+
+                        if (ItemList.Count > 3)
+                        {
+                            _textView.SetTextColor(Android.Graphics.Color.White);
+                            _textView.Text = sb.ToString();
+
+
+                            Intent intent = new Intent(this, typeof(MainActivity));
+
+                            SetResult(Result.Ok, intent);
+                            Finish();
+                        }
+                    }
+                    catch (System.Exception e)
+                    {
+                        _textView.Text = e.ToString();
                     }
                 });
             }

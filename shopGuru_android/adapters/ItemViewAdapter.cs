@@ -11,19 +11,20 @@ using Android.Support.V7.Widget;
 using Android.Views;
 using Android.Widget;
 using shopGuru_android.Model;
+using shopGuru_android.interfaces;
 
 namespace shopGuru_android.adapters
 {
     class ItemViewAdapter : RecyclerView.Adapter
     {
-        private List<Item> _items;
+        private List<IItem> _items;
 
         public override int ItemCount
         {
             get { return _items.Count(); }
         }
 
-        public ItemViewAdapter(List<Item> items)
+        public ItemViewAdapter(List<IItem> items)
         {
             _items = items;
 

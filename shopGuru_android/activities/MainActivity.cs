@@ -13,6 +13,7 @@ using Toolbar = Android.Support.V7.Widget.Toolbar;
 using shopGuru_android.Model;
 using shopGuru_android.adapters;
 using shopGuru_android.converters;
+using shopGuru_android.interfaces;
 
 namespace shopGuru_android
 {
@@ -25,11 +26,28 @@ namespace shopGuru_android
 
         private Intent _intent;
 
+        public delegate string GenericDelegateNumber<T1,T2>(T1 a,T2 b);
+
+        public static string AddDoubles(double a, double b)
+        {
+            return (a + b).ToString();
+        }
+
+        public static string AddInt(int a, int b)
+        {
+            return (a + b).ToString();
+        }
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            
+            GenericDelegateNumber<int, int> gdInt = new GenericDelegateNumber<int, int>(AddInt);
+            GenericDelegateNumber<double, double> gdDouble = new GenericDelegateNumber<double, double>(AddDoubles);
+
+            Console.WriteLine(gdInt(5, 6));
+            Console.WriteLine(gdDouble(6.5, 4.3));
+
 
             SetContentView(Resource.Layout.activity_main);
             
@@ -69,12 +87,9 @@ namespace shopGuru_android
                 }
                 else if (id == Resource.Id.nav_home)
                 {
-                    return;
+                    //return;
                 }
                 
-
-
-
                 if (_intent != null)
                 {
                     StartActivityForResult(_intent,0);
@@ -90,10 +105,10 @@ namespace shopGuru_android
 
             if (resultCode == Result.Ok)
             {
-                string text = data.GetStringExtra("text");
+                
                 try
                 {
-                    var itemList = TextToReceiptConverter.ReadItemList(text);
+                    var itemList = ScanActivity.ItemList;
                     ToRecyclerView(itemList);
                 }
                 catch (FormatException ex)
@@ -103,7 +118,7 @@ namespace shopGuru_android
             }
         }
 
-        private void ToRecyclerView(List<Item> itemList)
+        private void ToRecyclerView(List<IItem> itemList)
         {
             _recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
             var layoutManager = new LinearLayoutManager(this);

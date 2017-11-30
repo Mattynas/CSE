@@ -49,9 +49,10 @@ namespace shopGuru_android.authenticator
                 rectTextDictionary.Add(boundingBox, textBlock);
             }
 
-            Stack<string> prevStack = new Stack<string>();
+            List<IText> prevList = new List<IText>();
             bool match = false;
-            string itemLine = "";
+            string itemLine;
+            IText prevText;
             try
             {
                 for (int i = 0; i < rectArray.Count; i++)
@@ -62,15 +63,11 @@ namespace shopGuru_android.authenticator
                     foreach (var line in lineList)
                     {
                         var lineBox = line.BoundingBox;
-
-
-                        if (match && prevStack.Count != 0)
-                        {
-                            prevStack.Clear();
-                        }
-                        match = false;
-
                         itemLine = "";
+                        match = false;
+                        string prevs = "";
+
+
                         for (int j = i; j < rectArray.Count; j++)
                         {
                             var anotherBox = (Rect)rectArray[j];
@@ -82,29 +79,28 @@ namespace shopGuru_android.authenticator
                                 var anotherLineBox = anotherLine.BoundingBox;
                                 if (System.Math.Abs(anotherLineBox.CenterY() - lineBox.CenterY()) < _epsilon && line.Value != anotherLine.Value)
                                 {
+                                    match = true;
                                     if (ValidatePriceString(anotherLine.Value))
                                     {
-                                        string prevs = "";
-                                        while (prevStack.Count != 0)
+                                        foreach(var prev in prevList)
                                         {
-                                            prevs += prevStack.Pop();
+                                            if(Math.Abs(prev.BoundingBox.Left - lineBox.Left) < 2 && Math.Abs(prev.BoundingBox.Bottom - lineBox.Top) < 6)
+                                            {
+                                                prevs = prev.Value;
+                                                prevList.Remove(prev);
+                                                break;
+                                            }
                                         }
                                         itemLine = string.Concat(prevs, System.String.Format("{0} {1} \n", line.Value, anotherLine.Value));
-                                        AddToItemList(line.Value, anotherLine.Value, itemList);
+                                        AddToItemList(prevs + line.Value, anotherLine.Value, itemList);
                                     }
                                     else if (ValidatePriceString(line.Value))
                                     {
-                                        string prevs = "";
-                                        while (prevStack.Count != 0)
-                                        {
-                                            prevs += prevStack.Pop();
-                                        }
+                                        
                                         itemLine = string.Concat(prevs, System.String.Format("{1} {0} \n", line.Value, anotherLine.Value));
-                                        AddToItemList(anotherLine.Value, line.Value, itemList);
+                                        AddToItemList(prevs + anotherLine.Value, line.Value, itemList);
                                     }
                                     else continue;
-
-                                    match = true;
                                 }
                             }
                         }
@@ -112,15 +108,18 @@ namespace shopGuru_android.authenticator
                         {
                             sb.Append(itemLine);
                         }
-                        if (prevStack.Count != 0 && !(ValidatePriceString(prevStack.Peek())))
+                        string lineVal = line.Value;
+
+                        if (!match && !(ValidatePriceString(line.Value)) &&
+                            !lineVal.Contains("PVM") && !lineVal.Contains("Kvitas") && !lineVal.Contains("kodas"))
                         {
-                            prevStack.Push(line.Value + " ");
+                            prevList.Add(line);
                         }
                     }
                 }
                 return new Tuple<List<IItem>, string>(itemList, sb.ToString());
             }
-            catch(Exception e )
+            catch(Exception)
             {
                 throw;
             }

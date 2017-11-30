@@ -14,10 +14,11 @@ using shopGuru_android.Model;
 using shopGuru_android.adapters;
 using shopGuru_android.converters;
 using shopGuru_android.interfaces;
+using Android.Content.PM;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "shopGuru")]
+    [Activity(Label = "shopGuru", ScreenOrientation = ScreenOrientation.Locked)]
     public class MainActivity : AppCompatActivity
     {
         private DrawerLayout _drawerLayout;

@@ -22,7 +22,7 @@ using shopGuru_android.interfaces;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "shopGuru")]
+    [Activity(Label = "shopGuru", ScreenOrientation = ScreenOrientation.Locked)]
     public class ScanActivity : AppCompatActivity, ISurfaceHolderCallback, Detector.IProcessor
     {
 

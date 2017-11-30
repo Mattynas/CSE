@@ -31,6 +31,9 @@ namespace shopGuru_android
         private CameraSource _cameraSource;
         private SurfaceView _transparentView;
         public static List<IItem> ItemList { get; set; }
+        private int _numerator;
+        private int _threshold = 3;
+        private int _prevCount;
         
 
 
@@ -64,6 +67,8 @@ namespace shopGuru_android
 
             _transparentView.SetZOrderOnTop(true);
             _transparentView.Holder.SetFormat(Format.Transparent);
+
+            _numerator = _prevCount = 0;
             
             
             var textRecognizer = new TextRecognizer.Builder(ApplicationContext).Build();
@@ -135,14 +140,25 @@ namespace shopGuru_android
                         sb.Append(tuple.Item2);
                         _textView.Text = sb.ToString();
 
-                        if (ItemList.Count > 3)
+                        // test if item list size doesnt change between scanning frames threshold times
+                        if(ItemList.Count == _prevCount && _prevCount != 0)
+                        {
+                            _numerator++;
+                        } 
+                        else
+                        {
+                            _prevCount = ItemList.Count;
+                            _numerator = 0;
+                        }
+
+                        if (_numerator >= _threshold)
                         {
                             _textView.SetTextColor(Android.Graphics.Color.White);
                             _textView.Text = sb.ToString();
 
 
-                            Intent intent = new Intent(this, typeof(MainActivity));
-
+                            Intent intent = new Intent(this, typeof(MainActivity))
+                            .SetFlags(ActivityFlags.ReorderToFront);
                             SetResult(Result.Ok, intent);
                             Finish();
                         }

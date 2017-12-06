@@ -16,25 +16,18 @@ namespace shopGuru_android
 {
     public class OnSignUpEventArgs : EventArgs
     {
-        private string name;
-        private string email;
-        private string password;
-        private string confirmPassword;
-
         public OnSignUpEventArgs(string name, string email, string password, string confirmPassword)
         {
-            this.name = name;
-            this.email = email;
-            this.password = password;
-            this.confirmPassword = confirmPassword;
+            Name = name;
+            Email = email;
+            Password = password;
+            ConfirmPassword = confirmPassword;
         }
 
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public string ConfirmPassword { get; set; }
-        
-
     }
 
     public class SignUpFragment : DialogFragment

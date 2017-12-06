@@ -44,7 +44,7 @@ namespace shopGuru_android
             StartActivity(intent);
             Finish();
 
-            _mButtonSignIn.Click += _mButtonSignIn_Click;
+            //_mButtonSignIn.Click += _mButtonSignIn_Click;
 
         }
 

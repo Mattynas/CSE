@@ -17,6 +17,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="FillLotteryForm">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="bytes" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FillLotteryFormResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FillLotteryFormResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="LoginSoapIn">
@@ -25,10 +39,20 @@
   <wsdl:message name="LoginSoapOut">
     <wsdl:part name="parameters" element="tns:LoginResponse" />
   </wsdl:message>
+  <wsdl:message name="FillLotteryFormSoapIn">
+    <wsdl:part name="parameters" element="tns:FillLotteryForm" />
+  </wsdl:message>
+  <wsdl:message name="FillLotteryFormSoapOut">
+    <wsdl:part name="parameters" element="tns:FillLotteryFormResponse" />
+  </wsdl:message>
   <wsdl:portType name="shopGuru_webServiceSoap">
     <wsdl:operation name="Login">
       <wsdl:input message="tns:LoginSoapIn" />
       <wsdl:output message="tns:LoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FillLotteryForm">
+      <wsdl:input message="tns:FillLotteryFormSoapIn" />
+      <wsdl:output message="tns:FillLotteryFormSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="shopGuru_webServiceSoap" type="tns:shopGuru_webServiceSoap">
@@ -42,11 +66,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="FillLotteryForm">
+      <soap:operation soapAction="http://tempuri.org/FillLotteryForm" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="shopGuru_webServiceSoap12" type="tns:shopGuru_webServiceSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
     <wsdl:operation name="Login">
       <soap12:operation soapAction="http://tempuri.org/Login" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FillLotteryForm">
+      <soap12:operation soapAction="http://tempuri.org/FillLotteryForm" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

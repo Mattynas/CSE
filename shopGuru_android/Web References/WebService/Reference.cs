@@ -31,6 +31,8 @@ namespace shopGuru_android.WebService {
         
         private System.Threading.SendOrPostCallback LoginOperationCompleted;
         
+        private System.Threading.SendOrPostCallback FillLotteryFormOperationCompleted;
+        
         private bool useDefaultCredentialsSetExplicitly;
         
         /// <remarks/>
@@ -73,6 +75,9 @@ namespace shopGuru_android.WebService {
         public event LoginCompletedEventHandler LoginCompleted;
         
         /// <remarks/>
+        public event FillLotteryFormCompletedEventHandler FillLotteryFormCompleted;
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/Login", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public bool Login(string username, string password) {
             object[] results = this.Invoke("Login", new object[] {
@@ -100,6 +105,35 @@ namespace shopGuru_android.WebService {
             if ((this.LoginCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.LoginCompleted(this, new LoginCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FillLotteryForm", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public string FillLotteryForm([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] bytes) {
+            object[] results = this.Invoke("FillLotteryForm", new object[] {
+                        bytes});
+            return ((string)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void FillLotteryFormAsync(byte[] bytes) {
+            this.FillLotteryFormAsync(bytes, null);
+        }
+        
+        /// <remarks/>
+        public void FillLotteryFormAsync(byte[] bytes, object userState) {
+            if ((this.FillLotteryFormOperationCompleted == null)) {
+                this.FillLotteryFormOperationCompleted = new System.Threading.SendOrPostCallback(this.OnFillLotteryFormOperationCompleted);
+            }
+            this.InvokeAsync("FillLotteryForm", new object[] {
+                        bytes}, this.FillLotteryFormOperationCompleted, userState);
+        }
+        
+        private void OnFillLotteryFormOperationCompleted(object arg) {
+            if ((this.FillLotteryFormCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.FillLotteryFormCompleted(this, new FillLotteryFormCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -144,6 +178,32 @@ namespace shopGuru_android.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    public delegate void FillLotteryFormCompletedEventHandler(object sender, FillLotteryFormCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2046.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class FillLotteryFormCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal FillLotteryFormCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public string Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((string)(this.results[0]));
             }
         }
     }

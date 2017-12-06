@@ -36,13 +36,13 @@ namespace shopGuru_android
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             
+            SetSupportActionBar(toolbar);
             var drawerToggle = new Android.Support.V7.App.ActionBarDrawerToggle(this, _drawerLayout, Resource.String.drawer_open,
                 Resource.String.drawer_close);
 
-            //_drawerLayout.SetDrawerListener(drawerToggle);
+            _drawerLayout.SetDrawerListener(drawerToggle);
             drawerToggle.SyncState();
             
-            SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetHomeButtonEnabled(true);

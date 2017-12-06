@@ -12,12 +12,21 @@ using Android.Views;
 using Android.Widget;
 using System.Collections.Specialized;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace shopGuru_android.fragments
 {
     public class ReceiptLotteryFragment : Android.Support.V4.App.Fragment
     {
         private Button _button;
+        private TextView _errorTxt;
+        private RadioButton _radio_market;
+        private RadioButton _radio_services;
+        private EditText _cashRegisterNumber;
+        private EditText _receiptNumber;
+        private EditText _receiptDate;
+
+        private Dictionary<string, string> values = new Dictionary<string, string>();
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -33,27 +42,58 @@ namespace shopGuru_android.fragments
 
             var view = inflater.Inflate(Resource.Layout.fragment_receiptLottery, container, false);
             _button = view.FindViewById<Button>(Resource.Id.btnLotteryScan);
+            _errorTxt = view.FindViewById<TextView>(Resource.Id.txtError);
+            _radio_market = view.FindViewById<RadioButton>(Resource.Id.radio_market);
+            _radio_services = view.FindViewById<RadioButton>(Resource.Id.radio_services);
+            _cashRegisterNumber = view.FindViewById<EditText>(Resource.Id.txtCshRegNum);
+            _receiptNumber = view.FindViewById<EditText>(Resource.Id.txtRcpNum);
+            _receiptDate = view.FindViewById<EditText>(Resource.Id.txtDate);
 
+            _radio_market.Click += RadioButton_Click;
+            _radio_services.Click += RadioButton_Click;
             _button.Click += _button_ClickAsync;
 
             base.OnCreateView(inflater, container, savedInstanceState);
             return view;
         }
 
+        private void RadioButton_Click(object sender, EventArgs e)
+        {
+            RadioButton rb = (RadioButton)sender;
+            values["check_type"] = rb.Text;
+        }
+
         private async void _button_ClickAsync(object sender, EventArgs e)
         {
-            Dictionary<string,string> values = new Dictionary<string, string>();
-            values.Add("check_type", "services");
-            values.Add("cash_register_number", "RK123456");
-            values.Add("check_number", "00000004");
-            values.Add("created_at", "2017-12-06T16:06:04.054428Z");
-            values.Add("phone", "+37066666666");
-            values.Add("ticket_date", "2017-11-29T00:00:00+02:00");
+            try
+            {
+                string date = _receiptDate.Text;
+                date += "T00:00:00+02:00";
+                values["cash_register_number"] = _cashRegisterNumber.Text;
+                values["check_number"] = _receiptNumber.Text;
+                values["phone"] = "+37066666666";
+                values["ticket_date"] = date;
+                values["agree_on_terms"] = "true";
 
-            var client = new WebService.shopGuru_webService();
+                var sb = new StringBuilder();
+                foreach (var item in values)
+                {
+                    sb.AppendFormat("{0}={1}&", item.Key, HttpUtility.UrlEncode(item.Value.ToString()));
+                }
+                sb.Remove(sb.Length - 1, 1);
+                byte[] bytes = Encoding.UTF8.GetBytes(sb.ToString());
 
-            string result = await Task.Run(() => client.FillLotteryForm(values));
+                var client = new WebService.shopGuru_webService();
 
+                string result = await Task.Run(() => client.FillLotteryForm(bytes));
+
+                _errorTxt.Text = result;
+                
+            }
+            catch(Exception ex)
+            {
+                _errorTxt.Text = ex.ToString();
+            }
         }
     }
 }

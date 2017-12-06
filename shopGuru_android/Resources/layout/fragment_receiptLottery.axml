@@ -3,13 +3,67 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <TextView 
-    android:text="Receipt lottery in Lithuania begun!"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
-  <Button 
-    android:id="@+id/btnLotteryScan"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:text="Scan The Receipt"/>
+    <TextView
+        android:text="Receipt lottery in Lithuania begun!"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+  
+  <RadioGroup
+      android:layout_width="fill_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical">
+    <RadioButton android:id="@+id/radio_market"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="market" />
+    <RadioButton android:id="@+id/radio_services"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="services" />
+  </RadioGroup>
+  <EditText
+        android:id="@+id/txtCshRegNum"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/EditTextStyle"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="10dp"
+        android:hint="Cash Register Number"
+        android:textColor="#000" />
+  <EditText
+        android:id="@+id/txtRcpNum"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/EditTextStyle"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="10dp"
+        android:hint="Receipt Number"
+        android:textColor="#000" />
+  <EditText
+        android:id="@+id/txtDate"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/EditTextStyle"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="10dp"
+        android:hint="Date"
+        android:textColor="#000" />
+    <Button
+        android:id="@+id/btnLotteryScan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Scan The Receipt" />
+    <TextView
+        android:id="@+id/txtError"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
 </LinearLayout>

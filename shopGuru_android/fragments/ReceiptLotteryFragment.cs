@@ -42,7 +42,7 @@ namespace shopGuru_android.fragments
 
         private async void _button_ClickAsync(object sender, EventArgs e)
         {
-            NameValueCollection values = new NameValueCollection();
+            Dictionary<string,string> values = new Dictionary<string, string>();
             values.Add("check_type", "services");
             values.Add("cash_register_number", "RK123456");
             values.Add("check_number", "00000004");

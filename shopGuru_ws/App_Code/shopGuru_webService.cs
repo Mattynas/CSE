@@ -39,22 +39,37 @@ public class shopGuru_webService : System.Web.Services.WebService
                 if (elem.GetAttribute("username") == username && elem.GetAttribute("password") == password) return true;
             }
         }
-        return false;
+        return false;   
     }
 
     [WebMethod]
-    public string FillLotteryForm(NameValueCollection formData)
+    public bool FillLotteryForm(Dictionary<string,string> formData)
     {
         string url = "https://kvituzaidimas.vmi.lt/";
-        System.Uri uri = new Uri(url);
-        
-        using (WebClient client = new WebClient())
+        var sb = new StringBuilder();
+        foreach(var item in formData)
         {
-            client.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
-            byte[] result = client.UploadValues(uri, "POST", formData);
+            sb.AppendFormat("{0}={1}&", item.Key, HttpUtility.UrlEncode(item.Value.ToString()));
+        }
+        sb.Remove(sb.Length - 1, 1);
 
-            var responseString = Encoding.UTF8.GetString(result);
-            return responseString;
+        WebRequest request = WebRequest.Create(url);
+        request.Method = "POST";
+        var stream = request.GetRequestStream();
+        byte[] bytes = Encoding.UTF8.GetBytes(sb.ToString());
+
+        request.ContentType = "application/x-www-form-urlencoded;charset=UTF-8";
+        request.ContentLength = bytes.Length;
+        stream.Write(bytes, 0, bytes.Length);
+        stream.Close();
+        var response = (HttpWebResponse)request.GetResponse();
+        if(response.StatusCode == HttpStatusCode.OK)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 

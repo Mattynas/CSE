@@ -135,6 +135,7 @@
     <Compile Include="Extensions\Extension.cs" />
     <Compile Include="activities\LoginActivity.cs" />
     <Compile Include="activities\MainActivity.cs" />
+    <Compile Include="fragments\EditItemNameFragment.cs" />
     <Compile Include="fragments\ItemListFragment.cs" />
     <Compile Include="interfaces\IItem.cs" />
     <Compile Include="interfaces\ISharedPreferences.cs" />
@@ -191,7 +192,10 @@
     <AndroidResource Include="Resources\layout\activity_imageProcess.axml" />
     <AndroidResource Include="Resources\layout\recycler_view.axml" />
     <AndroidResource Include="Resources\layout\view_row.axml" />
-    <AndroidResource Include="Resources\layout\ItemListFragment.axml">
+    <AndroidResource Include="Resources\layout\fragment_itemList.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_editItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <None Include="shopGuru_android.csproj.bak" />

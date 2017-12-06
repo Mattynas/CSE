@@ -22,7 +22,6 @@ namespace shopGuru_android
     {
         private DrawerLayout _drawerLayout;
         private NavigationView _navigationView;
-        //private RecyclerView _recyclerView;
 
         private Intent _intent;
 
@@ -109,20 +108,15 @@ namespace shopGuru_android
                 try
                 {
                     var itemList = ScanActivity.ItemList;
-                    ToRecyclerView(itemList);
+                    var trans = SupportFragmentManager.BeginTransaction();
+                    trans.Add(Resource.Id.fragmentContainer, new ItemListFragment(itemList), "ItemListFragment");
+                    trans.Commit();
                 }
                 catch (FormatException ex)
                 {
                     Toast.MakeText(ApplicationContext,ex.Message,ToastLength.Long).Show();
                 }
             }
-        }
-
-        private void ToRecyclerView(List<IItem> itemList)
-        {
-            var trans = SupportFragmentManager.BeginTransaction();
-            trans.Add(Resource.Id.fragmentContainer, new ItemListFragment(itemList), "ItemListFragment");
-            trans.Commit();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

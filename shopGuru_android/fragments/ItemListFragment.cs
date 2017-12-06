@@ -19,6 +19,7 @@ namespace shopGuru_android.fragments
     public class ItemListFragment : Android.Support.V4.App.Fragment
     {
         private RecyclerView _recyclerView;
+        private FrameLayout _subfragContainer;
         private List<IItem> itemList;
 
         public ItemListFragment(List<IItem> itemList)
@@ -35,7 +36,7 @@ namespace shopGuru_android.fragments
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
 
-            View view = inflater.Inflate(Resource.Layout.ItemListFragment, container, false);
+            View view = inflater.Inflate(Resource.Layout.fragment_itemList, container, false);
 
             _recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerView);
             var layoutManager = new LinearLayoutManager(Activity);

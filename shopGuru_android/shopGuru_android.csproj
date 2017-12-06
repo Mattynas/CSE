@@ -139,6 +139,7 @@
     <Compile Include="fragments\MainFragment.cs" />
     <Compile Include="fragments\ReceiptLotteryFragment.cs" />
     <Compile Include="interfaces\IItem.cs" />
+    <Compile Include="interfaces\IItemClickListener.cs" />
     <Compile Include="interfaces\ISharedPreferences.cs" />
     <Compile Include="Model\Item.cs" />
     <Compile Include="Model\Receipt.cs" />

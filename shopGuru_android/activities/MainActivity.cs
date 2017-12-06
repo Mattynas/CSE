@@ -25,6 +25,7 @@ namespace shopGuru_android
         private DrawerLayout _drawerLayout;
         private NavigationView _navigationView;
         private SupportFragment _currFragment;
+        private Stack<SupportFragment> _stackFragment;
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -49,18 +50,15 @@ namespace shopGuru_android
             
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu_black_24dp);
 
-
-            var mainFragment = new MainFragment();
-            var receiptLotteryFragment = new ReceiptLotteryFragment();
-
+            _stackFragment = new Stack<SupportFragment>();
 
             // add fragments to layout and hide all except for main
+            var mainFragment = new MainFragment();
             var trans = SupportFragmentManager.BeginTransaction();
-            trans.Add(Resource.Id.fragmentContainer, mainFragment, "MainFragment");
-            trans.Add(Resource.Id.fragmentContainer, receiptLotteryFragment, "ReceiptLotteryFragment");
-            trans.Hide(receiptLotteryFragment);
-            _currFragment = mainFragment;
+            trans.Add(Resource.Id.fragmentContainer, mainFragment, mainFragment.Id.ToString());
             trans.Commit();
+
+            _currFragment = mainFragment;
 
             _navigationView.NavigationItemSelected += (sender, e) => {
                 
@@ -71,6 +69,7 @@ namespace shopGuru_android
                 switch(id)
                 {
                     case Resource.Id.nav_lottery:
+                        var receiptLotteryFragment = new ReceiptLotteryFragment();
                         ShowFragment(receiptLotteryFragment);
                         break;
                     case Resource.Id.nav_home:
@@ -87,10 +86,18 @@ namespace shopGuru_android
         {
             var trans = SupportFragmentManager.BeginTransaction();
 
+            SupportFragment ftemp = SupportFragmentManager.FindFragmentById(fragment.Id);
+
+            if (ftemp == null)
+            {
+                trans.Add(Resource.Id.fragmentContainer, fragment, fragment.Id.ToString());
+            }
             trans.Hide(_currFragment);
             trans.Show(fragment);
             trans.AddToBackStack(null);
             trans.Commit();
+
+            _stackFragment.Push(_currFragment);
             _currFragment = fragment;
         }
 
@@ -104,9 +111,9 @@ namespace shopGuru_android
                 try
                 {
                     var itemList = ScanActivity.ItemList;
-                    var trans = SupportFragmentManager.BeginTransaction();
-                    trans.Add(Resource.Id.fragmentContainer, new ItemListFragment(itemList), "ItemListFragment");
-                    trans.Commit();
+                    var itemListFragment = new ItemListFragment(itemList);
+
+                    ShowFragment(itemListFragment);
                 }
                 catch (FormatException ex)
                 {
@@ -131,6 +138,19 @@ namespace shopGuru_android
                     return true;
             }
             return base.OnOptionsItemSelected(item);
+        }
+
+        public override void OnBackPressed()
+        {
+            if(SupportFragmentManager.BackStackEntryCount > 0)
+            {
+                SupportFragmentManager.PopBackStack();
+                _currFragment = _stackFragment.Pop();
+            }
+            else
+            {
+                base.OnBackPressed();
+            } 
         }
     }
 }

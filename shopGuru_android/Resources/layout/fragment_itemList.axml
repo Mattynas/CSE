@@ -6,11 +6,51 @@
     android:background="#E2E2E2">
     <include
         layout="@layout/recycler_view" />
-    <FrameLayout
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CONFIRM RECEIPT"
+        android:layout_gravity="bottom"
+        android:padding="5dp" />
+    <RelativeLayout
         android:id="@+id/subfragContainer"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
-        android:background="#00CC99"
+        android:layout_height="wrap_content"
+        android:background="@android:color/darker_gray"
         android:layout_gravity="bottom"
-        android:translationY="400dp" />
+        android:translationY="250dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="EDIT ITEM NAME"
+            android:textColor="@android:color/black"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp" />
+        <EditText
+            android:id="@+id/itemEditField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Item Name"
+            android:padding="5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:textColor="@android:color/black" />
+        <Button
+            android:id="@+id/cfmButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Confirm"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:layout_marginTop="100dp" />
+        <Button
+            android:id="@+id/delButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete Item"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:layout_marginTop="150dp" />
+    </RelativeLayout>
 </FrameLayout>

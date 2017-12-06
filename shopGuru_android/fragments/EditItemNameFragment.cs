@@ -24,6 +24,8 @@ namespace shopGuru_android.fragments
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
+            View view = inflater.Inflate(Resource.Layout.fragment_editItem, container, false);
+     
             return View;
         }
     }

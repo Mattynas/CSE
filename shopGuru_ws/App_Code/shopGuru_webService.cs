@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Net;
+using System.Security.Policy;
+using System.Text;
 using System.Web;
 using System.Web.Services;
 using System.Xml;
-
 /// <summary>
 /// Summary description for shopGuru_webService
 /// </summary>
@@ -37,6 +40,22 @@ public class shopGuru_webService : System.Web.Services.WebService
             }
         }
         return false;
+    }
+
+    [WebMethod]
+    public string FillLotteryForm(NameValueCollection formData)
+    {
+        string url = "https://kvituzaidimas.vmi.lt/";
+        System.Uri uri = new Uri(url);
+
+        using (WebClient client = new WebClient())
+        {
+            client.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
+            byte[] result = client.UploadValues(uri, "POST", formData);
+
+            var responseString = Encoding.UTF8.GetString(result);
+            return responseString;
+        }
     }
 
 }

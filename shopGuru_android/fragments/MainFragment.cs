@@ -10,16 +10,15 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
-using System.Collections.Specialized;
 
 namespace shopGuru_android.fragments
 {
-    public class ReceiptLotteryFragment : Android.Support.V4.App.Fragment
+    public class MainFragment : Android.Support.V4.App.Fragment
     {
         public override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-            
+
             // Create your fragment here
         }
 
@@ -27,17 +26,19 @@ namespace shopGuru_android.fragments
         {
             // Use this to return your custom view for this Fragment
             // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
+            var view = inflater.Inflate(Resource.Layout.fragment_main, container, false);
 
-            var view = inflater.Inflate(Resource.Layout.fragment_receiptLottery, container, false);
+            var scanBtn = view.FindViewById(Resource.Id.btnScanReceipt);
 
-
-            NameValueCollection values = new NameValueCollection();
-            values.Add("check_type", "services");
-            values.Add("cash_register_number", "RK123456");
-
-
+            scanBtn.Click += ScanBtn_Click;
             base.OnCreateView(inflater, container, savedInstanceState);
             return view;
+        }
+
+        private void ScanBtn_Click(object sender, EventArgs e)
+        {
+            var intent = new Intent(this.Context, typeof(ScanActivity));
+            StartActivityForResult(intent, 0);
         }
     }
 }

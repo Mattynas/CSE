@@ -11,10 +11,6 @@
         android:icon="@drawable/ic_power_settings_new_black_24dp"
         android:title="Receipt Lottery"/>
     <item
-        android:id="@+id/nav_scanner"
-        android:icon="@drawable/ic_settings_black_24dp"
-        android:title="Scanner"/>
-    <item
         android:id="@+id/nav_nearestshop"
         android:icon="@drawable/ic_location_on_black_24dp"
         android:title="Find Nearest shop" />

@@ -136,6 +136,7 @@
     <Compile Include="activities\MainActivity.cs" />
     <Compile Include="fragments\EditItemNameFragment.cs" />
     <Compile Include="fragments\ItemListFragment.cs" />
+    <Compile Include="fragments\MainFragment.cs" />
     <Compile Include="fragments\ReceiptLotteryFragment.cs" />
     <Compile Include="interfaces\IItem.cs" />
     <Compile Include="interfaces\ISharedPreferences.cs" />
@@ -199,6 +200,9 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\fragment_receiptLottery.axml" />
+    <AndroidResource Include="Resources\layout\fragment_main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
     <None Include="shopGuru_android.csproj.bak" />
     <None Include="Web References\WebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

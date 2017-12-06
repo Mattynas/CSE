@@ -10,6 +10,7 @@ using Android.Support.V7.App;
 using Android.Support.V7.Widget;
 using Android.Widget;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
+using SupportFragment = Android.Support.V4.App.Fragment;
 using shopGuru_android.Model;
 using shopGuru_android.fragments;
 using shopGuru_android.converters;
@@ -23,13 +24,11 @@ namespace shopGuru_android
     {
         private DrawerLayout _drawerLayout;
         private NavigationView _navigationView;
-
+        private SupportFragment _currFragment;
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
-
-
 
             SetContentView(Resource.Layout.activity_main);
             
@@ -37,40 +36,63 @@ namespace shopGuru_android
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             
-            SetSupportActionBar(toolbar);
             var drawerToggle = new Android.Support.V7.App.ActionBarDrawerToggle(this, _drawerLayout, Resource.String.drawer_open,
                 Resource.String.drawer_close);
 
             //_drawerLayout.SetDrawerListener(drawerToggle);
             drawerToggle.SyncState();
             
-            
+            SetSupportActionBar(toolbar);
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetHomeButtonEnabled(true);
             
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu_black_24dp);
-            
-            
+
+
+            var mainFragment = new MainFragment();
+            var receiptLotteryFragment = new ReceiptLotteryFragment();
+
+
+            // add fragments to layout and hide all except for main
+            var trans = SupportFragmentManager.BeginTransaction();
+            trans.Add(Resource.Id.fragmentContainer, mainFragment, "MainFragment");
+            trans.Add(Resource.Id.fragmentContainer, receiptLotteryFragment, "ReceiptLotteryFragment");
+            trans.Hide(receiptLotteryFragment);
+            _currFragment = mainFragment;
+            trans.Commit();
+
             _navigationView.NavigationItemSelected += (sender, e) => {
                 
-                 e.MenuItem.SetChecked(true);
                 
+                 e.MenuItem.SetChecked(true);
                 //react to click here and swap fragments or navigate
                 long id = e.MenuItem.ItemId;
-                FragmentTransaction ft = this.FragmentManager.BeginTransaction();
-                if (id == Resource.Id.nav_scanner)
+                switch(id)
                 {
-                    var intent = new Intent(this,typeof(ScanActivity));
-                    StartActivityForResult(intent, 0);
+                    case Resource.Id.nav_lottery:
+                        ShowFragment(receiptLotteryFragment);
+                        break;
+                    case Resource.Id.nav_home:
+                        ShowFragment(mainFragment);
+                        break;
                 }
-                
-                
-
+                 
                 _drawerLayout.CloseDrawers();
             };
-        }
 
+        }
+        
+        private void ShowFragment(SupportFragment fragment)
+        {
+            var trans = SupportFragmentManager.BeginTransaction();
+
+            trans.Hide(_currFragment);
+            trans.Show(fragment);
+            trans.AddToBackStack(null);
+            trans.Commit();
+            _currFragment = fragment;
+        }
 
         protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
         {

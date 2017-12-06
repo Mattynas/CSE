@@ -14,38 +14,21 @@ using shopGuru_android.Model;
 using shopGuru_android.fragments;
 using shopGuru_android.converters;
 using shopGuru_android.interfaces;
+using Android.Content.PM;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "shopGuru")]
+    [Activity(Label = "shopGuru", ScreenOrientation = ScreenOrientation.Locked)]
     public class MainActivity : AppCompatActivity
     {
         private DrawerLayout _drawerLayout;
         private NavigationView _navigationView;
 
-        private Intent _intent;
-
-        public delegate string GenericDelegateNumber<T1,T2>(T1 a,T2 b);
-
-        public static string AddDoubles(double a, double b)
-        {
-            return (a + b).ToString();
-        }
-
-        public static string AddInt(int a, int b)
-        {
-            return (a + b).ToString();
-        }
 
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
-            GenericDelegateNumber<int, int> gdInt = new GenericDelegateNumber<int, int>(AddInt);
-            GenericDelegateNumber<double, double> gdDouble = new GenericDelegateNumber<double, double>(AddDoubles);
-
-            Console.WriteLine(gdInt(5, 6));
-            Console.WriteLine(gdDouble(6.5, 4.3));
 
 
             SetContentView(Resource.Layout.activity_main);
@@ -58,7 +41,7 @@ namespace shopGuru_android
             var drawerToggle = new Android.Support.V7.App.ActionBarDrawerToggle(this, _drawerLayout, Resource.String.drawer_open,
                 Resource.String.drawer_close);
 
-            _drawerLayout.SetDrawerListener(drawerToggle);
+            //_drawerLayout.SetDrawerListener(drawerToggle);
             drawerToggle.SyncState();
             
             
@@ -78,21 +61,16 @@ namespace shopGuru_android
                 FragmentTransaction ft = this.FragmentManager.BeginTransaction();
                 if (id == Resource.Id.nav_scanner)
                 {
-                    _intent = new Intent(this,typeof(ScanActivity));
+                    var intent = new Intent(this,typeof(ScanActivity));
+                    StartActivityForResult(intent, 0);
                 }
                 else if (id == Resource.Id.nav_processing)
                 {
-                    _intent = new Intent(this, typeof(ImageProcessingActivity));
-                }
-                else if (id == Resource.Id.nav_home)
-                {
-                    //return;
+                    var intent = new Intent(this, typeof(ImageProcessingActivity));
+                    StartActivityForResult(intent, 0);
                 }
                 
-                if (_intent != null)
-                {
-                    StartActivityForResult(_intent,0);
-                }
+
                 _drawerLayout.CloseDrawers();
             };
         }

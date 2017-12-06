@@ -47,7 +47,7 @@ public class shopGuru_webService : System.Web.Services.WebService
     {
         string url = "https://kvituzaidimas.vmi.lt/";
         System.Uri uri = new Uri(url);
-
+        
         using (WebClient client = new WebClient())
         {
             client.Headers.Add("Content-Type", "application/x-www-form-urlencoded");

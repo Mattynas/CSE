@@ -64,11 +64,7 @@ namespace shopGuru_android
                     var intent = new Intent(this,typeof(ScanActivity));
                     StartActivityForResult(intent, 0);
                 }
-                else if (id == Resource.Id.nav_processing)
-                {
-                    var intent = new Intent(this, typeof(ImageProcessingActivity));
-                    StartActivityForResult(intent, 0);
-                }
+                
                 
 
                 _drawerLayout.CloseDrawers();

@@ -119,7 +119,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="activities\ImageProcessingActivity.cs" />
     <Compile Include="adapters\ItemViewAdapter.cs" />
     <Compile Include="authenticator\AppPreferences.cs" />
     <Compile Include="authenticator\ReceiptTextValidation.cs" />
@@ -137,6 +136,7 @@
     <Compile Include="activities\MainActivity.cs" />
     <Compile Include="fragments\EditItemNameFragment.cs" />
     <Compile Include="fragments\ItemListFragment.cs" />
+    <Compile Include="fragments\ReceiptLotteryFragment.cs" />
     <Compile Include="interfaces\IItem.cs" />
     <Compile Include="interfaces\ISharedPreferences.cs" />
     <Compile Include="Model\Item.cs" />
@@ -198,6 +198,7 @@
     <AndroidResource Include="Resources\layout\fragment_editItem.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_receiptLottery.axml" />
     <None Include="shopGuru_android.csproj.bak" />
     <None Include="Web References\WebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

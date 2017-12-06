@@ -7,14 +7,14 @@
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="Home" />
     <item
-        android:id="@+id/nav_processing"
+        android:id="@+id/nav_lottery"
         android:icon="@drawable/ic_power_settings_new_black_24dp"
-        android:title="Image Processing"/>
+        android:title="Receipt Lottery"/>
     <item
         android:id="@+id/nav_scanner"
         android:icon="@drawable/ic_settings_black_24dp"
-        android:title="Scanner(Beta)"/>
-    <!--<item
+        android:title="Scanner"/>
+    <item
         android:id="@+id/nav_nearestshop"
         android:icon="@drawable/ic_location_on_black_24dp"
         android:title="Find Nearest shop" />
@@ -25,7 +25,7 @@
         android:id="@+id/nav_about"
         android:title="About" />-->
   </group>
-  <!--<item>
+  <item>
     <menu>
         <item
             android:id="@+id/nav_settings"
@@ -36,5 +36,5 @@
             android:icon="@drawable/ic_power_settings_new_black_24dp"
             android:title="Sign Out"/>
     </menu>
-  </item>-->
+  </item>
 </menu>

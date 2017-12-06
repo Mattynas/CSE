@@ -11,7 +11,7 @@ using Android.Support.V7.Widget;
 using Android.Widget;
 using Toolbar = Android.Support.V7.Widget.Toolbar;
 using shopGuru_android.Model;
-using shopGuru_android.adapters;
+using shopGuru_android.fragments;
 using shopGuru_android.converters;
 using shopGuru_android.interfaces;
 
@@ -22,7 +22,7 @@ namespace shopGuru_android
     {
         private DrawerLayout _drawerLayout;
         private NavigationView _navigationView;
-        private RecyclerView _recyclerView;
+        //private RecyclerView _recyclerView;
 
         private Intent _intent;
 
@@ -120,11 +120,9 @@ namespace shopGuru_android
 
         private void ToRecyclerView(List<IItem> itemList)
         {
-            _recyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-            var layoutManager = new LinearLayoutManager(this);
-            var itemAdapter = new ItemViewAdapter(itemList);
-            _recyclerView.SetLayoutManager(layoutManager);
-            _recyclerView.SetAdapter(itemAdapter);
+            var trans = SupportFragmentManager.BeginTransaction();
+            trans.Add(Resource.Id.fragmentContainer, new ItemListFragment(itemList), "ItemListFragment");
+            trans.Commit();
         }
 
         public override bool OnCreateOptionsMenu(IMenu menu)

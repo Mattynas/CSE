@@ -22,11 +22,17 @@ namespace shopGuru_android.fragments
         private TextView _errorTxt;
         private RadioButton _radio_market;
         private RadioButton _radio_services;
-        private EditText _cashRegisterNumber;
-        private EditText _receiptNumber;
-        private EditText _receiptDate;
+        private TextView _cashRegisterNumber;
+        private TextView _receiptNumber;
+        private TextView _receiptDate;
+        private EditText _phoneNumber;
 
-        private Dictionary<string, string> values = new Dictionary<string, string>();
+        private Dictionary<string, string> values;
+
+        public ReceiptLotteryFragment(Dictionary<string,string> results)
+        {
+            values = results;
+        }
 
         public override void OnCreate(Bundle savedInstanceState)
         {
@@ -41,13 +47,16 @@ namespace shopGuru_android.fragments
             // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 
             var view = inflater.Inflate(Resource.Layout.fragment_receiptLottery, container, false);
-            _button = view.FindViewById<Button>(Resource.Id.btnLotteryScan);
+            _button = view.FindViewById<Button>(Resource.Id.btnLotterySubmit);
             _errorTxt = view.FindViewById<TextView>(Resource.Id.txtError);
             _radio_market = view.FindViewById<RadioButton>(Resource.Id.radio_market);
             _radio_services = view.FindViewById<RadioButton>(Resource.Id.radio_services);
-            _cashRegisterNumber = view.FindViewById<EditText>(Resource.Id.txtCshRegNum);
-            _receiptNumber = view.FindViewById<EditText>(Resource.Id.txtRcpNum);
-            _receiptDate = view.FindViewById<EditText>(Resource.Id.txtDate);
+            _cashRegisterNumber = view.FindViewById<TextView>(Resource.Id.txtCshRegNum);
+            _receiptNumber = view.FindViewById<TextView>(Resource.Id.txtRcpNum);
+            _receiptDate = view.FindViewById<TextView>(Resource.Id.txtDate);
+            _phoneNumber = view.FindViewById<EditText>(Resource.Id.txtNumber);
+
+
 
             _radio_market.Click += RadioButton_Click;
             _radio_services.Click += RadioButton_Click;
@@ -67,12 +76,11 @@ namespace shopGuru_android.fragments
         {
             try
             {
-                string date = _receiptDate.Text;
-                date += "T00:00:00+02:00";
-                values["cash_register_number"] = _cashRegisterNumber.Text;
-                values["check_number"] = _receiptNumber.Text;
-                values["phone"] = "+37066666666";
-                values["ticket_date"] = date;
+                string dateformat = "T00:00:00+02:00";
+                //values["cash_register_number"] = _cashRegisterNumber.Text;
+                //values["check_number"] = _receiptNumber.Text;
+                values["phone"] = _phoneNumber.Text;
+                values["ticket_date"] += dateformat;
                 values["agree_on_terms"] = "true";
 
                 var sb = new StringBuilder();

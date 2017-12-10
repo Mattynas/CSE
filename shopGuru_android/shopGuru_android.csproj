@@ -119,8 +119,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="activities\ReceiptLotteryScanActivity.cs" />
     <Compile Include="adapters\ItemViewAdapter.cs" />
     <Compile Include="authenticator\AppPreferences.cs" />
+    <Compile Include="authenticator\LotteryTextValidation.cs" />
     <Compile Include="authenticator\ReceiptTextValidation.cs" />
     <Compile Include="authenticator\UserDataValidation.cs" />
     <Compile Include="converters\TextToReceiptConverter.cs" />
@@ -138,6 +140,7 @@
     <Compile Include="fragments\ItemListFragment.cs" />
     <Compile Include="fragments\MainFragment.cs" />
     <Compile Include="fragments\ReceiptLotteryFragment.cs" />
+    <Compile Include="fragments\ReceiptLotteryMainFragment.cs" />
     <Compile Include="interfaces\IItem.cs" />
     <Compile Include="interfaces\IItemClickListener.cs" />
     <Compile Include="interfaces\ISharedPreferences.cs" />
@@ -202,6 +205,9 @@
     </AndroidResource>
     <AndroidResource Include="Resources\layout\fragment_receiptLottery.axml" />
     <AndroidResource Include="Resources\layout\fragment_main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_mainLottery.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <None Include="shopGuru_android.csproj.bak" />

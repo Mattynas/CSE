@@ -27,6 +27,10 @@ namespace shopGuru_android
         private SupportFragment _currFragment;
         private Stack<SupportFragment> _stackFragment;
 
+        public static readonly int requestScannerId = 0;
+        public static readonly int requestLotteryScannerId = 0;
+
+
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
@@ -69,8 +73,8 @@ namespace shopGuru_android
                 switch(id)
                 {
                     case Resource.Id.nav_lottery:
-                        var receiptLotteryFragment = new ReceiptLotteryFragment();
-                        ShowFragment(receiptLotteryFragment);
+                        var receiptLotteryMainFragment = new ReceiptLotteryMainFragment();
+                        ShowFragment(receiptLotteryMainFragment);
                         break;
                     case Resource.Id.nav_home:
                         ShowFragment(mainFragment);
@@ -107,17 +111,27 @@ namespace shopGuru_android
 
             if (resultCode == Result.Ok)
             {
-                
-                try
-                {
-                    var itemList = ScanActivity.ItemList;
-                    var itemListFragment = new ItemListFragment(itemList);
+                if(requestCode == requestScannerId)
+                {   
+                    try
+                    {
+                        var itemList = ScanActivity.ItemList;
+                        var itemListFragment = new ItemListFragment(itemList);
 
-                    ShowFragment(itemListFragment);
+                        ShowFragment(itemListFragment);
+                    }
+                    catch (FormatException ex)
+                    {
+                        Toast.MakeText(ApplicationContext,ex.Message,ToastLength.Long).Show();
+                    }
+
                 }
-                catch (FormatException ex)
+                else if(requestCode == requestLotteryScannerId)
                 {
-                    Toast.MakeText(ApplicationContext,ex.Message,ToastLength.Long).Show();
+                    var results = ReceiptLotteryScanActivity.dictionary;
+                    var receiptLotteryFragment = new ReceiptLotteryFragment(results);
+
+                    ShowFragment(receiptLotteryFragment);
                 }
             }
         }

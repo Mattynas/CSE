@@ -3,11 +3,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <TextView
-        android:text="Receipt lottery in Lithuania begun!"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-  
   <RadioGroup
       android:layout_width="fill_parent"
       android:layout_height="wrap_content"
@@ -21,7 +16,7 @@
         android:layout_height="wrap_content"
         android:text="services" />
   </RadioGroup>
-  <EditText
+  <TextView
         android:id="@+id/txtCshRegNum"
         android:layout_width="match_parent"
         android:layout_height="35dp"
@@ -33,7 +28,7 @@
         android:paddingLeft="10dp"
         android:hint="Cash Register Number"
         android:textColor="#000" />
-  <EditText
+  <TextView
         android:id="@+id/txtRcpNum"
         android:layout_width="match_parent"
         android:layout_height="35dp"
@@ -45,7 +40,7 @@
         android:paddingLeft="10dp"
         android:hint="Receipt Number"
         android:textColor="#000" />
-  <EditText
+  <TextView
         android:id="@+id/txtDate"
         android:layout_width="match_parent"
         android:layout_height="35dp"
@@ -57,11 +52,23 @@
         android:paddingLeft="10dp"
         android:hint="Date"
         android:textColor="#000" />
+  <EditText
+        android:id="@+id/txtNumber"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="@drawable/EditTextStyle"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="25dp"
+        android:paddingLeft="10dp"
+        android:hint="PhoneNumber"
+        android:textColor="#000" />
     <Button
-        android:id="@+id/btnLotteryScan"
+        android:id="@+id/btnLotterySubmit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Scan The Receipt" />
+        android:text="Submit" />
     <TextView
         android:id="@+id/txtError"
         android:layout_width="match_parent"

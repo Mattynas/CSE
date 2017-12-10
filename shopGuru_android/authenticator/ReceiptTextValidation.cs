@@ -34,7 +34,7 @@ namespace shopGuru_android.authenticator
         }
         public static Tuple<List<IItem>, string> ValidateItems(SparseArray items)
         {
-            var rectTextDictionary = new Dictionary<Rect, Android.Gms.Vision.Texts.TextBlock>();
+            var rectTextDictionary = new Dictionary<Rect, TextBlock>();
             ArrayList rectArray = new ArrayList();
             List<IItem> itemList = new List<IItem>();
 

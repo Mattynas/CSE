@@ -9,6 +9,7 @@ namespace shopGuru_android.Model
         private string _username;
         private string _password;
         private string _email;
+        private string _number;
 
         //Statistics
         /*private double _spendings;
@@ -18,16 +19,17 @@ namespace shopGuru_android.Model
         public string Username { get => _username; }
         public string Password { get => _password; }
         public string Email { get => _email; }
-
+        public string Number { get => _number; }
         /*public double Spendings { get => _spendings; }
         public double Savings { get => _savings; }
         public int Unique { get => _unique;  }*/
 
-        public Session(string username, string password, string email)
+        public Session(string username, string password, string email, string number)
         {
             _username = username;
             _password = password;
             _email = email;
+            _number = number;
             //getStatisticsFromServers
         }
 

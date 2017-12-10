@@ -38,7 +38,8 @@ namespace shopGuru_android.fragments
         private void ScanBtn_Click(object sender, EventArgs e)
         {
             var intent = new Intent(this.Context, typeof(ScanActivity));
-            StartActivityForResult(intent, 0);
+            
+            this.Activity.StartActivityForResult(intent, MainActivity.requestScannerId);
         }
     }
 }

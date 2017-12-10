@@ -34,7 +34,7 @@ namespace shopGuru_ws.Models
                 .HasForeignKey(e => e.user_info);
 
             modelBuilder.Entity<User_statistics>()
-                .HasMany(e => e.User_info)
+                .HasMany(e => e.Users)
                 .WithRequired(e => e.User_statistics1)
                 .HasForeignKey(e => e.user_statistics);
 

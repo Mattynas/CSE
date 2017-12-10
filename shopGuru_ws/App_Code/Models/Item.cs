@@ -5,6 +5,7 @@ namespace shopGuru_ws.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Xml.Serialization;
 
     [Table("shopping.Item")]
     public partial class Item
@@ -23,6 +24,7 @@ namespace shopGuru_ws.Models
 
         public bool? weightable { get; set; }
 
+        [XmlIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Price> Prices { get; set; }
     }

@@ -9,12 +9,6 @@ namespace shopGuru_ws.Models
     [Table("account.Users")]
     public partial class User
     {
-        public User(string username, string password)
-        {
-            this.username = username;
-            this.password = password;
-        }
-
         public int id { get; set; }
 
         [Required]
@@ -27,6 +21,16 @@ namespace shopGuru_ws.Models
 
         public int user_info { get; set; }
 
+        public int user_statistics { get; set; }
+
         public virtual User_info User_info1 { get; set; }
+
+        public virtual User_statistics User_statistics1 { get; set; }
+
+        public User(string username, string password)
+        {
+            this.username = username;
+            this.password = password;
+        }
     }
 }

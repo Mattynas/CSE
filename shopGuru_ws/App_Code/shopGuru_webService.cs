@@ -5,6 +5,9 @@ using System.Net;
 using System.Web.Services;
 using System.Linq;
 using shopGuru_ws.Models;
+using System.Web.Services.Protocols;
+using System.Collections.Generic;
+using System.Xml.Serialization;
 
 /// <summary>
 /// It is a web service for ShopGuru app
@@ -47,11 +50,11 @@ public class shopGuru_webService : System.Web.Services.WebService
                 context.User_statistics.Add(user_statistics);
 
                 User_info user_info = new User_info(email, number);
-                user_info.user_statistics = user_statistics.id;
                 context.User_info.Add(user_info);
 
                 User user = new User(username, password);
                 user.user_info = user_info.id;
+                user.user_statistics = user_statistics.id;
                 context.Users.Add(user);
 
                 context.SaveChanges();
@@ -60,6 +63,40 @@ public class shopGuru_webService : System.Web.Services.WebService
             catch (Exception) { } 
         }
         return result;
+    }
+
+    [WebMethod]
+    public Price GetPrice(string name, string shop)
+    {
+        using (SGEntities context = new SGEntities())
+        {
+            try
+            {
+                var prices = (from i in context.Items
+                          where i.label == name
+                          select i.Prices).Single();
+                return (from p in prices
+                        where p.shop == shop
+                        select p).Single();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            
+        }
+    }
+
+    [WebMethod]
+    public Price[] GetPrices(string name)
+    {
+        using (SGEntities context = new SGEntities())
+        {
+            var prices = (from i in context.Items
+                          where i.label == name
+                          select i.Prices).Single();
+            return prices.ToArray();
+        }
     }
 
     [WebMethod]

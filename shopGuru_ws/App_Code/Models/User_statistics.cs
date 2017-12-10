@@ -15,7 +15,7 @@ namespace shopGuru_ws.Models
             items_uploaded = 0;
             receipts_uploaded = 0;
             lottery_uploaded = 0;
-            User_info = new HashSet<User_info>();
+            Users = new HashSet<User>();
         }
 
         public int id { get; set; }
@@ -27,6 +27,6 @@ namespace shopGuru_ws.Models
         public int lottery_uploaded { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<User_info> User_info { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

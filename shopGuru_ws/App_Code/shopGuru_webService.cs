@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Data.Entity.Core.Objects;
 using System.IO;
 using System.Net;
 using System.Web.Services;
 using System.Xml;
+using shopGuru_ws.Models;
 
 /// <summary>
-/// Summary description for shopGuru_webService
+/// It is a web service for ShopGuru app
 /// </summary>
 //[WebService(Namespace = "http://shopguruwebservice.azurewebsites.net/")]
 [WebServiceBinding(ConformsTo = WsiProfiles.BasicProfile1_1)]
@@ -24,7 +26,10 @@ public class shopGuru_webService : System.Web.Services.WebService
     [WebMethod]
     public bool Login(string username, string password)
     {
-        return true;  
+        using (SGEntities entities = new SGEntities())
+        {
+            
+        }
     }
 
     [WebMethod]

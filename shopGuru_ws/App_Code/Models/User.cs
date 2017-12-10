@@ -1,11 +1,20 @@
 namespace shopGuru_ws.Models
 {
+    using System;
+    using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
+    using System.Data.Entity.Spatial;
 
     [Table("account.Users")]
     public partial class User
     {
+        public User(string username, string password)
+        {
+            this.username = username;
+            this.password = password;
+        }
+
         public int id { get; set; }
 
         [Required]

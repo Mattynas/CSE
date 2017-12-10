@@ -3,7 +3,7 @@ using System.Data.Entity.Core.Objects;
 using System.IO;
 using System.Net;
 using System.Web.Services;
-using System.Xml;
+using System.Linq;
 using shopGuru_ws.Models;
 
 /// <summary>
@@ -26,10 +26,40 @@ public class shopGuru_webService : System.Web.Services.WebService
     [WebMethod]
     public bool Login(string username, string password)
     {
-        using (SGEntities entities = new SGEntities())
+        using (SGEntities context = new SGEntities())
         {
-            
+           return (from u in context.Users
+                       where u.username == username
+                       && u.password == password
+                       select u).Any<User>();
         }
+    }
+
+    [WebMethod]
+    public bool Register(string username, string password, string email, string number)
+    {
+        bool result = false;
+        using (SGEntities context = new SGEntities())
+        {
+            try
+            {
+                User_statistics user_statistics = new User_statistics();
+                context.User_statistics.Add(user_statistics);
+
+                User_info user_info = new User_info(email, number);
+                user_info.user_statistics = user_statistics.id;
+                context.User_info.Add(user_info);
+
+                User user = new User(username, password);
+                user.user_info = user_info.id;
+                context.Users.Add(user);
+
+                context.SaveChanges();
+                result = true;
+            }
+            catch (Exception) { } 
+        }
+        return result;
     }
 
     [WebMethod]

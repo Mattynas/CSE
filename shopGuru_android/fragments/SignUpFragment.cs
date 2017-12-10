@@ -61,7 +61,8 @@ namespace shopGuru_android
         void btnSignUp_Click(object sender, EventArgs e)
         {
             //User clicked the button
-            onSignUpComplete.Invoke(this, new OnSignUpEventArgs(_txtName.Text,_txtEmail.Text, _txtPassword.Text, _txtConfirmPassword.Text));
+            var client = new WebService.shopGuru_webService();
+            client.Register(_txtName.Text, _txtPassword.Text, _txtEmail.Text, "86666666");
             this.Dismiss();
         }
     }

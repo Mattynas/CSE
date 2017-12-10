@@ -53,4 +53,14 @@
             android:padding="5dp"
             android:layout_marginTop="150dp" />
     </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/subfragContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#474747"
+        android:layout_gravity="bottom"
+        android:translationY="250dp">
+        <include
+            layout="@layout/recycler_view2" />
+    </RelativeLayout>
 </FrameLayout>

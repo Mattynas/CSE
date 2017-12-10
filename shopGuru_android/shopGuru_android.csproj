@@ -119,8 +119,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="adapters\ComparedListAdapter.cs" />
     <Compile Include="adapters\ItemViewAdapter.cs" />
     <Compile Include="authenticator\AppPreferences.cs" />
+    <Compile Include="authenticator\ItemListComparer.cs" />
     <Compile Include="authenticator\ReceiptTextValidation.cs" />
     <Compile Include="authenticator\UserDataValidation.cs" />
     <Compile Include="converters\TextToReceiptConverter.cs" />
@@ -134,7 +136,6 @@
     <Compile Include="Extensions\Extension.cs" />
     <Compile Include="activities\LoginActivity.cs" />
     <Compile Include="activities\MainActivity.cs" />
-    <Compile Include="fragments\EditItemNameFragment.cs" />
     <Compile Include="fragments\ItemListFragment.cs" />
     <Compile Include="fragments\MainFragment.cs" />
     <Compile Include="fragments\ReceiptLotteryFragment.cs" />
@@ -197,11 +198,14 @@
     <AndroidResource Include="Resources\layout\fragment_itemList.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_editItem.axml">
+    <AndroidResource Include="Resources\layout\fragment_comparison.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\fragment_receiptLottery.axml" />
     <AndroidResource Include="Resources\layout\fragment_main.axml">
+      <SubType>Designer</SubType>
+    </AndroidResource>
+    <AndroidResource Include="Resources\layout\recycler_view2.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <None Include="shopGuru_android.csproj.bak" />

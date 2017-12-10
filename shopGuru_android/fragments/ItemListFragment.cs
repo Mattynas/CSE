@@ -12,6 +12,7 @@ using Android.Views;
 using Android.Widget;
 using shopGuru_android.adapters;
 using shopGuru_android.interfaces;
+using shopGuru_android.authenticator;
 using Android.Support.V7.Widget;
 
 namespace shopGuru_android.fragments
@@ -19,7 +20,9 @@ namespace shopGuru_android.fragments
     public class ItemListFragment : Android.Support.V4.App.Fragment, View.IOnTouchListener
     {
         private RecyclerView _recyclerView;
+        private RecyclerView _recyclerView2;
         private RelativeLayout _subfragContainer;
+        private RelativeLayout _comparedListLayout;
         private EditText _editText;
         private Button _cfmButton;
         private Button _delButton;
@@ -45,17 +48,14 @@ namespace shopGuru_android.fragments
             View view = inflater.Inflate(Resource.Layout.fragment_itemList, container, false);
 
             _recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerView);
+            _recyclerView2 = view.FindViewById<RecyclerView>(Resource.Id.recyclerView2);
             _subfragContainer = view.FindViewById<RelativeLayout>(Resource.Id.subfragContainer);
+            _comparedListLayout = view.FindViewById<RelativeLayout>(Resource.Id.subfragContainer);
             _editText = view.FindViewById<EditText>(Resource.Id.itemEditField);
             _cfmButton = view.FindViewById<Button>(Resource.Id.cfmButton);
             _delButton = view.FindViewById<Button>(Resource.Id.delButton);
             _sendButton = view.FindViewById<Button>(Resource.Id.sendButton);
 
-            /*
-            var trans = ChildFragmentManager.BeginTransaction();
-            trans.Add(Resource.Id.subfragContainer, new EditItemNameFragment(), "EditItemNameFragment");
-            trans.Commit();
-            */
 
             var layoutManager = new LinearLayoutManager(this.Activity);
             var itemAdapter = new ItemViewAdapter(itemList, this.Activity);
@@ -64,7 +64,7 @@ namespace shopGuru_android.fragments
             {
                 if (_subfragContainer.TranslationY + 2 >= _subfragContainer.Height)
                 {
-                    MoveContainer(true);
+                    MoveEditContainer(true, _subfragContainer);
                 }
                 _sendButton.Visibility = ViewStates.Invisible;
                 tempPos = position;
@@ -79,7 +79,7 @@ namespace shopGuru_android.fragments
                 itemList.ElementAt(tempPos).Name = _editText.Text;
                 itemAdapter.UpdateItemList(itemList);
                 itemAdapter.NotifyItemChanged(tempPos);
-                MoveContainer(false);
+                MoveEditContainer(false, _subfragContainer);
                 _sendButton.Visibility = ViewStates.Visible;
             };
 
@@ -88,31 +88,39 @@ namespace shopGuru_android.fragments
                 itemList.RemoveAt(tempPos);
                 itemAdapter.UpdateItemList(itemList);
                 itemAdapter.NotifyItemRemoved(tempPos);
-                MoveContainer(false);
+                MoveEditContainer(false, _subfragContainer);
                 _sendButton.Visibility = ViewStates.Visible;
             };
 
             _sendButton.Click += (object sender, EventArgs e) =>
             {
-                Toast.MakeText(this.Activity, "Comparing List", ToastLength.Long).Show();
-                /*CompareItemListToDatabase(itemList);
-                 * LoadComparisonFragment();
-                 * 
-                 */
+                /*
+                var dbList = DB.GetFullItemList();  NEED TO CONNECT TO DATABASE HERE
+                var comparer = new ItemListComparer();
+                var comparedItemList = comparer.CompareLists(itemList, dbList);
+                */
+                var manager = new LinearLayoutManager(this.Activity);
+                var comparedAdapter = new ComparedListAdapter(itemList, this.Activity);
+                _recyclerView2.SetLayoutManager(manager);
+                _recyclerView2.SetAdapter(comparedAdapter);
+                MoveEditContainer(true, _comparedListLayout);
+
+                //((MainActivity)this.Activity).ComparisonFragment(itemList);
+                //send item list to compare
             };
 
             _subfragContainer.SetOnTouchListener(this);
             return view;
         }
 
-        public void MoveContainer(bool moveUp)
+        public void MoveEditContainer(bool moveUp, RelativeLayout layout)
         {
             var interpolator = new Android.Views.Animations.OvershootInterpolator(1);
-            var moveDist = _subfragContainer.Height;
+            var moveDist = layout.Height;
 
             if (moveUp) moveDist = -moveDist;
 
-            _subfragContainer.Animate().SetInterpolator(interpolator)
+            layout.Animate().SetInterpolator(interpolator)
                 .TranslationYBy(moveDist)
                 .SetDuration(500);
         }

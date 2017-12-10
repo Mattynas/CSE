@@ -1,10 +1,7 @@
 namespace shopGuru_ws.Models
 {
-    using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
 
     [Table("account.User_statistics")]
     public partial class User_statistics

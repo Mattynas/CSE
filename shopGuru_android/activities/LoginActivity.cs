@@ -27,24 +27,20 @@ namespace shopGuru_android
             SetContentView(Resource.Layout.activity_login);
 
             _progressBar = FindViewById<ProgressBar>(Resource.Id.progressBarLog);
-            //_mButtonSignUp = FindViewById<Button>(Resource.Id.btnSignUpLog);
+            _mButtonSignUp = FindViewById<Button>(Resource.Id.btnSignUpLog);
             _mButtonSignIn = FindViewById<Button>(Resource.Id.btnSignInLog);
             _username = FindViewById<EditText>(Resource.Id.txtUsernameLog);
             _password = FindViewById<EditText>(Resource.Id.txtPasswordLog);
 
-            /*_mButtonSignUp.Click += delegate(object sender, EventArgs args)
+            _mButtonSignUp.Click += delegate(object sender, EventArgs args)
             {
                 FragmentTransaction transaction = FragmentManager.BeginTransaction();
 
                 var signUpFragment = new SignUpFragment();
                 signUpFragment.Show(transaction,"fragment");
-            };*/
-            //shortcut for login
-            var intent = new Intent(this, typeof(MainActivity));
-            StartActivity(intent);
-            Finish();
+            };
 
-            //_mButtonSignIn.Click += _mButtonSignIn_Click;
+            _mButtonSignIn.Click += _mButtonSignIn_Click;
 
         }
 

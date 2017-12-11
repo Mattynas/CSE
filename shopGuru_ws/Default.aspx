@@ -9,7 +9,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            Sveiki visi!!! Ko spoksai???
+            <asp:GridView ID="UserTable" runat="server" HorizontalAlign="Center">
+            </asp:GridView>
         </div>
     </form>
 </body>

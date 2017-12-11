@@ -19,7 +19,7 @@ using Android.Content;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "ReceiptLotteryTextRecognition")]
+    [Activity(Label = "ReceiptLotteryTextRecognition",ScreenOrientation = ScreenOrientation.Locked)]
     public class ReceiptLotteryScanActivity : AppCompatActivity, ISurfaceHolderCallback, Detector.IProcessor
     {
         private SurfaceView cameraView;

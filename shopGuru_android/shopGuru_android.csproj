@@ -137,6 +137,7 @@
     <Compile Include="fragments\EditItemNameFragment.cs" />
     <Compile Include="fragments\ItemListFragment.cs" />
     <Compile Include="fragments\MainFragment.cs" />
+    <Compile Include="fragments\NearestShopFragment.cs" />
     <Compile Include="fragments\ReceiptLotteryFragment.cs" />
     <Compile Include="interfaces\IItem.cs" />
     <Compile Include="interfaces\IItemClickListener.cs" />
@@ -204,6 +205,7 @@
     <AndroidResource Include="Resources\layout\fragment_main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_findNearestShop.axml" />
     <None Include="shopGuru_android.csproj.bak" />
     <None Include="Web References\WebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

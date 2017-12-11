@@ -75,6 +75,10 @@ namespace shopGuru_android
                     case Resource.Id.nav_home:
                         ShowFragment(mainFragment);
                         break;
+
+                    case Resource.Id.nav_nearestshop:
+                        ShowFragment(new NearestShopFragment());
+                        break;
                 }
                  
                 _drawerLayout.CloseDrawers();

@@ -92,12 +92,18 @@ namespace shopGuru_android.fragments
                 _sendButton.Visibility = ViewStates.Visible;
             };
 
-            _sendButton.Click += (object sender, EventArgs e) =>
+            _sendButton.Click += async (object sender, EventArgs e) =>
             {
                 Toast.MakeText(this.Activity, "Comparing List", ToastLength.Long).Show();
                 /*CompareItemListToDatabase(itemList);
                  * LoadComparisonFragment();
-                 * 
+                 * else {
+                 *  var db = new SQLiteManager();
+                 *  db.CreateDatabaseAsync(path);
+                 *  foreach(var item in items) {
+                 *      db.InsertUpdateDataAsync(item);
+                 *  }
+                 * }
                  */
             };
 

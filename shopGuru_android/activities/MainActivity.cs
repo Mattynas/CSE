@@ -28,7 +28,7 @@ namespace shopGuru_android
         private Stack<SupportFragment> _stackFragment;
 
         public static readonly int requestScannerId = 0;
-        public static readonly int requestLotteryScannerId = 0;
+        public static readonly int requestLotteryScannerId = 1;
 
 
         protected override void OnCreate(Bundle bundle)
@@ -78,6 +78,27 @@ namespace shopGuru_android
                         break;
                     case Resource.Id.nav_home:
                         ShowFragment(mainFragment);
+                        break;
+                    case Resource.Id.nav_signout:
+                        var intent = new Intent(this, typeof(LoginActivity));
+                        StartActivity(intent);
+                        Finish();
+                        break;
+                    case Resource.Id.nav_nearestshop:
+                        var nearestShopFragment = new NearestShopFragment();
+                        ShowFragment(nearestShopFragment);
+                        break;
+                    case Resource.Id.nav_about:
+                        var aboutFragment = new AboutFragment();
+                        ShowFragment(aboutFragment);
+                        break;
+                    case Resource.Id.nav_statistics:
+                        var statisticsFragment = new StatisticsFragment();
+                        ShowFragment(statisticsFragment);
+                        break;
+                    case Resource.Id.nav_settings:
+                        var settingsFragment = new SettingsFragment();
+                        ShowFragment(settingsFragment);
                         break;
                 }
                  

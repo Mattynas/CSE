@@ -50,7 +50,7 @@ namespace shopGuru_android.fragments
             _recyclerView = view.FindViewById<RecyclerView>(Resource.Id.recyclerView);
             _recyclerView2 = view.FindViewById<RecyclerView>(Resource.Id.recyclerView2);
             _subfragContainer = view.FindViewById<RelativeLayout>(Resource.Id.subfragContainer);
-            _comparedListLayout = view.FindViewById<RelativeLayout>(Resource.Id.subfragContainer);
+            _comparedListLayout = view.FindViewById<RelativeLayout>(Resource.Id.comparedListContainer);
             _editText = view.FindViewById<EditText>(Resource.Id.itemEditField);
             _cfmButton = view.FindViewById<Button>(Resource.Id.cfmButton);
             _delButton = view.FindViewById<Button>(Resource.Id.delButton);
@@ -103,8 +103,12 @@ namespace shopGuru_android.fragments
                 var comparedAdapter = new ComparedListAdapter(itemList, this.Activity);
                 _recyclerView2.SetLayoutManager(manager);
                 _recyclerView2.SetAdapter(comparedAdapter);
-                MoveEditContainer(true, _comparedListLayout);
-
+                //MoveEditContainer(true, _comparedListLayout);
+                _sendButton.Visibility = ViewStates.Invisible;
+                var interpolator = new Android.Views.Animations.OvershootInterpolator(1);
+                    _comparedListLayout.Animate().SetInterpolator(interpolator)
+                        .TranslationYBy(-(_comparedListLayout.Height-300))
+                        .SetDuration(500);
                 //((MainActivity)this.Activity).ComparisonFragment(itemList);
                 //send item list to compare
             };

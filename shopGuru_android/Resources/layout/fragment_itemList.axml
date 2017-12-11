@@ -14,6 +14,17 @@
         android:layout_gravity="bottom"
         android:padding="5dp" />
     <RelativeLayout
+        android:id="@+id/comparedListContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#474747"
+        android:layout_gravity="bottom"
+        android:translationY="550dp"
+        android:layout_marginTop="0.0dp">
+        <include
+            layout="@layout/recycler_view2" />
+    </RelativeLayout>
+    <RelativeLayout
         android:id="@+id/subfragContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -52,15 +63,5 @@
             android:layout_centerHorizontal="true"
             android:padding="5dp"
             android:layout_marginTop="150dp" />
-    </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/subfragContainer"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#474747"
-        android:layout_gravity="bottom"
-        android:translationY="250dp">
-        <include
-            layout="@layout/recycler_view2" />
     </RelativeLayout>
 </FrameLayout>

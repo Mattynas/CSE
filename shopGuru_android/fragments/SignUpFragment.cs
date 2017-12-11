@@ -10,6 +10,7 @@ using Android.Runtime;
 using Android.Util;
 using Android.Views;
 using Android.Widget;
+using shopGuru_android.controller;
 
 namespace shopGuru_android
 
@@ -58,12 +59,16 @@ namespace shopGuru_android
             return view;
         }
 
-        void btnSignUp_Click(object sender, EventArgs e)
+        async void btnSignUp_Click(object sender, EventArgs e)
         {
-            //User clicked the button
-            var client = new WebService.shopGuru_webService();
-            client.Register(_txtName.Text, _txtPassword.Text, _txtEmail.Text, "86666666");
-            this.Dismiss();
+            if(await DataController.RegisterDataSubmition(_txtName.Text, _txtPassword.Text, _txtEmail.Text, "86666666"))
+            {
+                this.Dismiss();
+            }
+            else
+            {
+                Toast.MakeText(this.Context, "register error", ToastLength.Long);
+            }
         }
     }
 }

@@ -94,19 +94,12 @@ namespace shopGuru_android.fragments
 
             _sendButton.Click += (object sender, EventArgs e) =>
             {
-                /*
-                var dbList = DB.GetFullItemList();  NEED TO CONNECT TO DATABASE HERE
-                var comparer = new ItemListComparer();
-                var comparedItemList = comparer.CompareLists(itemList, dbList);
-                */
                 var manager = new LinearLayoutManager(this.Activity);
                 var comparedAdapter = new ComparedListAdapter(itemList, this.Activity);
                 _recyclerView2.SetLayoutManager(manager);
                 _recyclerView2.SetAdapter(comparedAdapter);
                 MoveEditContainer(true, _comparedListLayout);
 
-                //((MainActivity)this.Activity).ComparisonFragment(itemList);
-                //send item list to compare
             };
 
             _subfragContainer.SetOnTouchListener(this);

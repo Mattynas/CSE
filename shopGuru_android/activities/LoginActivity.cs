@@ -8,6 +8,7 @@ using shopGuru_android.authenticator;
 //using shopGuru_web.XML;
 using Android.Content;
 using Android.Views;
+using shopGuru_android.controller;
 
 namespace shopGuru_android
 {
@@ -50,11 +51,10 @@ namespace shopGuru_android
             _progressBar.Visibility = ViewStates.Visible;
             try
             {
-                //UserDataValidation.LoginValidation(_username.Text, _password.Text);
                 bool success = false;
 
-                var client = new WebService.shopGuru_webService();
-                success = await Task.Run(() => client.Login(_username.Text, _password.Text));
+                success = await DataController.LoginDataSubmition(_username.Text, _password.Text);
+
                 _progressBar.Visibility = ViewStates.Invisible;
                 if (success)
                 {
@@ -70,14 +70,8 @@ namespace shopGuru_android
             }
             catch (UserDataException)
             {
-                //For future, display a dialog with message
-                //_username.SetTextColor(Android.Graphics.Color.Red);
-                //_password.SetTextColor(Android.Graphics.Color.Red);
+                
             }
-            //catch(NoConnectionException)
-            //For future, display a dialog with message
-
-
         }
     }
 }

@@ -2654,8 +2654,8 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a004d
 			public const int center_vertical = 2131361869;
 			
-			// aapt resource value: 0x7f0a00b3
-			public const int cfmButton = 2131361971;
+			// aapt resource value: 0x7f0a00b4
+			public const int cfmButton = 2131361972;
 			
 			// aapt resource value: 0x7f0a0079
 			public const int checkbox = 2131361913;
@@ -2696,8 +2696,8 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a0066
 			public const int default_activity_button = 2131361894;
 			
-			// aapt resource value: 0x7f0a00b4
-			public const int delButton = 2131361972;
+			// aapt resource value: 0x7f0a00b5
+			public const int delButton = 2131361973;
 			
 			// aapt resource value: 0x7f0a00a7
 			public const int design_bottom_sheet = 2131361959;
@@ -2795,8 +2795,8 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a005f
 			public const int italic = 2131361887;
 			
-			// aapt resource value: 0x7f0a00b2
-			public const int itemEditField = 2131361970;
+			// aapt resource value: 0x7f0a00b3
+			public const int itemEditField = 2131361971;
 			
 			// aapt resource value: 0x7f0a0000
 			public const int item_touch_helper_previous_elevation = 2131361792;
@@ -2822,14 +2822,14 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a0067
 			public const int list_item = 2131361895;
 			
-			// aapt resource value: 0x7f0a00df
-			public const int masked = 2131362015;
+			// aapt resource value: 0x7f0a00e0
+			public const int masked = 2131362016;
 			
 			// aapt resource value: 0x7f0a00cc
 			public const int media_actions = 2131361996;
 			
-			// aapt resource value: 0x7f0a00db
-			public const int message = 2131362011;
+			// aapt resource value: 0x7f0a00dc
+			public const int message = 2131362012;
 			
 			// aapt resource value: 0x7f0a0038
 			public const int middle = 2131361848;
@@ -2840,26 +2840,26 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a002e
 			public const int multiply = 2131361838;
 			
-			// aapt resource value: 0x7f0a00e4
-			public const int nav_about = 2131362020;
-			
-			// aapt resource value: 0x7f0a00e0
-			public const int nav_home = 2131362016;
+			// aapt resource value: 0x7f0a00e5
+			public const int nav_about = 2131362021;
 			
 			// aapt resource value: 0x7f0a00e1
-			public const int nav_lottery = 2131362017;
+			public const int nav_home = 2131362017;
 			
 			// aapt resource value: 0x7f0a00e2
-			public const int nav_nearestshop = 2131362018;
-			
-			// aapt resource value: 0x7f0a00e5
-			public const int nav_settings = 2131362021;
-			
-			// aapt resource value: 0x7f0a00e6
-			public const int nav_signout = 2131362022;
+			public const int nav_lottery = 2131362018;
 			
 			// aapt resource value: 0x7f0a00e3
-			public const int nav_statistics = 2131362019;
+			public const int nav_nearestshop = 2131362019;
+			
+			// aapt resource value: 0x7f0a00e6
+			public const int nav_settings = 2131362022;
+			
+			// aapt resource value: 0x7f0a00e7
+			public const int nav_signout = 2131362023;
+			
+			// aapt resource value: 0x7f0a00e4
+			public const int nav_statistics = 2131362020;
 			
 			// aapt resource value: 0x7f0a009e
 			public const int nav_view = 2131361950;
@@ -2923,6 +2923,9 @@ namespace shopGuru_android
 			
 			// aapt resource value: 0x7f0a00d9
 			public const int recyclerView = 2131362009;
+			
+			// aapt resource value: 0x7f0a00da
+			public const int recyclerView2 = 2131362010;
 			
 			// aapt resource value: 0x7f0a0050
 			public const int right = 2131361872;
@@ -2993,8 +2996,8 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a0090
 			public const int select_dialog_listview = 2131361936;
 			
-			// aapt resource value: 0x7f0a00b5
-			public const int sendButton = 2131361973;
+			// aapt resource value: 0x7f0a00b1
+			public const int sendButton = 2131361969;
 			
 			// aapt resource value: 0x7f0a007a
 			public const int shortcut = 2131361914;
@@ -3044,8 +3047,8 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a00cb
 			public const int status_bar_latest_event_content = 2131361995;
 			
-			// aapt resource value: 0x7f0a00b1
-			public const int subfragContainer = 2131361969;
+			// aapt resource value: 0x7f0a00b2
+			public const int subfragContainer = 2131361970;
 			
 			// aapt resource value: 0x7f0a007c
 			public const int submenuarrow = 2131361916;
@@ -3098,8 +3101,8 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a0075
 			public const int title_template = 2131361909;
 			
-			// aapt resource value: 0x7f0a00da
-			public const int toolbar = 2131362010;
+			// aapt resource value: 0x7f0a00db
+			public const int toolbar = 2131362011;
 			
 			// aapt resource value: 0x7f0a0045
 			public const int top = 2131361861;
@@ -3146,8 +3149,8 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a00bf
 			public const int txtError = 2131361983;
 			
-			// aapt resource value: 0x7f0a00dc
-			public const int txtItem = 2131362012;
+			// aapt resource value: 0x7f0a00dd
+			public const int txtItem = 2131362013;
 			
 			// aapt resource value: 0x7f0a00c0
 			public const int txtName = 2131361984;
@@ -3161,8 +3164,8 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a0098
 			public const int txtPasswordLog = 2131361944;
 			
-			// aapt resource value: 0x7f0a00dd
-			public const int txtPrice = 2131362013;
+			// aapt resource value: 0x7f0a00de
+			public const int txtPrice = 2131362014;
 			
 			// aapt resource value: 0x7f0a00bb
 			public const int txtRcpNum = 2131361979;
@@ -3188,8 +3191,8 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a0016
 			public const int view_offset_helper = 2131361814;
 			
-			// aapt resource value: 0x7f0a00de
-			public const int visible = 2131362014;
+			// aapt resource value: 0x7f0a00df
+			public const int visible = 2131362015;
 			
 			// aapt resource value: 0x7f0a0021
 			public const int wide = 2131361825;
@@ -3401,7 +3404,7 @@ namespace shopGuru_android
 			public const int fragment_about = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int fragment_editItem = 2130903086;
+			public const int fragment_comparison = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
 			public const int fragment_itemList = 2130903087;
@@ -3479,25 +3482,28 @@ namespace shopGuru_android
 			public const int recycler_view = 2130903111;
 			
 			// aapt resource value: 0x7f030048
-			public const int select_dialog_item_material = 2130903112;
+			public const int recycler_view2 = 2130903112;
 			
 			// aapt resource value: 0x7f030049
-			public const int select_dialog_multichoice_material = 2130903113;
+			public const int select_dialog_item_material = 2130903113;
 			
 			// aapt resource value: 0x7f03004a
-			public const int select_dialog_singlechoice_material = 2130903114;
+			public const int select_dialog_multichoice_material = 2130903114;
 			
 			// aapt resource value: 0x7f03004b
-			public const int support_simple_spinner_dropdown_item = 2130903115;
+			public const int select_dialog_singlechoice_material = 2130903115;
 			
 			// aapt resource value: 0x7f03004c
-			public const int toolbar = 2130903116;
+			public const int support_simple_spinner_dropdown_item = 2130903116;
 			
 			// aapt resource value: 0x7f03004d
-			public const int tooltip = 2130903117;
+			public const int toolbar = 2130903117;
 			
 			// aapt resource value: 0x7f03004e
-			public const int view_row = 2130903118;
+			public const int tooltip = 2130903118;
+			
+			// aapt resource value: 0x7f03004f
+			public const int view_row = 2130903119;
 			
 			static Layout()
 			{

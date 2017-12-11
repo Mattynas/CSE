@@ -127,11 +127,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="activities\ReceiptLotteryScanActivity.cs" />
+    <Compile Include="adapters\ComparedListAdapter.cs" />
     <Compile Include="adapters\ItemViewAdapter.cs" />
     <Compile Include="authenticator\AppPreferences.cs" />
+    <Compile Include="authenticator\ItemListComparer.cs" />
     <Compile Include="authenticator\LotteryTextValidation.cs" />
     <Compile Include="authenticator\ReceiptTextValidation.cs" />
     <Compile Include="authenticator\UserDataValidation.cs" />
+    <Compile Include="controller\DataController.cs" />
     <Compile Include="converters\TextToReceiptConverter.cs" />
     <Compile Include="database\SQLiteManager.cs" />
     <Compile Include="Exceptions\Process\ProcessException.cs" />
@@ -145,7 +148,6 @@
     <Compile Include="activities\LoginActivity.cs" />
     <Compile Include="activities\MainActivity.cs" />
     <Compile Include="fragments\AboutFragment.cs" />
-    <Compile Include="fragments\EditItemNameFragment.cs" />
     <Compile Include="fragments\ItemListFragment.cs" />
     <Compile Include="fragments\MainFragment.cs" />
     <Compile Include="fragments\NearestShopFragment.cs" />
@@ -215,9 +217,6 @@
     <AndroidResource Include="Resources\layout\fragment_itemList.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
-    <AndroidResource Include="Resources\layout\fragment_editItem.axml">
-      <SubType>Designer</SubType>
-    </AndroidResource>
     <AndroidResource Include="Resources\layout\fragment_receiptLottery.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -239,6 +238,8 @@
     <AndroidResource Include="Resources\layout\fragment_statistics.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\fragment_comparison.axml" />
+    <AndroidResource Include="Resources\layout\recycler_view2.axml" />
     <None Include="shopGuru_android.csproj.bak" />
     <None Include="Web References\WebService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>

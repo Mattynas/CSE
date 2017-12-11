@@ -77,7 +77,7 @@ namespace shopGuru_android.authenticator
             string pattern = "([0-9]{5,7})";
             Regex regex = new Regex(pattern);
             Match m = regex.Match(line);
-            _receiptNumber = m.Value;
+            if(regex.IsMatch(line)) _receiptNumber = m.Value;
         }
         
         private static void ReceiptDateValidation(string line)
@@ -85,14 +85,14 @@ namespace shopGuru_android.authenticator
             string pattern = @"(\d{4}.\d{1,2}.\d{1,2})";
             Regex regex = new Regex(pattern);
             Match m = regex.Match(line);
-            _receiptDate = m.Value;
+            if (regex.IsMatch(line)) _receiptDate = m.Value;
         }
         private static void CashRegisterNumberValidation(string line)
         {
             string pattern = @"((RK|IP|WE|IK|LG|IU)\d{8})";
             Regex regex = new Regex(pattern);
             Match m = regex.Match(line);
-            _cashRegisterNumber = m.Value;
+            if (regex.IsMatch(line)) _cashRegisterNumber = m.Value;
         }
     }
 }

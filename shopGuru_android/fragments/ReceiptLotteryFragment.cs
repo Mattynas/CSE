@@ -13,6 +13,7 @@ using Android.Widget;
 using System.Collections.Specialized;
 using System.Threading.Tasks;
 using System.Web;
+using shopGuru_android.controller;
 
 namespace shopGuru_android.fragments
 {
@@ -56,7 +57,9 @@ namespace shopGuru_android.fragments
             _receiptDate = view.FindViewById<TextView>(Resource.Id.txtDate);
             _phoneNumber = view.FindViewById<EditText>(Resource.Id.txtNumber);
 
-
+            _receiptDate.Text = values["ticket_date"];
+            _cashRegisterNumber.Text = values["cash_register_number"];
+            _receiptNumber.Text = values["check_number"];
 
             _radio_market.Click += RadioButton_Click;
             _radio_services.Click += RadioButton_Click;
@@ -75,25 +78,10 @@ namespace shopGuru_android.fragments
         private async void _button_ClickAsync(object sender, EventArgs e)
         {
             try
-            {
-                string dateformat = "T00:00:00+02:00";
-                //values["cash_register_number"] = _cashRegisterNumber.Text;
-                //values["check_number"] = _receiptNumber.Text;
+            {    
                 values["phone"] = _phoneNumber.Text;
-                values["ticket_date"] += dateformat;
-                values["agree_on_terms"] = "true";
 
-                var sb = new StringBuilder();
-                foreach (var item in values)
-                {
-                    sb.AppendFormat("{0}={1}&", item.Key, HttpUtility.UrlEncode(item.Value.ToString()));
-                }
-                sb.Remove(sb.Length - 1, 1);
-                byte[] bytes = Encoding.UTF8.GetBytes(sb.ToString());
-
-                var client = new WebService.shopGuru_webService();
-
-                string result = await Task.Run(() => client.FillLotteryForm(bytes));
+                string result = await DataController.LotteryDataSubmition(values);
 
                 _errorTxt.Text = result;
                 

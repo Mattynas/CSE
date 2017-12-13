@@ -2,10 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="100"
-    android:minWidth="25px"
-    android:minHeight="25px">
+    android:layout_height="match_parent">
     <RadioGroup
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -15,70 +12,74 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="market"
-            android:theme="@style/MyRadioButton" />
+            android:theme="@style/MyRadioButton"/>
         <RadioButton
             android:id="@+id/radio_services"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="services"
-            android:theme="@style/MyRadioButton" />
+            android:theme="@style/MyRadioButton"/>
     </RadioGroup>
     <android.support.design.widget.TextInputLayout
-        android:id="@+id/cashregnum_layout"
-        android:layout_marginTop="@dimen/top_margin"
-        android:layout_marginStart="@dimen/start_or_end_margin"
-        android:layout_marginEnd="@dimen/start_or_end_margin"
+    android:id="@+id/cashregnum_layout"
+    android:layout_marginTop="@dimen/top_margin"
+    android:layout_marginStart="@dimen/start_or_end_margin"
+    android:layout_marginEnd="@dimen/start_or_end_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:hint="Cash Register Number"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtCshRegNum" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/check_number_layout"
-        android:layout_marginTop="@dimen/top_margin"
-        android:layout_marginStart="@dimen/start_or_end_margin"
-        android:layout_marginEnd="@dimen/start_or_end_margin"
+        android:hint="Cash Register Number"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCshRegNum" />
+</android.support.design.widget.TextInputLayout>
+  
+  <android.support.design.widget.TextInputLayout
+    android:id="@+id/check_number_layout"
+    android:layout_marginTop="@dimen/top_margin"
+    android:layout_marginStart="@dimen/start_or_end_margin"
+    android:layout_marginEnd="@dimen/start_or_end_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:inputType="number"
-            android:hint="Check Number"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtRcpNum" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/date_layout"
-        android:layout_marginTop="@dimen/top_margin"
-        android:layout_marginStart="@dimen/start_or_end_margin"
-        android:layout_marginEnd="@dimen/start_or_end_margin"
+        android:inputType="number"
+        android:hint="Check Number"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtRcpNum" />
+</android.support.design.widget.TextInputLayout>
+  
+  <android.support.design.widget.TextInputLayout
+    android:id="@+id/date_layout"
+    android:layout_marginTop="@dimen/top_margin"
+    android:layout_marginStart="@dimen/start_or_end_margin"
+    android:layout_marginEnd="@dimen/start_or_end_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:inputType="number"
-            android:hint="Check Date"
-            android:layout_height="wrap_content"
-            android:id="@+id/txtDate" />
-    </android.support.design.widget.TextInputLayout>
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/phone_number_layout"
-        android:layout_marginTop="@dimen/top_margin"
-        android:layout_marginStart="@dimen/start_or_end_margin"
-        android:layout_marginEnd="@dimen/start_or_end_margin"
+        android:inputType="number"
+        android:hint="Check Date"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDate" />
+</android.support.design.widget.TextInputLayout>
+  
+  <android.support.design.widget.TextInputLayout
+    android:id="@+id/phone_number_layout"
+    android:layout_marginTop="@dimen/top_margin"
+    android:layout_marginStart="@dimen/start_or_end_margin"
+    android:layout_marginEnd="@dimen/start_or_end_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <android.support.design.widget.TextInputEditText
-            android:layout_width="match_parent"
-            android:hint="Phone Number"
-            android:layout_height="wrap_content"
-            android:text="+370"
-            android:inputType="number"
-            android:id="@+id/txt_phone_number" />
-    </android.support.design.widget.TextInputLayout>
+        android:hint="Phone Number"
+        android:layout_height="wrap_content"
+        android:text="+370"
+        android:inputType="number"
+        android:id="@+id/txt_phone_number" />
+</android.support.design.widget.TextInputLayout>
+  
     <Button
         android:id="@+id/btnLotterySubmit"
         android:layout_width="match_parent"

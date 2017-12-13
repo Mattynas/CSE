@@ -79,12 +79,12 @@ namespace shopGuru_android.fragments
         private async void _button_ClickAsync(object sender, EventArgs e)
         {
             try
-            {
+            {    
                 values["phone"] = _phoneNumber.Text;
 
                 string result = await DataController.LotteryDataSubmition(values);
 
-                if (result.Equals("all good"))
+                if(result.Equals("all good"))
                 {
                     Toast.MakeText(this.Context, "Receipt has been submitted", ToastLength.Long);
                 }
@@ -92,11 +92,11 @@ namespace shopGuru_android.fragments
                 {
                     Toast.MakeText(this.Context, "Something went wrong", ToastLength.Long);
                 }
-
+                
             }
-            catch (Exception ex)
+            catch(Exception ex)
             {
-                //_errorTxt.Text = ex.ToString();
+               //_errorTxt.Text = ex.ToString();
             }
         }
     }

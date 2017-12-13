@@ -84,12 +84,19 @@ namespace shopGuru_android.fragments
 
                 string result = await DataController.LotteryDataSubmition(values);
 
-                _errorTxt.Text = result;
+                if(result.Equals("all good"))
+                {
+                    Toast.MakeText(this.Context, "Receipt has been submitted", ToastLength.Long);
+                }
+                else
+                {
+                    Toast.MakeText(this.Context, "Something went wrong", ToastLength.Long);
+                }
                 
             }
             catch(Exception ex)
             {
-                _errorTxt.Text = ex.ToString();
+               //_errorTxt.Text = ex.ToString();
             }
         }
     }

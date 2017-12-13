@@ -39,7 +39,7 @@ namespace shopGuru_android
         private EditText _txtConfirmPassword;
         private Button _btnSignUp;
 
-        public event EventHandler<OnSignUpEventArgs> onSignUpComplete;
+        public event EventHandler<OnSignUpEventArgs> OnSignUpComplete;
 
         public override View OnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
         {
@@ -54,12 +54,12 @@ namespace shopGuru_android
             _txtConfirmPassword = view.FindViewById<EditText>(Resource.Id.txtConfirmPassword);
             _btnSignUp = view.FindViewById<Button>(Resource.Id.btnSignUp);
 
-            _btnSignUp.Click += btnSignUp_Click;
+            _btnSignUp.Click += BtnSignUp_Click;
             
             return view;
         }
 
-        async void btnSignUp_Click(object sender, EventArgs e)
+        void BtnSignUp_Click(object sender, EventArgs e)
         {
             if(DataController.RegisterDataSubmition(_txtName.Text, _txtPassword.Text, _txtEmail.Text, "86666666"))
             {

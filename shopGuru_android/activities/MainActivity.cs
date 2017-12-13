@@ -92,6 +92,7 @@ namespace shopGuru_android
                         StartActivity(intent);
                         Finish();
                         break;
+                        /*
                     case Resource.Id.nav_nearestshop:
                         var nearestShopFragment = new NearestShopFragment();
                         ShowFragment(nearestShopFragment);
@@ -108,6 +109,7 @@ namespace shopGuru_android
                         var settingsFragment = new SettingsFragment();
                         ShowFragment(settingsFragment);
                         break;
+                        */
                 }
                  
                 _drawerLayout.CloseDrawers();

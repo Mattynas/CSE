@@ -2,12 +2,23 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-  <Button 
-    android:id="@+id/btnScanReceipt"
-    android:text="Scan The Receipt"
-    android:layout_width="match_parent" 
-    android:layout_height="wrap_content"/>
-  
-  
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:minWidth="25px"
+    android:minHeight="25px">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:lines="4"
+        android:maxLines="4"
+        android:text="Welcome to shopGuru Comparison shopping engine!     Press Scan button for receipt scanning     " />
+    <Button
+        android:id="@+id/btnScanReceipt"
+        android:text="Scan"
+        android:background="@color/primaryColor"
+        android:layout_width="180dp"
+        android:layout_weight="10"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        style="@style/Widget.AppCompat.Button.Colored" />
 </LinearLayout>

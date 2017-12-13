@@ -121,7 +121,7 @@ namespace shopGuru_android.authenticator
         private static void CashRegisterNumberValidation(string line)
         {
             //string pattern = @"((RK|IP|WE|IK|LG|IU)\d{8})";
-            string pattern = @"^([A-Z]{2}.?\d{8})\b";
+            string pattern = @"^([A-Z]{2}.?\d{8})";
             Regex regex = new Regex(pattern);
             Match m = regex.Match(line);
             if (regex.IsMatch(line)) _cashRegisterNumber = m.Value;

@@ -83,15 +83,9 @@ namespace shopGuru_android.fragments
                 values["phone"] = _phoneNumber.Text;
 
                 string result = await DataController.LotteryDataSubmition(values);
-
-                if(result.Equals("all good"))
-                {
-                    Toast.MakeText(this.Context, "Receipt has been submitted", ToastLength.Long);
-                }
-                else
-                {
-                    Toast.MakeText(this.Context, "Something went wrong", ToastLength.Long);
-                }
+                _errorTxt.Text = result;
+                
+                
                 
             }
             catch(Exception ex)

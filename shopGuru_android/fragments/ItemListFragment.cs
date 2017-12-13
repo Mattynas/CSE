@@ -99,7 +99,7 @@ namespace shopGuru_android.fragments
                 var comparedAdapter = new ComparedListAdapter(itemList, this.Activity);
                 _recyclerView2.SetLayoutManager(manager);
                 _recyclerView2.SetAdapter(comparedAdapter);
-                _recyclerView2.SetOnTouchListener(this);
+                //_recyclerView2.SetOnTouchListener(this);
                 if (_comparedListLayout.TranslationY + 2 >= _comparedListLayout.Height)
                 {
                     MoveEditContainer(true, _comparedListLayout);
@@ -107,7 +107,7 @@ namespace shopGuru_android.fragments
                 }
 
             };
-            //_comparedListLayout.SetOnTouchListener(this);
+            _comparedListLayout.SetOnTouchListener(this);
             _subfragContainer.SetOnTouchListener(this);
             return view;
         }

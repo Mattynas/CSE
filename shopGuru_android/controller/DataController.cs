@@ -49,7 +49,7 @@ namespace shopGuru_android.controller
             return success;
         }
 
-        public static Task<bool> RegisterDataSubmition(string name, string password, string email, string phone)
+        public static bool RegisterDataSubmition(string name, string password, string email, string phone)
         {
             //User clicked the button
             var client = new WebService.shopGuru_webService();

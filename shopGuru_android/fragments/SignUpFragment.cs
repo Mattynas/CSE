@@ -61,7 +61,7 @@ namespace shopGuru_android
 
         async void btnSignUp_Click(object sender, EventArgs e)
         {
-            if(await DataController.RegisterDataSubmition(_txtName.Text, _txtPassword.Text, _txtEmail.Text, "86666666"))
+            if(DataController.RegisterDataSubmition(_txtName.Text, _txtPassword.Text, _txtEmail.Text, "86666666"))
             {
                 this.Dismiss();
             }

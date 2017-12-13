@@ -11,35 +11,41 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="20" />
-    <TextView
-        android:text="Username"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:layout_gravity="center"
-        android:id="@+id/txtViewUsernameLog" />
-    <EditText
-        android:layout_width="250dp"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:layout_gravity="center"
+  <android.support.design.widget.TextInputLayout
+  android:id="@+id/username_layout"
+  android:layout_marginTop="@dimen/top_margin"
+  android:layout_marginStart="@dimen/start_or_end_margin"
+  android:layout_marginEnd="@dimen/start_or_end_margin"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
+        android:layout_width="match_parent"
+        android:hint="Username"
+        android:maxLines="1"
+        android:lines="1"
+        android:inputType="text"
+        android:layout_height="wrap_content"
+        android:nextFocusDown="@+id/txtPasswordLog"
         android:id="@+id/txtUsernameLog" />
-    <TextView
-        android:text="Password"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_weight="5"
-        android:layout_gravity="center"
-        android:id="@+id/txtViewPasswordLog" />
-    <EditText
+  </android.support.design.widget.TextInputLayout>
+  
+  <android.support.design.widget.TextInputLayout
+      android:id="@+id/password_layout"
+      android:layout_marginTop="@dimen/top_margin"
+      android:layout_marginStart="@dimen/start_or_end_margin"
+      android:layout_marginEnd="@dimen/start_or_end_margin"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
+        android:layout_width="match_parent"
         android:inputType="textPassword"
-        android:layout_width="250dp"
-        android:layout_height="0dp"
-        android:layout_weight="10"
-        android:layout_gravity="center"
+        android:maxLines="1"
+        android:lines="1"
+        android:hint="Password"
+        android:layout_height="wrap_content"
+        android:nextFocusDown="@+id/btnSignInLog"
         android:id="@+id/txtPasswordLog" />
+  </android.support.design.widget.TextInputLayout>
     <TextView
         android:text=""
         android:layout_width="match_parent"
@@ -51,7 +57,8 @@
         android:layout_weight="10"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:background="@drawable/ButtonSignInStyle"
+        android:background="@color/primaryColor"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:textSize="20dp"
         android:id="@+id/btnSignInLog" />
     <TextView
@@ -61,12 +68,12 @@
         android:layout_weight="5" />
     <Button
         android:text="Sign Up"
+        android:background="@color/primaryColor"
         android:layout_width="180dp"
         android:layout_weight="10"
         android:layout_height="0dp"
         android:layout_gravity="center"
-        android:background="@drawable/ButtonSignUpStyle"
-        android:textSize="20dp"
+        style="@style/Widget.AppCompat.Button.Colored"
         android:id="@+id/btnSignUpLog" />
     <LinearLayout
         android:orientation="vertical"

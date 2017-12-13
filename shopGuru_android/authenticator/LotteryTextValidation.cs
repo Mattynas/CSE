@@ -21,10 +21,33 @@ namespace shopGuru_android.authenticator
         private static string _cashRegisterNumber;
         private static string _receiptDate;
         
+        public static string ReceiptNumber {
+            get
+            {
+                if (_receiptNumber != null) return _receiptNumber;
+                else return "";
+            }
+        }
+        public static string CashRegisterNumber
+        {
+            get
+            {
+                if (_cashRegisterNumber != null) return _cashRegisterNumber;
+                else return "";
+            }
+        }
+        public static string ReceiptDate
+        {
+            get
+            {
+                if (_receiptDate != null) return _receiptDate;
+                else return "";
+            }
+        }
+
 
         public static bool ValidateLotteryReceipt(SparseArray items)
         {
-            List<string> itemStringList = new List<string>();
 
             for(int i = 0; i < items.Size(); i++)
             {
@@ -38,6 +61,11 @@ namespace shopGuru_android.authenticator
 
                     var line = itemComponents[j].Value;
                     
+                    if(line.Contains("PVM") || line.Contains("LT"))
+                    {
+                        break;
+                    }
+
                     if(_receiptNumber == null)
                     {
                         ReceiptNumberValidation(line);
@@ -60,11 +88,12 @@ namespace shopGuru_android.authenticator
 
         public static Dictionary<string,string> OnValidationComplete()
         {
-            Dictionary<string,string> dictionary = new Dictionary<string, string>();
-
-            dictionary["ticket_date"] = _receiptDate;
-            dictionary["cash_register_number"] = _cashRegisterNumber;
-            dictionary["check_number"] = _receiptNumber;
+            var dictionary = new Dictionary<string, string>
+            {
+                ["ticket_date"] = _receiptDate,
+                ["cash_register_number"] = _cashRegisterNumber,
+                ["check_number"] = _receiptNumber
+            };
 
             _receiptDate = null;
             _cashRegisterNumber = null;
@@ -74,7 +103,7 @@ namespace shopGuru_android.authenticator
 
         private static void ReceiptNumberValidation(string line)
         {
-            string pattern = "([0-9]{5,7})";
+            string pattern = "^([0-9]{5,7})$";
             Regex regex = new Regex(pattern);
             Match m = regex.Match(line);
             if(regex.IsMatch(line)) _receiptNumber = m.Value;
@@ -82,14 +111,17 @@ namespace shopGuru_android.authenticator
         
         private static void ReceiptDateValidation(string line)
         {
-            string pattern = @"(\d{4}.\d{1,2}.\d{1,2})";
+            string pattern = @"^([2][0]\d{2}.(0[1-9]|1[012]).\d{2})";
             Regex regex = new Regex(pattern);
             Match m = regex.Match(line);
-            if (regex.IsMatch(line)) _receiptDate = m.Value;
+
+            if(regex.IsMatch(line)) _receiptDate = m.Value;
+            if(_receiptDate != null && _receiptDate.Contains('.')) _receiptDate = _receiptDate.Replace('.', '-');
         }
         private static void CashRegisterNumberValidation(string line)
         {
-            string pattern = @"((RK|IP|WE|IK|LG|IU)\d{8})";
+            //string pattern = @"((RK|IP|WE|IK|LG|IU)\d{8})";
+            string pattern = @"^([A-Z]{2}.?\d{8})\b";
             Regex regex = new Regex(pattern);
             Match m = regex.Match(line);
             if (regex.IsMatch(line)) _cashRegisterNumber = m.Value;

@@ -1,4 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <resources>
   <dimen name="drawer_width">240dp</dimen>
+  <dimen name="start_or_end_margin">15dp</dimen>
+  <dimen name="top_margin">8dp</dimen>
 </resources>

@@ -3,67 +3,81 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-  <RadioGroup
-      android:layout_width="fill_parent"
-      android:layout_height="wrap_content"
-      android:orientation="vertical">
-    <RadioButton android:id="@+id/radio_market"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:text="market" />
-    <RadioButton android:id="@+id/radio_services"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="services" />
-  </RadioGroup>
-  <TextView
-        android:id="@+id/txtCshRegNum"
+        android:orientation="vertical">
+        <RadioButton
+            android:id="@+id/radio_market"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="market" />
+        <RadioButton
+            android:id="@+id/radio_services"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="services" />
+    </RadioGroup>
+    <android.support.design.widget.TextInputLayout
+    android:id="@+id/cashregnum_layout"
+    android:layout_marginTop="@dimen/top_margin"
+    android:layout_marginStart="@dimen/start_or_end_margin"
+    android:layout_marginEnd="@dimen/start_or_end_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:background="@drawable/EditTextStyle"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="25dp"
-        android:paddingLeft="10dp"
         android:hint="Cash Register Number"
-        android:textColor="#000" />
-  <TextView
-        android:id="@+id/txtRcpNum"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtCshRegNum" />
+</android.support.design.widget.TextInputLayout>
+  
+  <android.support.design.widget.TextInputLayout
+    android:id="@+id/check_number_layout"
+    android:layout_marginTop="@dimen/top_margin"
+    android:layout_marginStart="@dimen/start_or_end_margin"
+    android:layout_marginEnd="@dimen/start_or_end_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:background="@drawable/EditTextStyle"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="25dp"
-        android:paddingLeft="10dp"
-        android:hint="Receipt Number"
-        android:textColor="#000" />
-  <TextView
-        android:id="@+id/txtDate"
+        android:inputType="number"
+        android:hint="Check Number"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtRcpNum" />
+</android.support.design.widget.TextInputLayout>
+  
+  <android.support.design.widget.TextInputLayout
+    android:id="@+id/date_layout"
+    android:layout_marginTop="@dimen/top_margin"
+    android:layout_marginStart="@dimen/start_or_end_margin"
+    android:layout_marginEnd="@dimen/start_or_end_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:background="@drawable/EditTextStyle"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="25dp"
-        android:paddingLeft="10dp"
-        android:hint="Date"
-        android:textColor="#000" />
-  <EditText
-        android:id="@+id/txtNumber"
+        android:inputType="number"
+        android:hint="Check Date"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtDate" />
+</android.support.design.widget.TextInputLayout>
+  
+  <android.support.design.widget.TextInputLayout
+    android:id="@+id/phone_number_layout"
+    android:layout_marginTop="@dimen/top_margin"
+    android:layout_marginStart="@dimen/start_or_end_margin"
+    android:layout_marginEnd="@dimen/start_or_end_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <android.support.design.widget.TextInputEditText
         android:layout_width="match_parent"
-        android:layout_height="35dp"
-        android:background="@drawable/EditTextStyle"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginTop="25dp"
-        android:paddingLeft="10dp"
-        android:hint="PhoneNumber"
-        android:textColor="#000" />
+        android:hint="Phone Number"
+        android:layout_height="wrap_content"
+        android:text="+370"
+        android:inputType="number"
+        android:id="@+id/txt_phone_number" />
+</android.support.design.widget.TextInputLayout>
+  
     <Button
         android:id="@+id/btnLotterySubmit"
         android:layout_width="match_parent"
@@ -72,5 +86,5 @@
     <TextView
         android:id="@+id/txtError"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
 </LinearLayout>

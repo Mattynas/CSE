@@ -59,7 +59,11 @@ namespace shopGuru_android
                 if (success)
                 {
                     var intent = new Intent(this, typeof(MainActivity));
-                    StartActivity(intent);
+                    var bundle = new Bundle();
+                    bundle.PutString("name", _username.Text);
+                    intent.PutExtras(bundle);
+
+                    this.StartActivity(intent);
                     Finish();
                 }
                 else

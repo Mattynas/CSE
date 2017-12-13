@@ -52,6 +52,9 @@ namespace shopGuru_android
             cameraView = FindViewById<SurfaceView>(Resource.Id.surface_view);
             textView = FindViewById<TextView>(Resource.Id.text_view);
 
+            // null the static strings
+            LotteryTextValidation.OnValidationComplete();
+
             TextRecognizer textRecog = new TextRecognizer.Builder(ApplicationContext).Build();
             if (!textRecog.IsOperational)
             {
@@ -98,15 +101,29 @@ namespace shopGuru_android
         public void ReceiveDetections(Detector.Detections detections)
         {
             SparseArray items = detections.DetectedItems;
+            
+
+
             if (items.Size() != 0)
             {
-                if(LotteryTextValidation.ValidateLotteryReceipt(items))
+                textView.Post(() =>
                 {
-                    dictionary = LotteryTextValidation.OnValidationComplete();
-                    var intent = new Intent(this, typeof(MainActivity)).SetFlags(ActivityFlags.ReorderToFront);
-                    SetResult(Result.Ok, intent);
-                    Finish();
-                }
+                    var sb = new StringBuilder();
+
+                    sb.Append("Cash Register Number: " + LotteryTextValidation.CashRegisterNumber + "\n");
+
+                    sb.Append("Date: " + LotteryTextValidation.ReceiptDate + "\n");
+                    sb.Append("Receipt Number: " + LotteryTextValidation.ReceiptNumber + "\n");
+
+                    textView.Text = sb.ToString();
+                    if (LotteryTextValidation.ValidateLotteryReceipt(items))
+                    {
+                        dictionary = LotteryTextValidation.OnValidationComplete();
+                        var intent = new Intent(this, typeof(MainActivity)).SetFlags(ActivityFlags.ReorderToFront);
+                        SetResult(Result.Ok, intent);
+                        Finish();
+                    }
+                });
             }
         }
 

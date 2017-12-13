@@ -38,6 +38,8 @@ namespace shopGuru_android
             SetContentView(Resource.Layout.activity_main);
             
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
+            
+
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             
@@ -51,7 +53,13 @@ namespace shopGuru_android
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetHomeButtonEnabled(true);
-            
+
+            var nav_header = _navigationView.GetHeaderView(0).FindViewById<TextView>(Resource.Id.navheader_username);
+            if (this.Intent.Extras != null)
+            {
+                var name = this.Intent.Extras.GetString("name");
+                if (nav_header != null) nav_header.Text = name;
+            }
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu_black_24dp);
 
             _stackFragment = new Stack<SupportFragment>();

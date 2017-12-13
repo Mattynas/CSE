@@ -10,13 +10,17 @@
     android:paddingTop="2dp"
     android:weightSum="100">
     <TextView
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         android:text="Item"
         android:layout_height="wrap_content"
         android:layout_weight="80"
         android:layout_width="0dp"
         android:textSize="16sp"
         android:id="@+id/txtItem" />
-    <TextView
+  <TextView
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
         android:text="Price"
         android:textSize="16sp"
         android:layout_width="0dp"

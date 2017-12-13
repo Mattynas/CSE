@@ -4,7 +4,7 @@
 	<uses-permission android:name="android.permission.CAMERA" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.INTERNET" />
-	<application android:label="shopGuru" android:icon="@drawable/Icon" android:theme="@style/Theme.MyTheme">
+	<application android:label="shopGuru" android:icon="@drawable/Icon" android:theme="@style/AppTheme">
 		<meta-data android:name="com.google.android.gms.vision.DEPENDENCIES" android:value="ocr" />
 	</application>
 </manifest>

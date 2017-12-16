@@ -9,10 +9,11 @@ using shopGuru_android.authenticator;
 using Android.Content;
 using Android.Views;
 using shopGuru_android.controller;
+using Android.Views.InputMethods;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "shopGuru",MainLauncher = true,
+    [Activity(Label = "shopGuru",
         Icon = "@drawable/icon")]
     public class LoginActivity : Activity
     {
@@ -47,7 +48,8 @@ namespace shopGuru_android
 
         private  async void _mButtonSignIn_Click(object sender, EventArgs e)
         {
-            
+            InputMethodManager inputManager = (InputMethodManager)this.GetSystemService(Context.InputMethodService);
+            inputManager.HideSoftInputFromWindow(this.CurrentFocus.WindowToken, HideSoftInputFlags.NotAlways);
             _progressBar.Visibility = ViewStates.Visible;
             try
             {
@@ -63,11 +65,19 @@ namespace shopGuru_android
                     bundle.PutString("name", _username.Text);
                     intent.PutExtras(bundle);
 
+                    //preferences save
+
+                    AppPreferences ap = new AppPreferences(this.ApplicationContext);
+                    ap.SaveUserName(_username.Text);
+
+                    this.RunOnUiThread(() => Toast.MakeText(this.ApplicationContext, "Welcome!", ToastLength.Long).Show());
                     this.StartActivity(intent);
                     Finish();
                 }
                 else
                 {
+                    this.RunOnUiThread(() => Toast.MakeText(this.ApplicationContext, "Invalid name or password", ToastLength.Long).Show());
+
                     _username.SetTextColor(Android.Graphics.Color.Red);
                     _password.SetTextColor(Android.Graphics.Color.Red);
                 }

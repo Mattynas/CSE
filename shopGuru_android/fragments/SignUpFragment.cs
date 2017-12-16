@@ -9,6 +9,7 @@ using Android.OS;
 using Android.Runtime;
 using Android.Util;
 using Android.Views;
+using Android.Views.InputMethods;
 using Android.Widget;
 using shopGuru_android.controller;
 
@@ -37,6 +38,7 @@ namespace shopGuru_android
         private EditText _txtEmail;
         private EditText _txtPassword;
         private EditText _txtConfirmPassword;
+        private EditText _txtPhoneNumber;
         private Button _btnSignUp;
 
         public event EventHandler<OnSignUpEventArgs> OnSignUpComplete;
@@ -52,6 +54,7 @@ namespace shopGuru_android
             _txtEmail = view.FindViewById<EditText>(Resource.Id.txtEmail);
             _txtPassword = view.FindViewById<EditText>(Resource.Id.txtPassword);
             _txtConfirmPassword = view.FindViewById<EditText>(Resource.Id.txtConfirmPassword);
+            _txtPhoneNumber = view.FindViewById<EditText>(Resource.Id.txtPhone);
             _btnSignUp = view.FindViewById<Button>(Resource.Id.btnSignUp);
 
             _btnSignUp.Click += BtnSignUp_Click;
@@ -61,13 +64,17 @@ namespace shopGuru_android
 
         void BtnSignUp_Click(object sender, EventArgs e)
         {
-            if(DataController.RegisterDataSubmition(_txtName.Text, _txtPassword.Text, _txtEmail.Text, "86666666"))
+            InputMethodManager inputManager = (InputMethodManager)this.Activity.GetSystemService(Context.InputMethodService);
+            inputManager.HideSoftInputFromWindow(this.Activity.CurrentFocus.WindowToken, HideSoftInputFlags.NotAlways);
+
+            if (DataController.RegisterDataSubmition(_txtName.Text, _txtPassword.Text, _txtEmail.Text, _txtPhoneNumber.Text))
             {
+                this.Activity.RunOnUiThread(() => Toast.MakeText(this.Activity.ApplicationContext, "Registration successful!", ToastLength.Long).Show());
                 this.Dismiss();
             }
             else
             {
-                Toast.MakeText(this.Context, "register error", ToastLength.Long);
+                this.Activity.RunOnUiThread(() =>Toast.MakeText(this.Activity.ApplicationContext, "Invalid registration input", ToastLength.Long).Show());
             }
         }
     }

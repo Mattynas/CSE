@@ -16,10 +16,11 @@ using shopGuru_android.fragments;
 using shopGuru_android.converters;
 using shopGuru_android.interfaces;
 using Android.Content.PM;
+using shopGuru_android.authenticator;
 
 namespace shopGuru_android
 {
-    [Activity(Label = "shopGuru", ScreenOrientation = ScreenOrientation.Locked)]
+    [Activity(Label = "shopGuru", ScreenOrientation = ScreenOrientation.Locked,MainLauncher = true)]
     public class MainActivity : AppCompatActivity
     {
         private DrawerLayout _drawerLayout;
@@ -34,6 +35,16 @@ namespace shopGuru_android
         protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
+
+            // login check 
+            var prefs = new AppPreferences(this.ApplicationContext);
+            if(prefs.GetUserName().Length == 0)
+            {
+                var intent = new Intent(this, typeof(LoginActivity));
+                StartActivity(intent);
+                Finish();
+            }
+
 
             SetContentView(Resource.Layout.activity_main);
             
@@ -88,6 +99,8 @@ namespace shopGuru_android
                         ShowFragment(mainFragment);
                         break;
                     case Resource.Id.nav_signout:
+                        var ap = new AppPreferences(this.ApplicationContext);
+                        ap.SaveUserName("");
                         var intent = new Intent(this, typeof(LoginActivity));
                         StartActivity(intent);
                         Finish();

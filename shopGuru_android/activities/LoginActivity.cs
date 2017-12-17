@@ -66,9 +66,9 @@ namespace shopGuru_android
                     intent.PutExtras(bundle);
 
                     //preferences save
-
                     AppPreferences ap = new AppPreferences(this.ApplicationContext);
                     ap.SaveUserName(_username.Text);
+
 
                     this.RunOnUiThread(() => Toast.MakeText(this.ApplicationContext, "Welcome!", ToastLength.Long).Show());
                     this.StartActivity(intent);

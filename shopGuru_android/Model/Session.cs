@@ -2,41 +2,34 @@
 
 namespace shopGuru_android.Model
 {
-    class Session
+    public class Session
     {
-        public static Lazy<Session> session = new Lazy<Session>();
-
-        private string _username;
-        private string _password;
-        private string _email;
-        private string _number;
+        private static Session instance;
 
         //Statistics
         /*private double _spendings;
         private double _savings;
         private int _unique;*/
 
-        public string Username { get => _username; }
-        public string Password { get => _password; }
-        public string Email { get => _email; }
-        public string Number { get => _number; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string Email { get; set; }
+        public string Number { get; set; }
         /*public double Spendings { get => _spendings; }
         public double Savings { get => _savings; }
         public int Unique { get => _unique;  }*/
 
-        public Session(string username, string password, string email, string number)
+        public static Session Instance()
         {
-            _username = username;
-            _password = password;
-            _email = email;
-            _number = number;
-            //getStatisticsFromServers
+            if(instance == null)
+            {
+                instance = new Session();
+            }
+            return instance;
         }
+        
 
-        ~Session()
-        {
-            //SendToServer
-        }
+        private Session() {}
 
     }
 }

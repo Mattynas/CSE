@@ -109,7 +109,7 @@ public class shopGuru_webService : System.Web.Services.WebService
             {
                 wc.Headers[HttpRequestHeader.ContentType] = "application/x-www-form-urlencoded";
                 var results = wc.UploadData(url, "POST", bytes);
-                return "all good";
+                return "Registration successful";
             }
 
         }
@@ -119,7 +119,18 @@ public class shopGuru_webService : System.Web.Services.WebService
             using (var reader = new StreamReader(ex.Response.GetResponseStream()))
             {
                 exString = reader.ReadToEnd();
-                return exString;
+                if(exString.Contains("duplicate"))
+                {
+                    return "The receipt has been registered already";
+                }
+                else if(exString.Contains("datetime"))
+                {
+                    return "Date Format error";
+                }
+                else
+                {
+                    return exString;
+                }
             }
         }
     }

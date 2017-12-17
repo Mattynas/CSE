@@ -69,8 +69,9 @@ namespace shopGuru_android
             _transparentView.Holder.SetFormat(Format.Transparent);
 
             _numerator = _prevCount = 0;
-            
-            
+            ReceiptTextValidation.OnValidationComplete();
+
+
             var textRecognizer = new TextRecognizer.Builder(ApplicationContext).Build();
 
             if (!textRecognizer.IsOperational)

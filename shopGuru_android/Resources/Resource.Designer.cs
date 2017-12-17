@@ -2320,26 +2320,26 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f020089
-			public const int avd_hide_password_1 = 2130837641;
+			// aapt resource value: 0x7f02008e
+			public const int avd_hide_password_1 = 2130837646;
 			
-			// aapt resource value: 0x7f02008a
-			public const int avd_hide_password_2 = 2130837642;
+			// aapt resource value: 0x7f02008f
+			public const int avd_hide_password_2 = 2130837647;
 			
-			// aapt resource value: 0x7f02008b
-			public const int avd_hide_password_3 = 2130837643;
+			// aapt resource value: 0x7f020090
+			public const int avd_hide_password_3 = 2130837648;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f02008c
-			public const int avd_show_password_1 = 2130837644;
+			// aapt resource value: 0x7f020091
+			public const int avd_show_password_1 = 2130837649;
 			
-			// aapt resource value: 0x7f02008d
-			public const int avd_show_password_2 = 2130837645;
+			// aapt resource value: 0x7f020092
+			public const int avd_show_password_2 = 2130837650;
 			
-			// aapt resource value: 0x7f02008e
-			public const int avd_show_password_3 = 2130837646;
+			// aapt resource value: 0x7f020093
+			public const int avd_show_password_3 = 2130837651;
 			
 			// aapt resource value: 0x7f020055
 			public const int ButtonSignInStyle = 2130837589;
@@ -2432,70 +2432,85 @@ namespace shopGuru_android
 			public const int googleg_standard_color_18 = 2130837618;
 			
 			// aapt resource value: 0x7f020073
-			public const int ic_dashboard_black_24dp = 2130837619;
+			public const int ic_attach_money_black_24dp = 2130837619;
 			
 			// aapt resource value: 0x7f020074
-			public const int ic_location_on_black_24dp = 2130837620;
+			public const int ic_camera_black_24dp = 2130837620;
 			
 			// aapt resource value: 0x7f020075
-			public const int ic_menu_black_24dp = 2130837621;
+			public const int ic_dashboard_black_24dp = 2130837621;
 			
 			// aapt resource value: 0x7f020076
-			public const int ic_power_settings_new_black_24dp = 2130837622;
+			public const int ic_done_black_24dp = 2130837622;
 			
 			// aapt resource value: 0x7f020077
-			public const int ic_settings_black_24dp = 2130837623;
+			public const int ic_home_black_24dp = 2130837623;
 			
 			// aapt resource value: 0x7f020078
-			public const int Icon = 2130837624;
+			public const int ic_location_on_black_24dp = 2130837624;
 			
 			// aapt resource value: 0x7f020079
-			public const int navigation_empty_icon = 2130837625;
+			public const int ic_menu_black_24dp = 2130837625;
 			
 			// aapt resource value: 0x7f02007a
-			public const int notification_action_background = 2130837626;
+			public const int ic_pie_chart_black_24dp = 2130837626;
 			
 			// aapt resource value: 0x7f02007b
-			public const int notification_bg = 2130837627;
+			public const int ic_power_settings_new_black_24dp = 2130837627;
 			
 			// aapt resource value: 0x7f02007c
-			public const int notification_bg_low = 2130837628;
+			public const int ic_settings_black_24dp = 2130837628;
 			
 			// aapt resource value: 0x7f02007d
-			public const int notification_bg_low_normal = 2130837629;
+			public const int Icon = 2130837629;
 			
 			// aapt resource value: 0x7f02007e
-			public const int notification_bg_low_pressed = 2130837630;
+			public const int navigation_empty_icon = 2130837630;
 			
 			// aapt resource value: 0x7f02007f
-			public const int notification_bg_normal = 2130837631;
+			public const int notification_action_background = 2130837631;
 			
 			// aapt resource value: 0x7f020080
-			public const int notification_bg_normal_pressed = 2130837632;
+			public const int notification_bg = 2130837632;
 			
 			// aapt resource value: 0x7f020081
-			public const int notification_icon_background = 2130837633;
-			
-			// aapt resource value: 0x7f020087
-			public const int notification_template_icon_bg = 2130837639;
-			
-			// aapt resource value: 0x7f020088
-			public const int notification_template_icon_low_bg = 2130837640;
+			public const int notification_bg_low = 2130837633;
 			
 			// aapt resource value: 0x7f020082
-			public const int notification_tile_bg = 2130837634;
+			public const int notification_bg_low_normal = 2130837634;
 			
 			// aapt resource value: 0x7f020083
-			public const int notify_panel_notification_icon_bg = 2130837635;
+			public const int notification_bg_low_pressed = 2130837635;
 			
 			// aapt resource value: 0x7f020084
-			public const int ProgressBarStyle = 2130837636;
+			public const int notification_bg_normal = 2130837636;
 			
 			// aapt resource value: 0x7f020085
-			public const int tooltip_frame_dark = 2130837637;
+			public const int notification_bg_normal_pressed = 2130837637;
 			
 			// aapt resource value: 0x7f020086
-			public const int tooltip_frame_light = 2130837638;
+			public const int notification_icon_background = 2130837638;
+			
+			// aapt resource value: 0x7f02008c
+			public const int notification_template_icon_bg = 2130837644;
+			
+			// aapt resource value: 0x7f02008d
+			public const int notification_template_icon_low_bg = 2130837645;
+			
+			// aapt resource value: 0x7f020087
+			public const int notification_tile_bg = 2130837639;
+			
+			// aapt resource value: 0x7f020088
+			public const int notify_panel_notification_icon_bg = 2130837640;
+			
+			// aapt resource value: 0x7f020089
+			public const int ProgressBarStyle = 2130837641;
+			
+			// aapt resource value: 0x7f02008a
+			public const int tooltip_frame_dark = 2130837642;
+			
+			// aapt resource value: 0x7f02008b
+			public const int tooltip_frame_light = 2130837643;
 			
 			static Drawable()
 			{
@@ -2624,8 +2639,8 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a00b8
 			public const int btnLotteryScanner = 2131361976;
 			
-			// aapt resource value: 0x7f0a00c3
-			public const int btnLotterySubmit = 2131361987;
+			// aapt resource value: 0x7f0a00c2
+			public const int btnLotterySubmit = 2131361986;
 			
 			// aapt resource value: 0x7f0a00b7
 			public const int btnScanReceipt = 2131361975;
@@ -3206,8 +3221,8 @@ namespace shopGuru_android
 			// aapt resource value: 0x7f0a0097
 			public const int txtUsernameLog = 2131361943;
 			
-			// aapt resource value: 0x7f0a00c2
-			public const int txt_phone_number = 2131361986;
+			// aapt resource value: 0x7f0a00c3
+			public const int txt_phone_number = 2131361987;
 			
 			// aapt resource value: 0x7f0a0034
 			public const int uniform = 2131361844;

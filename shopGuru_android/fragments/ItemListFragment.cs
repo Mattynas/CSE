@@ -14,6 +14,7 @@ using shopGuru_android.adapters;
 using shopGuru_android.interfaces;
 using shopGuru_android.authenticator;
 using Android.Support.V7.Widget;
+using Android.Support.Design.Widget;
 
 namespace shopGuru_android.fragments
 {
@@ -26,7 +27,7 @@ namespace shopGuru_android.fragments
         private EditText _editText;
         private Button _cfmButton;
         private Button _delButton;
-        private Button _sendButton;
+        private FloatingActionButton _sendButton;
         private List<IItem> itemList;
         private int tempPos;
         private float _lastPosY;
@@ -54,7 +55,7 @@ namespace shopGuru_android.fragments
             _editText = view.FindViewById<EditText>(Resource.Id.itemEditField);
             _cfmButton = view.FindViewById<Button>(Resource.Id.cfmButton);
             _delButton = view.FindViewById<Button>(Resource.Id.delButton);
-            _sendButton = view.FindViewById<Button>(Resource.Id.sendButton);
+            _sendButton = view.FindViewById<FloatingActionButton>(Resource.Id.sendButton);
 
 
             var layoutManager = new LinearLayoutManager(this.Activity);

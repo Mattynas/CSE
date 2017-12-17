@@ -20,9 +20,8 @@ namespace shopGuru_android.controller
         public static async Task<string> LotteryDataSubmition(Dictionary<string,string> values)
         {
             string dateformat = "T00:00:00+02:00";
-            string dummy = "2017-12-11T00:00:00+02:00";
 
-            values["ticket_date"] = "2017-12-10T00:00:00+02:00";
+            values["ticket_date"] += dateformat;
             values["agree_on_terms"] = "true";
 
             var sb = new StringBuilder();

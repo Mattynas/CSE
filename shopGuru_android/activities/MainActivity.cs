@@ -45,7 +45,6 @@ namespace shopGuru_android
                 Finish();
             }
 
-
             SetContentView(Resource.Layout.activity_main);
             
             var toolbar = FindViewById<Toolbar>(Resource.Id.toolbar);
@@ -54,6 +53,10 @@ namespace shopGuru_android
             _drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             _navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             
+
+            var nav_header = _navigationView.GetHeaderView(0).FindViewById<TextView>(Resource.Id.navheader_username);
+            nav_header.Text = prefs.GetUserName();
+
             SetSupportActionBar(toolbar);
             var drawerToggle = new Android.Support.V7.App.ActionBarDrawerToggle(this, _drawerLayout, Resource.String.drawer_open,
                 Resource.String.drawer_close);
@@ -65,12 +68,7 @@ namespace shopGuru_android
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetHomeButtonEnabled(true);
 
-            var nav_header = _navigationView.GetHeaderView(0).FindViewById<TextView>(Resource.Id.navheader_username);
-            if (this.Intent.Extras != null)
-            {
-                var name = this.Intent.Extras.GetString("name");
-                if (nav_header != null) nav_header.Text = name;
-            }
+
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu_black_24dp);
 
             _stackFragment = new Stack<SupportFragment>();
@@ -130,7 +128,7 @@ namespace shopGuru_android
 
         }
         
-        private void ShowFragment(SupportFragment fragment)
+        public void ShowFragment(SupportFragment fragment)
         {
             var trans = SupportFragmentManager.BeginTransaction();
 

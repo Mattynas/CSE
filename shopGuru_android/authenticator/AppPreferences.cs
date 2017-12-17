@@ -20,6 +20,7 @@ namespace shopGuru_android.authenticator
         private Context mContext;
 
         private static String PREFERENCE_ACCESS_KEY = "PREFERENCE_ACCESS_KEY";
+        private static String PREFERENCE_USER_NAME_KEY = "username";
 
         public AppPreferences(Context context)
         {
@@ -37,6 +38,17 @@ namespace shopGuru_android.authenticator
         public string getAccessKey()
         {
             return mSharedPrefs.GetString(PREFERENCE_ACCESS_KEY, "");
+        }
+
+        public void SaveUserName(string username)
+        {
+            mPrefsEditor = mSharedPrefs.Edit();
+            mPrefsEditor.PutString(PREFERENCE_USER_NAME_KEY, username);
+            mPrefsEditor.Commit();
+        }
+        public string GetUserName()
+        {
+            return mSharedPrefs.GetString(PREFERENCE_USER_NAME_KEY, "");
         }
     }
 }

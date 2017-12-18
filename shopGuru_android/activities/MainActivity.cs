@@ -29,6 +29,7 @@ namespace shopGuru_android
         private Stack<SupportFragment> _stackFragment;
         private List<IItem> itemList;
         private SupportFragment confirmedListFragment;
+        private int newFragmentId = 0;
 
         public static readonly int requestScannerId = 0;
         public static readonly int requestLotteryScannerId = 1;
@@ -76,10 +77,12 @@ namespace shopGuru_android
             _stackFragment = new Stack<SupportFragment>();
 
             // add fragments to layout and hide all except for main
+            var receiptLotteryMainFragment = new ReceiptLotteryMainFragment();
             var mainFragment = new MainFragment();
             var trans = SupportFragmentManager.BeginTransaction();
-            trans.Add(Resource.Id.fragmentContainer, mainFragment, mainFragment.Id.ToString());
+            trans.Add(Resource.Id.fragmentContainer, mainFragment, newFragmentId.ToString());
             trans.Commit();
+            newFragmentId++;
 
             _currFragment = mainFragment;
 
@@ -92,7 +95,6 @@ namespace shopGuru_android
                 switch(id)
                 {
                     case Resource.Id.nav_lottery:
-                        var receiptLotteryMainFragment = new ReceiptLotteryMainFragment();
                         ShowFragment(receiptLotteryMainFragment);
                         break;
                     case Resource.Id.nav_home:
@@ -141,12 +143,13 @@ namespace shopGuru_android
         public void ShowFragment(SupportFragment fragment)
         {
             var trans = SupportFragmentManager.BeginTransaction();
-            System.Diagnostics.Debug.WriteLine("fragment tag: " + fragment.Id.ToString());
-            SupportFragment ftemp = SupportFragmentManager.FindFragmentById(fragment.Id);
+            System.Diagnostics.Debug.WriteLine("fragment tag: " + fragment.Tag);
+            SupportFragment ftemp = SupportFragmentManager.FindFragmentByTag(fragment.Tag);
 
             if (ftemp == null)
             {
-                trans.Add(Resource.Id.fragmentContainer, fragment, fragment.Id.ToString());
+                trans.Add(Resource.Id.fragmentContainer, fragment, newFragmentId.ToString());
+                newFragmentId++;
             }
             trans.Hide(_currFragment);
             trans.Show(fragment);
@@ -220,9 +223,9 @@ namespace shopGuru_android
         }
 
         public void StartNewFragment(SupportFragment fragment)
-        {
-            confirmedListFragment = fragment;
+        { 
             ShowFragment(fragment);
+            confirmedListFragment = fragment;
         }
 
     }

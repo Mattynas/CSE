@@ -129,7 +129,7 @@ public class shopGuru_webService : System.Web.Services.WebService
                 }
                 else
                 {
-                    return exString;
+                    return "Unknown error";
                 }
             }
         }

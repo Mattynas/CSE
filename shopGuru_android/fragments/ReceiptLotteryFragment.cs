@@ -15,12 +15,13 @@ using System.Threading.Tasks;
 using System.Web;
 using shopGuru_android.controller;
 using Android.Support.Design.Widget;
+using Android.Views.InputMethods;
 
 namespace shopGuru_android.fragments
 {
     public class ReceiptLotteryFragment : Android.Support.V4.App.Fragment
     {
-        private Button _button;
+        private FloatingActionButton _button;
         private TextView _errorTxt;
         private RadioButton _radio_market;
         private RadioButton _radio_services;
@@ -49,7 +50,7 @@ namespace shopGuru_android.fragments
             // return inflater.Inflate(Resource.Layout.YourFragment, container, false);
 
             var view = inflater.Inflate(Resource.Layout.fragment_receiptLottery, container, false);
-            _button = view.FindViewById<Button>(Resource.Id.btnLotterySubmit);
+            _button = view.FindViewById<FloatingActionButton>(Resource.Id.btnLotterySubmit);
             _errorTxt = view.FindViewById<TextView>(Resource.Id.txtError);
             _radio_market = view.FindViewById<RadioButton>(Resource.Id.radio_market);
             _radio_services = view.FindViewById<RadioButton>(Resource.Id.radio_services);
@@ -78,12 +79,35 @@ namespace shopGuru_android.fragments
 
         private async void _button_ClickAsync(object sender, EventArgs e)
         {
+            InputMethodManager inputManager = (InputMethodManager)this.Activity.GetSystemService(Context.InputMethodService);
+            inputManager.HideSoftInputFromWindow(this.Activity.CurrentFocus.WindowToken, HideSoftInputFlags.NotAlways);
+
+            if (!values.ContainsKey("check_type"))
+            {
+                Toast.MakeText(this.Activity.ApplicationContext, "Receipt type has not been selected", ToastLength.Long).Show();
+                return;
+            }
             try
-            {    
+            {
+                values["ticket_date"] = _receiptDate.Text;
+                values["cash_register_number"] = _cashRegisterNumber.Text;
+                values["check_number"] = _receiptNumber.Text;
+
+                string phone = _phoneNumber.Text;
+                if(!phone.Contains("+3706") && phone.Length != 12)
+                {
+                    Toast.MakeText(this.Activity.ApplicationContext, "Wrong phone number format", ToastLength.Long).Show();
+                    return;
+                }
                 values["phone"] = _phoneNumber.Text;
 
                 string result = await DataController.LotteryDataSubmition(values);
-                _errorTxt.Text = result;
+                Toast.MakeText(this.Activity.ApplicationContext, result, ToastLength.Long).Show();
+                if (result.Contains("successful"))
+                {
+                    var fr = new ReceiptLotteryMainFragment();
+                    (this.Activity as MainActivity).ShowFragment(fr);
+                }
                 
                 
                 

@@ -32,7 +32,7 @@ namespace shopGuru_android
         private SurfaceView _transparentView;
         public static List<IItem> ItemList { get; set; }
         private int _numerator;
-        private int _threshold = 3;
+        private int _threshold = 5;
         private int _prevCount;
         
 
@@ -69,8 +69,9 @@ namespace shopGuru_android
             _transparentView.Holder.SetFormat(Format.Transparent);
 
             _numerator = _prevCount = 0;
-            
-            
+            //ReceiptTextValidation.OnValidationComplete();
+
+
             var textRecognizer = new TextRecognizer.Builder(ApplicationContext).Build();
 
             if (!textRecognizer.IsOperational)
@@ -131,13 +132,16 @@ namespace shopGuru_android
                 {
                     try
                     {
-                        var tuple = ReceiptTextValidation.ValidateItems(items);
-
-                        ItemList = tuple.Item1;
+                        //var tuple = ReceiptTextValidation.ValidateItems(items);
+                        ItemList = ReceiptValidator.ValidateItems(items);
+                        //ItemList = tuple.Item1;
                         StringBuilder sb = new StringBuilder();
                         _textView.SetTextColor(Android.Graphics.Color.Red);
-
-                        sb.Append(tuple.Item2);
+                        foreach(var item in ItemList)
+                        {
+                            sb.Append("name: " + item.Name + "price" + item.Price + "\n");
+                        }
+                        //sb.Append(tuple.Item2);
                         _textView.Text = sb.ToString();
 
                         // test if item list size doesnt change between scanning frames threshold times

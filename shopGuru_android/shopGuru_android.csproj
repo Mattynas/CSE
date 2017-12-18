@@ -133,6 +133,7 @@
     <Compile Include="authenticator\ItemListComparer.cs" />
     <Compile Include="authenticator\LotteryTextValidation.cs" />
     <Compile Include="authenticator\ReceiptTextValidation.cs" />
+    <Compile Include="authenticator\ReceiptValidator.cs" />
     <Compile Include="authenticator\UserDataValidation.cs" />
     <Compile Include="controller\DataController.cs" />
     <Compile Include="converters\LevenshteinDistance.cs" />

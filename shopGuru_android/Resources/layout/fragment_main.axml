@@ -11,14 +11,14 @@
     android:layout_width="match_parent"
     android:layout_marginTop="16dp"
     android:layout_marginBottom="16dp"
-    android:textAlignment="center"
+    android:gravity="center_horizontal"
     android:text="Comparison Shopping Engine"
     android:textAppearance="@style/TextAppearance.AppCompat.Display1"
     />
   <TextView
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
-    android:textAlignment="center"
+    android:gravity="center_horizontal"
     android:layout_marginTop="16dp"
     android:layout_marginBottom="16dp"
     android:text="Compare items by prices between shops and choose the shop that offers the best overall value!"
@@ -28,7 +28,7 @@
     android:layout_height="wrap_content"
     android:layout_width="match_parent"
     android:layout_marginBottom="24dp"
-    android:textAlignment="center"
+    android:gravity="center_horizontal"
     android:text="Tap Scan to open scanner and submit your receipt"
     android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
     />

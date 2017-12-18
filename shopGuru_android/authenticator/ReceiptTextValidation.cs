@@ -26,7 +26,6 @@ namespace shopGuru_android.authenticator
     {
         private static List<IItem> _itemList = new List<IItem>();
         private static int _epsilon = 10;
-        private static string shopname;
 
         public static bool ValidatePriceString(string price)
         {
@@ -37,7 +36,7 @@ namespace shopGuru_android.authenticator
         {
             var rectTextDictionary = new Dictionary<Rect, TextBlock>();
             ArrayList rectArray = new ArrayList();
-            //List<IItem> itemList = new List<IItem>();
+            List<IItem> itemList = new List<IItem>();
 
             StringBuilder sb = new StringBuilder();
 
@@ -50,8 +49,10 @@ namespace shopGuru_android.authenticator
                 rectTextDictionary.Add(boundingBox, textBlock);
             }
 
+            List<IText> prevList = new List<IText>();
             bool match = false;
             string itemLine;
+            IText prevText;
             try
             {
                 for (int i = 0; i < rectArray.Count; i++)
@@ -61,14 +62,11 @@ namespace shopGuru_android.authenticator
                     IList<IText> lineList = rectTextDictionary.GetValueOrDefault(box).Components;
                     foreach (var line in lineList)
                     {
-
-                        
                         var lineBox = line.BoundingBox;
                         itemLine = "";
                         match = false;
                         string prevs = "";
 
-                        ShopChecker(line.Value);
 
                         for (int j = i; j < rectArray.Count; j++)
                         {
@@ -84,83 +82,79 @@ namespace shopGuru_android.authenticator
                                     match = true;
                                     if (ValidatePriceString(anotherLine.Value))
                                     {
+                                        foreach (var prev in prevList)
+                                        {
+                                            if (Math.Abs(prev.BoundingBox.Left - lineBox.Left) < 2 && Math.Abs(prev.BoundingBox.Bottom - lineBox.Top) < 6)
+                                            {
+                                                prevs = prev.Value;
+                                                prevList.Remove(prev);
+                                                break;
+                                            }
+                                        }
                                         itemLine = string.Concat(prevs, System.String.Format("{0} {1} \n", line.Value, anotherLine.Value));
-                                        if(CurrentListComparer(prevs + line.Value)) AddToItemList(prevs + line.Value, anotherLine.Value, _itemList);
-                                        prevs = "";
+                                        AddToItemList(prevs + line.Value, anotherLine.Value, itemList);
                                     }
                                     else if (ValidatePriceString(line.Value))
                                     {
+
                                         itemLine = string.Concat(prevs, System.String.Format("{1} {0} \n", line.Value, anotherLine.Value));
-                                        if (CurrentListComparer(prevs + anotherLine.Value)) AddToItemList(prevs + anotherLine.Value, line.Value, _itemList);
-                                        prevs = "";
+                                        AddToItemList(prevs + anotherLine.Value, line.Value, itemList);
                                     }
                                     else continue;
                                 }
                             }
                         }
-                        string lineVal = line.Value;
-                        if (!match && !(ValidatePriceString(line.Value)) &&
-                            !lineVal.Contains("PVM") && !lineVal.Contains("Kvitas") && !lineVal.Contains("kodas"))
-                        {
-                            prevs = line.Value;
-                        }
                         if (itemLine.Length != 0)
                         {
                             sb.Append(itemLine);
                         }
+                        string lineVal = line.Value;
+
+                        if (!match && !(ValidatePriceString(line.Value)) &&
+                            !lineVal.Contains("PVM") && !lineVal.Contains("Kvitas") && !lineVal.Contains("kodas"))
+                        {
+                            prevList.Add(line);
+                        }
                     }
                 }
-                return new Tuple<List<IItem>, string>(_itemList, sb.ToString());
+                return new Tuple<List<IItem>, string>(itemList, sb.ToString());
             }
-            catch(Exception)
+            catch (Exception)
             {
                 throw;
             }
         }
 
-        public static List<IItem> AddToItemList(string name,string price, List<IItem> itemList)
+
+        public static bool CheckTextResult(string text)
+        {
+            try
+            {
+                if (TextToReceiptConverter.ReadItemList(text).Count != 0)
+                {
+                    return true;
+                }
+                else return false;
+            }
+            catch (FormatException)
+            {
+                return false;
+            }
+            catch (ReceiptNotReadableException)
+            {
+                return false;
+            }
+        }
+        public static List<IItem> AddToItemList(string name, string price, List<IItem> itemList)
         {
             try
             {
                 itemList.Add(new Item { Name = name, Price = price.StringToDecimal() });
                 return itemList;
             }
-            catch(FormatException)
+            catch (FormatException)
             {
                 return itemList;
-            }
-        }
-
-        public static bool CurrentListComparer(string line)
-        {
-            foreach(var item in _itemList)
-            {
-                if(LevenshteinDistance.Compute(line,item.Name) < 5)
-                {
-                    return false;
-                }
-            }
-            return true;
-        }
-
-        public static void OnValidationComplete()
-        {
-            _itemList.Clear();
-            shopname = null;
-        }
-        public static void ShopChecker(string line)
-        {
-            if(line.ToLower().Contains("rimi"))
-            {
-                shopname = "rimi";
-            }
-            else if (line.ToLower().Contains("maxima"))
-            {
-                shopname = "maxima";
-            }
-            else if (line.ToLower().Contains("iki"))
-            {
-                shopname = "iki";
             }
         }
     }

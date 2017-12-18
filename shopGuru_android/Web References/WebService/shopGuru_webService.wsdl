@@ -59,34 +59,36 @@
       <s:element name="GetItemResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetItemResult" type="tns:Item" />
+            <s:element minOccurs="1" maxOccurs="1" name="GetItemResult" type="tns:ItemPrice" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="Item">
+      <s:complexType name="ItemPrice">
         <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="label" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="weightable" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="weightable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="iki" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="maxima" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="rimi" type="s:decimal" />
         </s:sequence>
       </s:complexType>
       <s:element name="CompareItemList">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfItemPrice" />
             <s:element minOccurs="1" maxOccurs="1" name="precision" type="s:int" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfItem">
+      <s:complexType name="ArrayOfItemPrice">
         <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Item" nillable="true" type="tns:Item" />
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ItemPrice" type="tns:ItemPrice" />
         </s:sequence>
       </s:complexType>
       <s:element name="CompareItemListResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="CompareItemListResult" type="tns:ArrayOfItem" />
+            <s:element minOccurs="0" maxOccurs="1" name="CompareItemListResult" type="tns:ArrayOfItemPrice" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -100,24 +102,10 @@
       <s:element name="GetPricesResponse">
         <s:complexType>
           <s:sequence>
-            <s:element minOccurs="0" maxOccurs="1" name="GetPricesResult" type="tns:ArrayOfPrice" />
+            <s:element minOccurs="1" maxOccurs="1" name="GetPricesResult" type="tns:ItemPrice" />
           </s:sequence>
         </s:complexType>
       </s:element>
-      <s:complexType name="ArrayOfPrice">
-        <s:sequence>
-          <s:element minOccurs="0" maxOccurs="unbounded" name="Price" nillable="true" type="tns:Price" />
-        </s:sequence>
-      </s:complexType>
-      <s:complexType name="Price">
-        <s:sequence>
-          <s:element minOccurs="1" maxOccurs="1" name="id" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="shop" type="s:string" />
-          <s:element minOccurs="1" maxOccurs="1" name="price1" type="s:decimal" />
-          <s:element minOccurs="1" maxOccurs="1" name="item" type="s:int" />
-          <s:element minOccurs="0" maxOccurs="1" name="Item1" type="tns:Item" />
-        </s:sequence>
-      </s:complexType>
       <s:element name="FillLotteryForm">
         <s:complexType>
           <s:sequence>

@@ -53,24 +53,4 @@
             android:padding="5dp"
             android:layout_marginTop="150dp" />
     </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/comparedListContainer"
-        android:paddingTop="10dp"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:background="@android:color/darker_gray"
-        android:layout_gravity="bottom"
-        android:translationY="300dp">
-    <!--
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="MATCHED LIST"
-        android:textColor="@android:color/black"
-        android:layout_centerHorizontal="true"
-        android:padding="5dp" />
-    -->
-        <include
-            layout="@layout/recycler_view2" />
-    </RelativeLayout>
 </FrameLayout>

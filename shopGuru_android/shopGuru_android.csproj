@@ -136,7 +136,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="activities\ReceiptLotteryScanActivity.cs" />
-    <Compile Include="adapters\ComparedListAdapter.cs" />
     <Compile Include="adapters\ExpRecyclerViewAdapter.cs" />
     <Compile Include="fragments\ConfirmedItemListFragment.cs" />
     <Compile Include="ViewHolder\ItemListChildViewHolder.cs" />
@@ -253,7 +252,6 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\layout\fragment_comparison.axml" />
-    <AndroidResource Include="Resources\layout\recycler_view2.axml" />
     <AndroidResource Include="Resources\layout\ItemListCardView.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
@@ -264,10 +262,7 @@
       <SubType>Designer</SubType>
     </AndroidResource>
     <None Include="shopGuru_android.csproj.bak" />
-    <None Include="Web References\WebService\Item.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\WebService\Price.datasource">
+    <None Include="Web References\WebService\ItemPrice.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\WebService\Reference.map">

@@ -201,10 +201,10 @@ namespace shopGuru_android.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetItem", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Item GetItem(string label) {
+        public ItemPrice GetItem(string label) {
             object[] results = this.Invoke("GetItem", new object[] {
                         label});
-            return ((Item)(results[0]));
+            return ((ItemPrice)(results[0]));
         }
         
         /// <remarks/>
@@ -230,20 +230,21 @@ namespace shopGuru_android.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CompareItemList", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Item[] CompareItemList(Item[] list, int precision) {
+        [return: System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)]
+        public ItemPrice[] CompareItemList([System.Xml.Serialization.XmlArrayItemAttribute(IsNullable=false)] ItemPrice[] list, int precision) {
             object[] results = this.Invoke("CompareItemList", new object[] {
                         list,
                         precision});
-            return ((Item[])(results[0]));
+            return ((ItemPrice[])(results[0]));
         }
         
         /// <remarks/>
-        public void CompareItemListAsync(Item[] list, int precision) {
+        public void CompareItemListAsync(ItemPrice[] list, int precision) {
             this.CompareItemListAsync(list, precision, null);
         }
         
         /// <remarks/>
-        public void CompareItemListAsync(Item[] list, int precision, object userState) {
+        public void CompareItemListAsync(ItemPrice[] list, int precision, object userState) {
             if ((this.CompareItemListOperationCompleted == null)) {
                 this.CompareItemListOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCompareItemListOperationCompleted);
             }
@@ -261,10 +262,10 @@ namespace shopGuru_android.WebService {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPrices", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public Price[] GetPrices(string label) {
+        public ItemPrice GetPrices(string label) {
             object[] results = this.Invoke("GetPrices", new object[] {
                         label});
-            return ((Price[])(results[0]));
+            return ((ItemPrice)(results[0]));
         }
         
         /// <remarks/>
@@ -342,37 +343,30 @@ namespace shopGuru_android.WebService {
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Item {
+    public partial class ItemPrice {
         
-        private int idField;
+        private string nameField;
         
-        private string labelField;
+        private bool weightableField;
         
-        private System.Nullable<bool> weightableField;
+        private decimal ikiField;
+        
+        private decimal maximaField;
+        
+        private decimal rimiField;
         
         /// <remarks/>
-        public int id {
+        public string name {
             get {
-                return this.idField;
+                return this.nameField;
             }
             set {
-                this.idField = value;
+                this.nameField = value;
             }
         }
         
         /// <remarks/>
-        public string label {
-            get {
-                return this.labelField;
-            }
-            set {
-                this.labelField = value;
-            }
-        }
-        
-        /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
-        public System.Nullable<bool> weightable {
+        public bool weightable {
             get {
                 return this.weightableField;
             }
@@ -380,73 +374,34 @@ namespace shopGuru_android.WebService {
                 this.weightableField = value;
             }
         }
-    }
-    
-    /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
-    [System.SerializableAttribute()]
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
-    public partial class Price {
-        
-        private int idField;
-        
-        private string shopField;
-        
-        private decimal price1Field;
-        
-        private int itemField;
-        
-        private Item item1Field;
         
         /// <remarks/>
-        public int id {
+        public decimal iki {
             get {
-                return this.idField;
+                return this.ikiField;
             }
             set {
-                this.idField = value;
+                this.ikiField = value;
             }
         }
         
         /// <remarks/>
-        public string shop {
+        public decimal maxima {
             get {
-                return this.shopField;
+                return this.maximaField;
             }
             set {
-                this.shopField = value;
+                this.maximaField = value;
             }
         }
         
         /// <remarks/>
-        public decimal price1 {
+        public decimal rimi {
             get {
-                return this.price1Field;
+                return this.rimiField;
             }
             set {
-                this.price1Field = value;
-            }
-        }
-        
-        /// <remarks/>
-        public int item {
-            get {
-                return this.itemField;
-            }
-            set {
-                this.itemField = value;
-            }
-        }
-        
-        /// <remarks/>
-        public Item Item1 {
-            get {
-                return this.item1Field;
-            }
-            set {
-                this.item1Field = value;
+                this.rimiField = value;
             }
         }
     }
@@ -547,10 +502,10 @@ namespace shopGuru_android.WebService {
         }
         
         /// <remarks/>
-        public Item Result {
+        public ItemPrice Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Item)(this.results[0]));
+                return ((ItemPrice)(this.results[0]));
             }
         }
     }
@@ -573,10 +528,10 @@ namespace shopGuru_android.WebService {
         }
         
         /// <remarks/>
-        public Item[] Result {
+        public ItemPrice[] Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Item[])(this.results[0]));
+                return ((ItemPrice[])(this.results[0]));
             }
         }
     }
@@ -599,10 +554,10 @@ namespace shopGuru_android.WebService {
         }
         
         /// <remarks/>
-        public Price[] Result {
+        public ItemPrice Result {
             get {
                 this.RaiseExceptionIfNecessary();
-                return ((Price[])(this.results[0]));
+                return ((ItemPrice)(this.results[0]));
             }
         }
     }

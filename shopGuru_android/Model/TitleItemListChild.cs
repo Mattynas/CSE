@@ -17,9 +17,12 @@ namespace shopGuru_android.Model
         public decimal PriceIki { get; set; }
         public decimal PriceRimi { get; set; }
         public decimal PriceMaksima { get; set; }
+        public decimal PriceCurrent { get; set; }
+        public List<Item> receiptList; 
 
         public TitleItemListChild(List<Item> shopPrices)
         {
+            receiptList = shopPrices;
             foreach(var item in shopPrices)
             {
                 switch (item.Name.ToLower())
@@ -32,6 +35,9 @@ namespace shopGuru_android.Model
                         break;
                     case "maksima":
                         PriceMaksima = item.Price;
+                        break;
+                    case "current":
+                        PriceCurrent = item.Price;
                         break;
                 }
             }

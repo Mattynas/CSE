@@ -59,19 +59,52 @@ namespace shopGuru_android.controller
             return success;
 
         }
-
+        /*
         public static async Task<List<Item>> GetPricesByItem(string name)
         {
             var pricesList = new List<Item>();
             var client = new WebService.shopGuru_webService();
             var prices = await Task.Run(() => client.GetPrices(name));
-            foreach(var item in prices)
+            Console.WriteLine("\n kainos: " + prices.iki.ToString() + " " + prices.rimi.ToString() + " " + prices.maxima.ToString());
+
+                Item item1 = new Item();
+                Item item2 = new Item();
+                Item item3 = new Item();
+                item1.Name = "MAKSIMA";
+                item1.Price = prices.maxima;
+                item2.Name = "RIMI";
+                item2.Price = prices.rimi;
+                item3.Name = "IKI";
+                item3.Price = prices.iki;
+                pricesList.Add(item1);
+                pricesList.Add(item2);
+                pricesList.Add(item3);
+
+
+            return pricesList;
+        }
+        */
+        public static List<Item> GetPricesByItem(string name)
+        {
+            var pricesList = new List<Item>();
+            var client = new WebService.shopGuru_webService();
+            var prices = client.GetPrices(name);
+            if(prices.maxima + prices.rimi + prices.iki != 0)
             {
-                var shopPrice = new Item();
-                shopPrice.Name = item.shop;
-                shopPrice.Price = item.price1;
-                pricesList.Add(shopPrice);
+                Item item1 = new Item();
+                Item item2 = new Item();
+                Item item3 = new Item();
+                item1.Name = "MAKSIMA";
+                item1.Price = prices.maxima;
+                item2.Name = "RIMI";
+                item2.Price = prices.rimi;
+                item3.Name = "IKI";
+                item3.Price = prices.iki;
+                pricesList.Add(item1);
+                pricesList.Add(item2);
+                pricesList.Add(item3);
             }
+
             return pricesList;
         }
     }

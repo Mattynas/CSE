@@ -12,6 +12,7 @@ using Android.Widget;
 using XamDroid.ExpandableRecyclerView;
 using shopGuru_android.ViewHolder;
 using shopGuru_android.Model;
+using Android.Support.V7.Widget;
 
 namespace shopGuru_android.adapters
 {
@@ -27,9 +28,11 @@ namespace shopGuru_android.adapters
         public override void OnBindChildViewHolder(ItemListChildViewHolder childViewHolder, int position, object childObject)
         {
             var title = (TitleItemListChild)childObject;
+            childViewHolder.currPrice.Text = title.PriceCurrent.ToString("C");
             childViewHolder.price1.Text = title.PriceIki.ToString("C");
             childViewHolder.price2.Text = title.PriceRimi.ToString("C");
             childViewHolder.price3.Text = title.PriceMaksima.ToString("C");
+
         }
 
         public override void OnBindParentViewHolder(ItemListParentViewHolder parentViewHolder, int position, object parentObject)

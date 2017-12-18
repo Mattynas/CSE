@@ -12,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="IKI" />
+            android:text="PRICE IN RECEIPT: " />
         <TextView
             android:text="Price"
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="RIMI" />
+            android:text="IKI" />
         <TextView
             android:text="Price"
             android:layout_width="match_parent"
@@ -44,15 +44,31 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="8dp"
-            android:text="MAKSIMA" />
+            android:text="RIMI" />
         <TextView
             android:text="Price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/priceText2"
-            android:layout_toRightOf="@id/childOption3"
+            android:layout_toRightOf="@id/childOption2"
             android:padding="8dp"
             android:id="@+id/priceText3"
+            android:gravity="right" />
+        <TextView
+            android:layout_below="@+id/childOption3"
+            android:id="@+id/childOption4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="MAKSIMA" />
+        <TextView
+            android:text="Price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/priceText3"
+            android:layout_toRightOf="@id/childOption4"
+            android:padding="8dp"
+            android:id="@+id/priceText4"
             android:gravity="right" />
     </RelativeLayout>
 </android.support.v7.widget.CardView>

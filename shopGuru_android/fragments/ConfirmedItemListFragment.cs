@@ -49,7 +49,7 @@ namespace shopGuru_android.fragments
 
             recyclerView = view.FindViewById<RecyclerView>(Resource.Id.cardViewRecycler);
             var layoutManager = new LinearLayoutManager(this.Activity);
-            var adapter = new ExpRecyclerViewAdapter(this.Activity, InitData(receiptItemList).Result);
+            var adapter = new ExpRecyclerViewAdapter(this.Activity, InitData(receiptItemList));
             adapter.CustomParentAnimationViewId = Resource.Id.expandArrow;
             adapter.SetParentClickableViewAnimationDefaultDuration();
             adapter.ParentAndIconExpandOnClick = true;
@@ -58,22 +58,26 @@ namespace shopGuru_android.fragments
             recyclerView.SetAdapter(adapter);
             return view;
         }
-
-        private async Task<List<IParentObject>> InitData(List<IItem> itemList)
+        private  List<IParentObject> InitData(List<IItem> itemList)
         {
             var titleCreator = TitleCreator.Get(this.Activity, itemList);
             var titles = titleCreator.GetAll;
             var parentObject = new List<IParentObject>();
-
-            foreach(var title in titles){
+            var i = 0;
+            foreach (var title in titles)
+            {
                 var childList = new List<object>();
-                var priceList = await DataController.GetPricesByItem(title.Title);
-                if(priceList.Count != 0)
-                {
-                    childList.Add(new TitleItemListChild(priceList));
-                    title.ChildObjectList = childList;
-                    parentObject.Add(title);
-                }
+                var priceList = DataController.GetPricesByItem(title.Title);
+
+                Item currPrice = new Item();
+                currPrice.Name = "current";
+                currPrice.Price = itemList.ElementAt(i).Price;
+                i++;
+                priceList.Add(currPrice);
+
+                childList.Add(new TitleItemListChild(priceList));
+                title.ChildObjectList = childList;
+                parentObject.Add(title);
             }
 
             return parentObject;

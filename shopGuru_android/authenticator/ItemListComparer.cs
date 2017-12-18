@@ -23,7 +23,7 @@ namespace shopGuru_android.authenticator
             foreach(var item in receiptList)
             {
                 //Leaving only those items that starts with the same first letter;
-                var tempList = receiptList.Where(x => x.Name.StartsWith(item.Name.Substring(0,1))).ToList();
+                var tempList = dbList.Where(x => x.Name.StartsWith(item.Name.Substring(0,1))).ToList();
 
                 foreach(var dbItem in tempList)
                 {

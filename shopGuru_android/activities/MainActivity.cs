@@ -27,6 +27,7 @@ namespace shopGuru_android
         private NavigationView _navigationView;
         private SupportFragment _currFragment;
         private Stack<SupportFragment> _stackFragment;
+        private List<IItem> itemList;
 
         public static readonly int requestScannerId = 0;
         public static readonly int requestLotteryScannerId = 1;
@@ -105,11 +106,12 @@ namespace shopGuru_android
                         StartActivity(intent);
                         Finish();
                         break;
-                        /*
+                        
                     case Resource.Id.nav_nearestshop:
-                        var nearestShopFragment = new NearestShopFragment();
+                        var nearestShopFragment = new ConfirmedItemListFragment(itemList);
                         ShowFragment(nearestShopFragment);
                         break;
+                        /*
                     case Resource.Id.nav_about:
                         var aboutFragment = new AboutFragment();
                         ShowFragment(aboutFragment);
@@ -124,7 +126,7 @@ namespace shopGuru_android
                         break;
                         */
                 }
-                 
+
                 _drawerLayout.CloseDrawers();
             };
 
@@ -159,7 +161,7 @@ namespace shopGuru_android
                 {   
                     try
                     {
-                        var itemList = ScanActivity.ItemList;
+                        itemList = ScanActivity.ItemList;
                         var itemListFragment = new ItemListFragment(itemList);
 
                         ShowFragment(itemListFragment);
@@ -209,6 +211,11 @@ namespace shopGuru_android
             {
                 base.OnBackPressed();
             } 
+        }
+
+        public void StartNewFragment(SupportFragment fragment)
+        {
+            ShowFragment(fragment);
         }
 
     }

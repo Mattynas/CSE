@@ -11,6 +11,7 @@ using Android.Views;
 using Android.Widget;
 using System.Web;
 using System.Threading.Tasks;
+using shopGuru_android.Model;
 
 namespace shopGuru_android.controller
 {
@@ -57,6 +58,21 @@ namespace shopGuru_android.controller
             var success = client.Register(name,password,email,phone);
             return success;
 
+        }
+
+        public static async Task<List<Item>> GetPricesByItem(string name)
+        {
+            var pricesList = new List<Item>();
+            var client = new WebService.shopGuru_webService();
+            var prices = await Task.Run(() => client.GetPrices(name));
+            foreach(var item in prices)
+            {
+                var shopPrice = new Item();
+                shopPrice.Name = item.shop;
+                shopPrice.Price = item.price1;
+                pricesList.Add(shopPrice);
+            }
+            return pricesList;
         }
     }
 }

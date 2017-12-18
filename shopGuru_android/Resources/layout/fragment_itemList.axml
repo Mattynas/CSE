@@ -53,8 +53,8 @@
             android:padding="5dp"
             android:layout_marginTop="150dp" />
     </RelativeLayout>
-  <RelativeLayout
-      android:id="@+id/comparedListContainer"
+    <RelativeLayout
+        android:id="@+id/comparedListContainer"
         android:paddingTop="10dp"
         android:layout_width="match_parent"
         android:layout_height="300dp"
@@ -72,6 +72,5 @@
     -->
         <include
             layout="@layout/recycler_view2" />
-
-      </RelativeLayout>
+    </RelativeLayout>
 </FrameLayout>

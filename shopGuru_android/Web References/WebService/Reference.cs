@@ -33,6 +33,14 @@ namespace shopGuru_android.WebService {
         
         private System.Threading.SendOrPostCallback RegisterOperationCompleted;
         
+        private System.Threading.SendOrPostCallback GetPriceOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetItemOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback CompareItemListOperationCompleted;
+        
+        private System.Threading.SendOrPostCallback GetPricesOperationCompleted;
+        
         private System.Threading.SendOrPostCallback FillLotteryFormOperationCompleted;
         
         private bool useDefaultCredentialsSetExplicitly;
@@ -78,6 +86,18 @@ namespace shopGuru_android.WebService {
         
         /// <remarks/>
         public event RegisterCompletedEventHandler RegisterCompleted;
+        
+        /// <remarks/>
+        public event GetPriceCompletedEventHandler GetPriceCompleted;
+        
+        /// <remarks/>
+        public event GetItemCompletedEventHandler GetItemCompleted;
+        
+        /// <remarks/>
+        public event CompareItemListCompletedEventHandler CompareItemListCompleted;
+        
+        /// <remarks/>
+        public event GetPricesCompletedEventHandler GetPricesCompleted;
         
         /// <remarks/>
         public event FillLotteryFormCompletedEventHandler FillLotteryFormCompleted;
@@ -149,6 +169,126 @@ namespace shopGuru_android.WebService {
         }
         
         /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPrice", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public decimal GetPrice(string name, string shop) {
+            object[] results = this.Invoke("GetPrice", new object[] {
+                        name,
+                        shop});
+            return ((decimal)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetPriceAsync(string name, string shop) {
+            this.GetPriceAsync(name, shop, null);
+        }
+        
+        /// <remarks/>
+        public void GetPriceAsync(string name, string shop, object userState) {
+            if ((this.GetPriceOperationCompleted == null)) {
+                this.GetPriceOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetPriceOperationCompleted);
+            }
+            this.InvokeAsync("GetPrice", new object[] {
+                        name,
+                        shop}, this.GetPriceOperationCompleted, userState);
+        }
+        
+        private void OnGetPriceOperationCompleted(object arg) {
+            if ((this.GetPriceCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetPriceCompleted(this, new GetPriceCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetItem", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Item GetItem(string label) {
+            object[] results = this.Invoke("GetItem", new object[] {
+                        label});
+            return ((Item)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetItemAsync(string label) {
+            this.GetItemAsync(label, null);
+        }
+        
+        /// <remarks/>
+        public void GetItemAsync(string label, object userState) {
+            if ((this.GetItemOperationCompleted == null)) {
+                this.GetItemOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetItemOperationCompleted);
+            }
+            this.InvokeAsync("GetItem", new object[] {
+                        label}, this.GetItemOperationCompleted, userState);
+        }
+        
+        private void OnGetItemOperationCompleted(object arg) {
+            if ((this.GetItemCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetItemCompleted(this, new GetItemCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/CompareItemList", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Item[] CompareItemList(Item[] list, int precision) {
+            object[] results = this.Invoke("CompareItemList", new object[] {
+                        list,
+                        precision});
+            return ((Item[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void CompareItemListAsync(Item[] list, int precision) {
+            this.CompareItemListAsync(list, precision, null);
+        }
+        
+        /// <remarks/>
+        public void CompareItemListAsync(Item[] list, int precision, object userState) {
+            if ((this.CompareItemListOperationCompleted == null)) {
+                this.CompareItemListOperationCompleted = new System.Threading.SendOrPostCallback(this.OnCompareItemListOperationCompleted);
+            }
+            this.InvokeAsync("CompareItemList", new object[] {
+                        list,
+                        precision}, this.CompareItemListOperationCompleted, userState);
+        }
+        
+        private void OnCompareItemListOperationCompleted(object arg) {
+            if ((this.CompareItemListCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.CompareItemListCompleted(this, new CompareItemListCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/GetPrices", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public Price[] GetPrices(string label) {
+            object[] results = this.Invoke("GetPrices", new object[] {
+                        label});
+            return ((Price[])(results[0]));
+        }
+        
+        /// <remarks/>
+        public void GetPricesAsync(string label) {
+            this.GetPricesAsync(label, null);
+        }
+        
+        /// <remarks/>
+        public void GetPricesAsync(string label, object userState) {
+            if ((this.GetPricesOperationCompleted == null)) {
+                this.GetPricesOperationCompleted = new System.Threading.SendOrPostCallback(this.OnGetPricesOperationCompleted);
+            }
+            this.InvokeAsync("GetPrices", new object[] {
+                        label}, this.GetPricesOperationCompleted, userState);
+        }
+        
+        private void OnGetPricesOperationCompleted(object arg) {
+            if ((this.GetPricesCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.GetPricesCompleted(this, new GetPricesCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/FillLotteryForm", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
         public string FillLotteryForm([System.Xml.Serialization.XmlElementAttribute(DataType="base64Binary")] byte[] bytes) {
             object[] results = this.Invoke("FillLotteryForm", new object[] {
@@ -193,6 +333,121 @@ namespace shopGuru_android.WebService {
                 return true;
             }
             return false;
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Item {
+        
+        private int idField;
+        
+        private string labelField;
+        
+        private System.Nullable<bool> weightableField;
+        
+        /// <remarks/>
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string label {
+            get {
+                return this.labelField;
+            }
+            set {
+                this.labelField = value;
+            }
+        }
+        
+        /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(IsNullable=true)]
+        public System.Nullable<bool> weightable {
+            get {
+                return this.weightableField;
+            }
+            set {
+                this.weightableField = value;
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2556.0")]
+    [System.SerializableAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://tempuri.org/")]
+    public partial class Price {
+        
+        private int idField;
+        
+        private string shopField;
+        
+        private decimal price1Field;
+        
+        private int itemField;
+        
+        private Item item1Field;
+        
+        /// <remarks/>
+        public int id {
+            get {
+                return this.idField;
+            }
+            set {
+                this.idField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public string shop {
+            get {
+                return this.shopField;
+            }
+            set {
+                this.shopField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public decimal price1 {
+            get {
+                return this.price1Field;
+            }
+            set {
+                this.price1Field = value;
+            }
+        }
+        
+        /// <remarks/>
+        public int item {
+            get {
+                return this.itemField;
+            }
+            set {
+                this.itemField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public Item Item1 {
+            get {
+                return this.item1Field;
+            }
+            set {
+                this.item1Field = value;
+            }
         }
     }
     
@@ -244,6 +499,110 @@ namespace shopGuru_android.WebService {
             get {
                 this.RaiseExceptionIfNecessary();
                 return ((bool)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void GetPriceCompletedEventHandler(object sender, GetPriceCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetPriceCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetPriceCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public decimal Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((decimal)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void GetItemCompletedEventHandler(object sender, GetItemCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetItemCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetItemCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Item Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Item)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void CompareItemListCompletedEventHandler(object sender, CompareItemListCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class CompareItemListCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal CompareItemListCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Item[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Item[])(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    public delegate void GetPricesCompletedEventHandler(object sender, GetPricesCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.7.2556.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class GetPricesCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal GetPricesCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public Price[] Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((Price[])(this.results[0]));
             }
         }
     }

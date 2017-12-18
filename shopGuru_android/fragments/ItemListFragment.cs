@@ -94,7 +94,10 @@ namespace shopGuru_android.fragments
 
             _sendButton.Click += (object sender, EventArgs e) =>
             {
+                Toast.MakeText(this.Activity, "SHOULD OPEN NEW FRAGMENT", ToastLength.Long).Show();
+                ((MainActivity)Activity).StartNewFragment(new ConfirmedItemListFragment(itemList));
                 
+                /*
                 var manager = new LinearLayoutManager(this.Activity);
                 var comparedAdapter = new ComparedListAdapter(itemList, this.Activity);
                 _recyclerView2.SetLayoutManager(manager);
@@ -105,9 +108,10 @@ namespace shopGuru_android.fragments
                     MoveEditContainer(true, _comparedListLayout);
                     _sendButton.Visibility = ViewStates.Invisible;
                 }
+                */
 
             };
-            _comparedListLayout.SetOnTouchListener(this);
+            //_comparedListLayout.SetOnTouchListener(this);
             _subfragContainer.SetOnTouchListener(this);
             return view;
         }

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/childOption1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="IKI" />
+        <TextView
+            android:text="Price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/childOption1"
+            android:padding="8dp"
+            android:id="@+id/priceText1"
+            android:layout_marginLeft="0dp"
+            android:gravity="right" />
+        <TextView
+            android:layout_below="@+id/childOption1"
+            android:id="@+id/childOption2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="RIMI" />
+        <TextView
+            android:text="Price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/priceText1"
+            android:layout_toRightOf="@id/childOption2"
+            android:padding="8dp"
+            android:id="@+id/priceText2"
+            android:gravity="right" />
+        <TextView
+            android:layout_below="@+id/childOption2"
+            android:id="@+id/childOption3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="MAKSIMA" />
+        <TextView
+            android:text="Price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/priceText2"
+            android:layout_toRightOf="@id/childOption3"
+            android:padding="8dp"
+            android:id="@+id/priceText3"
+            android:gravity="right" />
+    </RelativeLayout>
+</android.support.v7.widget.CardView>

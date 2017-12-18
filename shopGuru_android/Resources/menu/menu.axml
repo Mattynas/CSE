@@ -11,9 +11,9 @@
         android:icon="@drawable/ic_power_settings_new_black_24dp"
         android:title="Receipt Lottery"/>
     <item
-        android:id="@+id/nav_nearestshop"
+        android:id="@+id/nav_yourReceipt"
         android:icon="@drawable/ic_location_on_black_24dp"
-        android:title="Find Nearest shop" />
+        android:title="Your Receipt" />
     <item
             android:id="@+id/nav_statistics"
             android:title="Statistics" />

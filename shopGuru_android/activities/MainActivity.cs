@@ -27,6 +27,8 @@ namespace shopGuru_android
         private NavigationView _navigationView;
         private SupportFragment _currFragment;
         private Stack<SupportFragment> _stackFragment;
+        private List<IItem> itemList;
+        private SupportFragment confirmedListFragment;
 
         public static readonly int requestScannerId = 0;
         public static readonly int requestLotteryScannerId = 1;
@@ -105,11 +107,19 @@ namespace shopGuru_android
                         StartActivity(intent);
                         Finish();
                         break;
-                        /*
-                    case Resource.Id.nav_nearestshop:
-                        var nearestShopFragment = new NearestShopFragment();
-                        ShowFragment(nearestShopFragment);
+                        
+                    case Resource.Id.nav_yourReceipt:
+                        if(itemList != null)
+                        {
+                            ShowFragment(confirmedListFragment);
+                        }
+                        else
+                        {
+                            ShowFragment(mainFragment);
+                            Toast.MakeText(ApplicationContext, "Please scan receipt first!", ToastLength.Long).Show();
+                        }
                         break;
+                        /*
                     case Resource.Id.nav_about:
                         var aboutFragment = new AboutFragment();
                         ShowFragment(aboutFragment);
@@ -124,7 +134,7 @@ namespace shopGuru_android
                         break;
                         */
                 }
-                 
+
                 _drawerLayout.CloseDrawers();
             };
 
@@ -133,7 +143,7 @@ namespace shopGuru_android
         private void ShowFragment(SupportFragment fragment)
         {
             var trans = SupportFragmentManager.BeginTransaction();
-
+            System.Diagnostics.Debug.WriteLine("fragment tag: " + fragment.Id.ToString());
             SupportFragment ftemp = SupportFragmentManager.FindFragmentById(fragment.Id);
 
             if (ftemp == null)
@@ -159,7 +169,7 @@ namespace shopGuru_android
                 {   
                     try
                     {
-                        var itemList = ScanActivity.ItemList;
+                        itemList = ScanActivity.ItemList;
                         var itemListFragment = new ItemListFragment(itemList);
 
                         ShowFragment(itemListFragment);
@@ -209,6 +219,12 @@ namespace shopGuru_android
             {
                 base.OnBackPressed();
             } 
+        }
+
+        public void StartNewFragment(SupportFragment fragment)
+        {
+            confirmedListFragment = fragment;
+            ShowFragment(fragment);
         }
 
     }

@@ -34,6 +34,78 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetPrice">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="shop" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPriceResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPriceResult" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="label" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetItemResult" type="tns:ItemPrice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ItemPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="name" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="weightable" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="iki" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="maxima" type="s:decimal" />
+          <s:element minOccurs="1" maxOccurs="1" name="rimi" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CompareItemList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="list" type="tns:ArrayOfItemPrice" />
+            <s:element minOccurs="1" maxOccurs="1" name="precision" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfItemPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ItemPrice" type="tns:ItemPrice" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CompareItemListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CompareItemListResult" type="tns:ArrayOfItemPrice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrices">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="label" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPricesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPricesResult" type="tns:ItemPrice" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="FillLotteryForm">
         <s:complexType>
           <s:sequence>
@@ -62,6 +134,30 @@
   <wsdl:message name="RegisterSoapOut">
     <wsdl:part name="parameters" element="tns:RegisterResponse" />
   </wsdl:message>
+  <wsdl:message name="GetPriceSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrice" />
+  </wsdl:message>
+  <wsdl:message name="GetPriceSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPriceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetItemSoapIn">
+    <wsdl:part name="parameters" element="tns:GetItem" />
+  </wsdl:message>
+  <wsdl:message name="GetItemSoapOut">
+    <wsdl:part name="parameters" element="tns:GetItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="CompareItemListSoapIn">
+    <wsdl:part name="parameters" element="tns:CompareItemList" />
+  </wsdl:message>
+  <wsdl:message name="CompareItemListSoapOut">
+    <wsdl:part name="parameters" element="tns:CompareItemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPricesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPrices" />
+  </wsdl:message>
+  <wsdl:message name="GetPricesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPricesResponse" />
+  </wsdl:message>
   <wsdl:message name="FillLotteryFormSoapIn">
     <wsdl:part name="parameters" element="tns:FillLotteryForm" />
   </wsdl:message>
@@ -76,6 +172,22 @@
     <wsdl:operation name="Register">
       <wsdl:input message="tns:RegisterSoapIn" />
       <wsdl:output message="tns:RegisterSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrice">
+      <wsdl:input message="tns:GetPriceSoapIn" />
+      <wsdl:output message="tns:GetPriceSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetItem">
+      <wsdl:input message="tns:GetItemSoapIn" />
+      <wsdl:output message="tns:GetItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CompareItemList">
+      <wsdl:input message="tns:CompareItemListSoapIn" />
+      <wsdl:output message="tns:CompareItemListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPrices">
+      <wsdl:input message="tns:GetPricesSoapIn" />
+      <wsdl:output message="tns:GetPricesSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="FillLotteryForm">
       <wsdl:input message="tns:FillLotteryFormSoapIn" />
@@ -95,6 +207,42 @@
     </wsdl:operation>
     <wsdl:operation name="Register">
       <soap:operation soapAction="http://tempuri.org/Register" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrice">
+      <soap:operation soapAction="http://tempuri.org/GetPrice" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItem">
+      <soap:operation soapAction="http://tempuri.org/GetItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareItemList">
+      <soap:operation soapAction="http://tempuri.org/CompareItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrices">
+      <soap:operation soapAction="http://tempuri.org/GetPrices" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -125,6 +273,42 @@
     </wsdl:operation>
     <wsdl:operation name="Register">
       <soap12:operation soapAction="http://tempuri.org/Register" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrice">
+      <soap12:operation soapAction="http://tempuri.org/GetPrice" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetItem">
+      <soap12:operation soapAction="http://tempuri.org/GetItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CompareItemList">
+      <soap12:operation soapAction="http://tempuri.org/CompareItemList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPrices">
+      <soap12:operation soapAction="http://tempuri.org/GetPrices" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

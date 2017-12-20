@@ -5,6 +5,7 @@ namespace shopGuru_ws.Models
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
+    using System.Xml.Serialization;
 
     [Table("account.User_info")]
     public partial class User_info
@@ -27,6 +28,7 @@ namespace shopGuru_ws.Models
         [StringLength(12)]
         public string phone_number { get; set; }
 
+        [XmlIgnore]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<User> Users { get; set; }
     }

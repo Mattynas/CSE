@@ -18,3 +18,4 @@ Code reviews:
 4. Martynas Talalas -> Maksim Prokofjev, Mindaugas Ranauskas<br>
 
 Funkcionalumas: https://drive.google.com/drive/folders/0B9krEx72Eq3XM2ZZdFZHd09EbWs
+
